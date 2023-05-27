@@ -1,9 +1,11 @@
 export class Address {
-    zipCode?: string;
-    street?: string;
-    number?: string;
-    complement?: string;
-    district?: string;
-    nameCity?: string;
-    state?: string;
+    ruaLogra?: string;
+    cep?: string;
+    numero?: string;
+    complemento?: string;
+    bairro?: string;
+    uf?: string;
+    cidade?: string;
+    estado?: string;
+    tipoEndereco?: string;
 }

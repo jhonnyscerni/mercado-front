@@ -64,6 +64,7 @@ export const appRoutes: Route[] = [
         },
         children   : [
             {path: 'project', loadChildren: () => import('app/modules/admin/dashboards/project/project.module').then(m => m.ProjectModule)},
+            {path: 'usuarios', loadChildren: () => import('app/modules/admin/users/users.module').then(m => m.UsersModule)},
             {path: 'grupos', loadChildren: () => import('app/modules/admin/roles/roles.module').then(m => m.RolesModule)},
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
         ]

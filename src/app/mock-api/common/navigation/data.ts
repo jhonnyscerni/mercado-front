@@ -12,6 +12,14 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
     {
 
+        id: 'usuarios',
+        title: 'Usuários',
+        type: 'basic',
+        icon: 'heroicons_outline:clipboard-check',
+        link: '/usuarios'
+    },
+    {
+
         id: 'grupos',
         title: 'Grupos',
         type: 'basic',

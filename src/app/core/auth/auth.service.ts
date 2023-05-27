@@ -8,7 +8,6 @@ import {environment} from '../../../environments/environment';
 import {User} from '../../models/user';
 import {UsuarioLogin} from '../../models/dto/login';
 import {UsuarioRecuperarSenha} from '../../models/dto/usuario-recuperar-senha';
-import {Person} from '../../models/person';
 
 const TOKEN_KEY = 'token';
 const USER_KEY = 'auth-user';
@@ -174,19 +173,5 @@ export class AuthService extends BaseService {
         return this.http.get<any>(`${this.apiURL}/resetpassword/${email}`);
     }
 
-    /**
-     * Save Person Gold Father
-     *
-     * @param person
-     * @param id
-     */
-    savePersonGoldFather(person: Person, id: any): Observable<any> {
-        console.log(person);
-        return this.http
-            .post(this.apiURL + '/persongoldfather/' + id,
-                person, {headers})
-            .pipe(
-                catchError(super.serviceError));
-    }
 
 }

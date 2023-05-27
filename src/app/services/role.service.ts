@@ -10,7 +10,7 @@ import {CrudService} from '../core/services/crud-service';
 export class RoleService extends CrudService<Role> {
 
   constructor(protected http: HttpClient) {
-    super(http, `${environment.urlbase}/mercado/roles`);
+    super(http, `${environment.urlbase}/mercado/grupos`);
   }
 
 }

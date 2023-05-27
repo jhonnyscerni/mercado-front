@@ -23,7 +23,7 @@ export class AuthoritiesGuard implements CanActivate {
 
       // Transformando o authorities em outra Lista so com os nomes
       for (var i of authorities) {
-          this.namesAuthorities.push(i.authority)
+          this.namesAuthorities.push(i.authority);
       }
 
       let authorized: any = next.data[0];

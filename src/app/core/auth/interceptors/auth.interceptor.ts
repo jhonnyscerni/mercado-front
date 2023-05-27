@@ -3,7 +3,7 @@ import {Injectable} from '@angular/core';
 
 import {Observable} from 'rxjs';
 import {AuthService} from '../auth.service';
-import {AuthUtils} from "../auth.utils";
+import { AuthUtils } from '../auth.utils';
 
 
 @Injectable()
