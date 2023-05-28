@@ -8,7 +8,8 @@ export const USERS_ROUTES: Routes = [
         children: [
           {
             path: 'lista', component: UserListComponent,
-            canActivate: [AuthoritiesGuard]
+            canActivate: [AuthoritiesGuard],
+            data: ['ROLE_ADMIN']
           },
           { path: '', redirectTo: '/usuarios/lista', pathMatch: 'full' }
         ]

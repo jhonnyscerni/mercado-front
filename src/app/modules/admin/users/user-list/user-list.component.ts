@@ -8,8 +8,12 @@ import { EMPTY, switchMap, take } from 'rxjs';
 @Component({
     selector: 'app-user-list',
     templateUrl: './user-list.component.html',
+    styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
+createProduct() {
+throw new Error('Method not implemented.');
+}
     users: User[];
     errorMessage: string;
 

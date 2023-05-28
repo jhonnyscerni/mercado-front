@@ -1,3 +1,4 @@
+import { UrlTree } from '@angular/router';
 import { Page } from '../models/page/page';
 import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
@@ -18,7 +19,6 @@ export class UsuarioService extends CrudService<User> {
     }
 
     listSearchPage(params): Observable<Page<User>> {
-        //console.log(params)
         return this.http.get<Page<User>>(this.url, { params })
             .pipe(
                 catchError(super.serviceError));
