@@ -11,6 +11,7 @@ import {MatPaginator, PageEvent} from '@angular/material/paginator';
   styleUrls: ['./role-list.component.scss']
 })
 export class RoleListComponent implements OnInit {
+
     roles: Role[];
     errorMessage: string;
 
@@ -36,5 +37,9 @@ export class RoleListComponent implements OnInit {
             }, (error) => {
                 console.log(error);
             });
+    }
+
+    create(): any {
+        throw new Error('Method not implemented.');
     }
 }

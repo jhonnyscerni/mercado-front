@@ -23,6 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SharedModule } from 'app/shared/shared.module';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
     imports: [
@@ -48,7 +49,7 @@ import { SharedModule } from 'app/shared/shared.module';
         MatTooltipModule,
         SharedModule
     ],
-  declarations: [UsersComponent, UserListComponent],
-  exports: [UsersComponent, UserListComponent],
+  declarations: [UsersComponent, UserListComponent, UserFormComponent],
+  exports: [UsersComponent, UserListComponent, UserFormComponent],
 })
 export class UsersModule {}

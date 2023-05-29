@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'app/models/user';
+import { AlertModalService } from 'app/shared/alert-modal.service';
 import { EMPTY, switchMap, take } from 'rxjs';
 
 @Component({
@@ -11,9 +12,7 @@ import { EMPTY, switchMap, take } from 'rxjs';
     styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-createProduct() {
-throw new Error('Method not implemented.');
-}
+
     users: User[];
     errorMessage: string;
 
@@ -33,10 +32,11 @@ throw new Error('Method not implemented.');
         private router: Router,
         private route: ActivatedRoute,
         private usuarioService: UsuarioService,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private alertService: AlertModalService,
     ) {}
 
-    getRequestParams(pageElement, size) {
+    getRequestParams(pageElement, size): any {
         let username = this.usernamecontrol.value;
         let email = this.emailControl.value;
         const params = {};
@@ -60,7 +60,7 @@ throw new Error('Method not implemented.');
         return params;
     }
 
-    ngOnInit() {
+    ngOnInit(): any {
 
         this.usernamecontrol = this.fb.control('');
         this.emailControl = this.fb.control('');
@@ -71,18 +71,18 @@ throw new Error('Method not implemented.');
         this.onRefresh();
       }
 
-      handlePageChange(event) {
+      handlePageChange(event): any {
         this.page = event;
         this.pageElement = this.page - 1;
         this.onRefresh();
       }
 
-      onRefresh() {
+      onRefresh(): any {
         const params = this.getRequestParams(this.pageElement, this.size);
 
         this.usuarioService.listSearchPage(params)
           .subscribe(
-            users => {
+            (users) => {
               this.users = users.content;
               this.totalElements = users.totalElements;
               this.pageElement = users.number;
@@ -92,7 +92,7 @@ throw new Error('Method not implemented.');
           );
       }
 
-      onSearch() {
+      onSearch(): any {
         this.totalElements = 0;
         this.page = 1;
         this.pageElement = 0;
@@ -100,8 +100,34 @@ throw new Error('Method not implemented.');
         this.onRefresh();
       }
 
-      onEdit(id) {
-        this.router.navigate(['/usuarios/editar', id], { relativeTo: this.route });
+      onEdit(id): any {
+        this.router.navigate(['../editar', id], { relativeTo: this.route });
       }
+
+      create(): any {
+        this.router.navigate(['../cadastrar'], { relativeTo: this.route });
+      }
+
+
+  onDelete(usuario): any {
+    this.usuarioSelecionado = usuario;
+    const result$ = this.alertService.showConfirm(
+      'Confirmação',
+      'Tem certeza que deseja remover esse item?',
+    );
+    result$
+      .asObservable()
+      .pipe(
+        take(1),
+        switchMap(result =>
+          result ? this.usuarioService.remove(usuario.id) : EMPTY,
+        ),
+      )
+      .subscribe(
+        (success) => {
+          this.onRefresh();
+        },
+      );
+  }
 
 }

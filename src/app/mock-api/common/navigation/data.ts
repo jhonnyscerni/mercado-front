@@ -26,13 +26,6 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:clipboard-check',
         link: '/grupos'
     },
-    {
-        id: 'example',
-        title: 'Example',
-        type: 'basic',
-        icon: 'heroicons_outline:chart-pie',
-        link: '/example'
-    }
 ];
 export const compactNavigation: FuseNavigationItem[] = [
     {

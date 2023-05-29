@@ -1,52 +1,40 @@
 <div class="flex flex-col flex-auto min-w-0">
     <div class="bg-card">
         <div class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8">
-            <div
-                class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-4 sm:my-6"
-            >
+            <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-4 sm:my-6">
                 <div class="flex-1 min-w-0">
                     <!-- Breadcrumbs -->
                     <div>
-                        <div
-                            class="hidden sm:flex flex-wrap items-center font-medium"
-                        >
+                        <div class="hidden sm:flex flex-wrap items-center font-medium">
                             <div>
-                                <a class="whitespace-nowrap text-primary-500"
-                                    >Inicio</a
-                                >
+                                <a class="whitespace-nowrap text-primary-500">Inicio</a>
                             </div>
-                            <div
-                                class="flex items-center ml-1 whitespace-nowrap"
-                            >
-                                <mat-icon
-                                    class="icon-size-5 text-secondary"
-                                    [svgIcon]="'heroicons_solid:chevron-right'"
-                                ></mat-icon>
-                                <a class="ml-1 text-primary-500"
-                                    >Lista de Usuários</a
-                                >
+                            <div class="flex items-center ml-1 whitespace-nowrap">
+                                <mat-icon class="icon-size-5 text-secondary"
+                                    [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+                                <a class="ml-1 text-primary-500">Lista de Usuários</a>
                             </div>
                         </div>
                         <div class="flex sm:hidden">
-                            <a
-                                class="inline-flex items-center -ml-1.5 text-secondary font-medium"
-                                [routerLink]="'./..'"
-                            >
-                                <mat-icon
-                                    class="icon-size-5 text-secondary"
-                                    [svgIcon]="'heroicons_solid:chevron-left'"
-                                ></mat-icon>
+                            <a class="inline-flex items-center -ml-1.5 text-secondary font-medium"
+                                [routerLink]="'./..'">
+                                <mat-icon class="icon-size-5 text-secondary"
+                                    [svgIcon]="'heroicons_solid:chevron-left'"></mat-icon>
                                 <span class="ml-1">voltar</span>
                             </a>
                         </div>
                     </div>
                     <!-- Title -->
                     <div class="mt-2">
-                        <h2
-                            class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate"
-                        >
+                        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
                             Lista de Usuários
                         </h2>
+                        <div class="flex items-center">
+                            <mat-icon
+                                class="icon-size-5"
+                                [svgIcon]="'heroicons_solid:bell'"></mat-icon>
+                            <div class="ml-1.5 leading-6 truncate text-secondary">Confira os Usuários Cadastrados</div>
+                        </div>
                     </div>
                 </div>
                 <!-- Actions -->
@@ -64,14 +52,8 @@
                         [placeholder]="'Search products'">
                 </mat-form-field> -->
                     <!-- Add product button -->
-                    <button
-                        mat-flat-button
-                        [color]="'primary'"
-                        (click)="createProduct()"
-                    >
-                        <mat-icon
-                            [svgIcon]="'heroicons_outline:plus'"
-                        ></mat-icon>
+                    <button mat-flat-button [color]="'primary'" (click)="create()">
+                        <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
                         <span class="ml-2 mr-1">Cadastrar de usúario</span>
                     </button>
                 </div>
@@ -111,90 +93,88 @@
 
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <div class="card">
-            <div class="body table-responsive">
-              <table class="table text-center" *ngIf="users; else
+            <div class="card">
+                <div class="body table-responsive">
+                    <table class="table text-center" *ngIf="users; else
                               loadingError">
-                <thead>
-                    <tr>
-                        <th>CNPJ</th>
-                        <th>USUARIO</th>
-                        <th>RAZAO SOCIAL</th>
-                        <th>NOME FANTASIA</th>
-                        <th>E-MAIL</th>
-                        <th>TELEFONE</th>
-                        <th>CATEGORIA</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                <tr *ngFor="let usuario of users |
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>CNPJ</th>
+                                <th>USUARIO</th>
+                                <th>RAZAO SOCIAL</th>
+                                <th>NOME FANTASIA</th>
+                                <th>E-MAIL</th>
+                                <th>TELEFONE</th>
+                                <th>CATEGORIA</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let usuario of users |
                                       paginate: { itemsPerPage: size,
                                       currentPage: page,
                                       totalItems: totalElements }">
-                    <td><span class="text-muted"> {{
-                        usuario?.cnpj }}</span></td>
-                        <td><span class="text-muted"> {{
-                            usuario?.username }}</span></td>
-                  <td><span class="text-muted"> {{
-                    usuario?.razaoSocial }}</span></td>
-                  <td><span class="text-muted"> {{
-                    usuario?.nomeFantasia }}</span></td>
-                    <td><span class="text-muted"> {{
-                        usuario?.email }}</span></td>
-                        <td><span class="text-muted"> {{
-                            usuario?.telefone }}</span></td>
-                  <td><span class="text-muted"> {{
-                    usuario?.categoria }}</span></td>
-                    <td class="table-actions">
-                        <a class="table-action" tooltip="Editar
-                                                  usuario" placement="top"
-                           href="javascript:void(0)"
-                           (click)="onEdit(usuario.id)">
-                        <mat-icon matSuffix>edit</mat-icon>
-                        </a>
-                        <a class="table-action
-                                                  table-action-delete"
-                           tooltip="Deletar consulta"
-                           placement="top"
-                           href="javascript:void(0)"
-                           (click)="onDelete(usuario)">
-                           <mat-icon matSuffix>delete</mat-icon>
-                        </a>
-                        <a class="table-action" tooltip="Detalhes consulta" placement="top"
-                          href="javascript:void(0)" (click)="onDetalhe(usuario.id)">
-                          <mat-icon svgIcon="details"></mat-icon>
-                      </a>
-                      </td>
-                </tr>
-                </tbody>
-              </table>
-              <ng-template #loadingError>
-                <div *ngIf="error$ | async; else loading">
-                  Erro ao carregar usuarios. Tente novamente mais
-                  tarde.
+                                <td><span class="text-muted"> {{
+                                        usuario?.id }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        usuario?.cnpj }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        usuario?.username }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        usuario?.razaoSocial }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        usuario?.nomeFantasia }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        usuario?.email }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        usuario?.telefone }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        usuario?.categoria }}</span></td>
+                                <td class="table-actions">
+                                    <a class="table-action" tooltip="Editar
+                                                  usuario" placement="top" href="javascript:void(0)"
+                                        (click)="onEdit(usuario.id)">
+                                        <mat-icon matSuffix>edit</mat-icon>
+                                    </a>
+                                    <a class="table-action
+                                                  table-action-delete" tooltip="Deletar consulta" placement="top"
+                                        href="javascript:void(0)" (click)="onDelete(usuario)">
+                                        <mat-icon matSuffix>delete</mat-icon>
+                                    </a>
+                                    <a class="table-action" tooltip="Detalhes consulta" placement="top"
+                                        href="javascript:void(0)" (click)="onDetalhe(usuario.id)">
+                                        <mat-icon svgIcon="details"></mat-icon>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ng-template #loadingError>
+                        <div *ngIf="error$ | async; else loading">
+                            Erro ao carregar usuarios. Tente novamente mais
+                            tarde.
+                        </div>
+                        <ng-template #loading>
+                            <div class="card-body">
+                                <div class="row py-3 align-items-center">
+                                    <div class="col-sm-9">
+                                        <h4 class="mb-0">Carregando
+                                            usuarios...</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-template>
                 </div>
-                <ng-template #loading>
-                  <div class="card-body">
-                    <div class="row py-3 align-items-center">
-                      <div class="col-sm-9">
-                        <h4 class="mb-0">Carregando
-                          usuarios...</h4>
-                      </div>
-                    </div>
-                  </div>
-                </ng-template>
-              </ng-template>
+                <div class="py-4 text-center ngx-pagination">
+                    <pagination-controls previousLabel="Anterior" nextLabel="Próximo" responsive="true"
+                        (pageChange)="handlePageChange($event)">
+                    </pagination-controls>
+                </div>
             </div>
-            <div class="py-4 text-center ngx-pagination">
-              <pagination-controls previousLabel="Anterior"
-                                   nextLabel="Próximo" responsive="true"
-                                   (pageChange)="handlePageChange($event)">
-              </pagination-controls>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
 
     <!-- Main -->
     <div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
