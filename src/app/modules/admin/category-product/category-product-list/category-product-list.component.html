@@ -1,3 +1,214 @@
-<pre>
-  app-category-product-list
-</pre>
+<div class="flex flex-col flex-auto min-w-0">
+    <!-- Header -->
+    <!-- <div class="bg-card">
+        <div class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8">
+            <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12">
+
+                <div class="flex flex-auto items-center min-w-0">
+                    <div class="flex flex-col min-w-0 ml-4">
+                              <div
+                                class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate">Titulo!
+                            </div>
+                        <div class="flex items-center">
+                            <mat-icon
+                                class="icon-size-5"
+                                [svgIcon]="'heroicons_solid:bell'"></mat-icon>
+                            <div class="ml-1.5 leading-6 truncate text-secondary">Conheça nosso sistema
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center mt-6 sm:mt-0 sm:ml-2 space-x-3">
+                    <button
+                        mat-flat-button
+                        [color]="'primary'">
+                        <mat-icon
+                            class="icon-size-5"
+                            [svgIcon]="'heroicons_solid:cog'"></mat-icon>
+                        <span class="ml-2">Configurações</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="bg-card">
+                    <div
+                        class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8"
+                    >
+                        <div
+                            class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-4 sm:my-8"
+                        >
+                            <div class="flex-1 min-w-0">
+                                <!-- Breadcrumbs -->
+                                <div>
+                                    <div
+                                        class="hidden sm:flex flex-wrap items-center font-medium"
+                                    >
+                                        <div>
+                                            <a
+                                                class="whitespace-nowrap text-primary-500"
+                                                >Inicio</a
+                                            >
+                                        </div>
+                                        <div
+                                            class="flex items-center ml-1 whitespace-nowrap"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5 text-secondary"
+                                                [svgIcon]="
+                                                    'heroicons_solid:chevron-right'
+                                                "
+                                            ></mat-icon>
+                                            <a class="ml-1 text-primary-500"
+                                                >Lista de Categoria de Produtos</a
+                                            >
+                                        </div>
+                                    </div>
+                                    <div class="flex sm:hidden">
+                                        <a
+                                            class="inline-flex items-center -ml-1.5 text-secondary font-medium"
+                                            [routerLink]="'./..'"
+                                        >
+                                            <mat-icon
+                                                class="icon-size-5"
+                                                [svgIcon]="
+                                                    'heroicons_solid:chevron-left'
+                                                "
+                                            ></mat-icon>
+                                            <span class="ml-1">voltar</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- Title -->
+                                <div class="mt-2">
+                                    <h2
+                                        class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate"
+                                    >
+                                        Lista de Categoria de Produtos
+                                    </h2>
+                                    <div class="flex items-center">
+                                        <mat-icon
+                                            class="icon-size-5"
+                                            [svgIcon]="'heroicons_solid:bell'"
+                                        ></mat-icon>
+                                        <div class="ml-1.5 leading-6 truncate">
+                                            Confira as Categorias de Produtos Cadastrados
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Actions -->
+                            <div
+                                class="flex shrink-0 items-center mt-2 sm:mt-0"
+                            >
+                                <button
+                                    mat-flat-button
+                                    [color]="'primary'"
+                                    (click)="create()"
+                                >
+                                    <mat-icon
+                                        [svgIcon]="'heroicons_outline:plus'"
+                                    ></mat-icon>
+                                    <span class="ml-2 mr-1"
+                                        >Cadastrar de Categoria de Produto</span
+                                    >
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="body table-responsive flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8"
+                    >
+                        <table
+                            class="table text-center"
+                            *ngIf="categories; else loadingError"
+                        >
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>NOME</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let category of categories">
+                                    <td>
+                                        <span class="text-muted">
+                                            {{ category?.id }}</span
+                                        >
+                                    </td>
+                                    <td>
+                                        <span class="text-muted">
+                                            {{ category?.nomeDesc }}</span
+                                        >
+                                    </td>
+                                    <td class="table-actions">
+                                        <a
+                                            class="table-action"
+                                            tooltip="Editar
+                                                  Categoria"
+                                            placement="top"
+                                            href="javascript:void(0)"
+                                            (click)="onEdit(role.id)"
+                                        >
+                                            <mat-icon matSuffix>edit</mat-icon>
+                                        </a>
+                                        <a
+                                            class="table-action table-action-delete"
+                                            tooltip="Deletar Categoria"
+                                            placement="top"
+                                            href="javascript:void(0)"
+                                            (click)="onDelete(role)"
+                                        >
+                                            <mat-icon matSuffix
+                                                >delete</mat-icon
+                                            >
+                                        </a>
+                                        <a
+                                            class="table-action"
+                                            tooltip="Detalhes Categoria"
+                                            placement="top"
+                                            href="javascript:void(0)"
+                                            (click)="onDetalhe(role.id)"
+                                        >
+                                            <mat-icon
+                                                svgIcon="details"
+                                            ></mat-icon>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <ng-template #loadingError>
+                            <div *ngIf="error$ | async; else loading">
+                                Erro ao carregar usuarios. Tente novamente mais
+                                tarde.
+                            </div>
+                            <ng-template #loading>
+                                <div class="card-body">
+                                    <div class="row py-3 align-items-center">
+                                        <div class="col-sm-9">
+                                            <h4 class="mb-0">
+                                                Carregando usuarios...
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <!-- <div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
+        <div class="w-full max-w-screen-xl mx-auto">
+        </div>
+    </div> -->
+</div>
