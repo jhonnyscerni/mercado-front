@@ -7,7 +7,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         id: 'dashboard',
         title: 'DashBoard',
         type: 'basic',
-        icon: 'heroicons_outline:clipboard-check',
+        icon: 'mat_solid:dashboard',
         link: '/project'
     },
     {
@@ -15,7 +15,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         id: 'usuarios',
         title: 'Usuários',
         type: 'basic',
-        icon: 'heroicons_outline:clipboard-check',
+        icon: 'heroicons_outline:users',
         link: '/usuarios'
     },
     {
@@ -23,8 +23,32 @@ export const defaultNavigation: FuseNavigationItem[] = [
         id: 'grupos',
         title: 'Grupos',
         type: 'basic',
-        icon: 'heroicons_outline:clipboard-check',
+        icon: 'mat_solid:group',
         link: '/grupos'
+    },
+    {
+
+        id: 'produtos',
+        title: 'Produtos',
+        type: 'basic',
+        icon: 'mat_solid:add_shopping_cart',
+        link: '/produtos'
+    },
+    {
+
+        id: 'categoriaprodutos',
+        title: 'Categoria de Produtos',
+        type: 'basic',
+        icon: 'mat_solid:category',
+        link: '/categoriaprodutos'
+    },
+    {
+
+        id: 'marcaprodutos',
+        title: 'Marca de Produtos',
+        type: 'basic',
+        icon: 'mat_solid:branding_watermark',
+        link: '/marcaprodutos'
     },
 ];
 export const compactNavigation: FuseNavigationItem[] = [

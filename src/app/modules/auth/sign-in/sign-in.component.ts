@@ -77,7 +77,7 @@ export class AuthSignInComponent implements OnInit {
             .signIn(this.signInForm.value)
             .subscribe(
                 () => {
-                    const redirectURL = this._activatedRoute.snapshot.queryParamMap.get('redirectURL') || '/signed-in-redirect';
+                    const redirectURL = this._activatedRoute.snapshot.queryParamMap.get('redirectURL') || '/project';
                     this._router.navigateByUrl(redirectURL);
                 }, (response) => {
                     // Re-enable the form

@@ -3,6 +3,7 @@ import { LayoutComponent } from 'app/layout/layout.component';
 import { InitialDataResolver } from 'app/app.resolvers';
 import {AuthGuard} from './core/auth/guards/auth.guard';
 import {NoAuthGuard} from './core/auth/guards/noAuth.guard';
+import { LandingHomeComponent } from './modules/landing/home/home.component';
 
 // @formatter:off
 /* eslint-disable max-len */
@@ -10,10 +11,22 @@ import {NoAuthGuard} from './core/auth/guards/noAuth.guard';
 export const appRoutes: Route[] = [
 
     // Redirect empty path to '/example'
-    {path: '', pathMatch : 'full', redirectTo: 'project'},
+    // {path: '', pathMatch : 'full', redirectTo: 'project'},
 
-    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'project'},
+    // {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'project'},
 
+    {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'home',
+        data: {
+            layout: 'empty'
+        },
+        component: LandingHomeComponent
+      },
     // Auth routes for guests
     {
         path: '',

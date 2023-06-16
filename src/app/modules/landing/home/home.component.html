@@ -1,31 +1,620 @@
-<div class="flex flex-col items-center justify-center w-full h-full">
-    <div class="w-full max-w-3xl">
-        <div class="max-w-none mx-auto prose prose-sm">
-            <img
-                class="w-20"
-                src="assets/images/logo/logo.svg"
-                alt="Logo image">
-            <h1>Landing Module</h1>
-            <p>
-                This can be the landing or the welcome page of your application. If you have an SSR (Server Side Rendering) setup, or if you don't need to have Search engine
-                visibility and optimizations, you can even use this page as your primary landing page.
-            </p>
-            <p>
-                This is a separate "module", it has its own directory and routing setup and also it's completely separated from the actual application. This is also a simple example of
-                a multiple applications setup that uses the same codebase. You can have different entry points and essentially have different applications within the same codebase.
-            </p>
-        </div>
-        <div>
+<nav id="navbar-main" class=" navbar navbar-horizontal navbar-main navbar-expand-lg navbar-light">
+    <!-- <nav
+    class="navbar navbar-top navbar-expand navbar-dark bg-danger border-bottom"
+    id="navbar-main"
+  > -->
+    <div class="container">
+    <div>
+        <mat-icon svgIcon="heroicons_solid:user-group"></mat-icon>
+        <b style="font-size: 22px;" class="ml-2">Merdado & Negocios</b>
+    </div>
+        <!-- <a class="navbar-brand" [routerLink]="['/project']">
+            Merdado & Negocios
+            <img src="../../../../assets/img/brand/blue.png" />
+        </a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse navbar-custom-collapse collapse" id="collapseBasic" id="navbarSupportedContent">
+            <div class="navbar-collapse-header">
+                <div class="row">
+                    <div class="col-8 collapse-brand">
+                        <a [routerLink]="['/home']">
+                            <img src="assets/images/logo.png" class="img-mobile" [width]="45" width="" alt="" />
+                            <span class="logo-mobile">Siberius</span>
+                        </a>
+                    </div>
+                    <div class="col-4 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse"
+                            data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false"
+                            aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+                            <span></span> <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <ul class="navbar-nav mr-auto">
+                <!-- <li class="nav-item">
             <a
-                class="mt-8"
-                mat-flat-button
-                [color]="'primary'"
-                [routerLink]="'/dashboards/project'">
-                <span>Launch the App</span>
-                <mat-icon
-                    class="ml-2 icon-size-5"
-                    [svgIcon]="'heroicons_solid:arrow-narrow-right'"></mat-icon>
+              class="nav-link"
+              routerLinkActive="active"
+              [routerLink]="['/portal/pricing']"
+            >
+              <span class="nav-link-inner--text">Planos</span>
             </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLinkActive="active"
+              [routerLink]="['/portal/login']"
+            >
+              <span class="nav-link-inner--text">Login</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLinkActive="active"
+              [routerLink]="['/portal/register']"
+            >
+              <span class="nav-link-inner--text">Registre-se</span>
+            </a>
+          </li> -->
+            </ul>
+            <!--          <hr class="d-lg-none"/>-->
+            <!--Menu-->
+            <ul [ngSwitch]="usuarioLogado()" class="navbar-nav align-items-lg-center ml-lg-auto">
+                <!--            <li class="nav-item">-->
+                <!--              <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank"-->
+                <!--                 data-toggle="tooltip" data-original-title="Like us on Facebook">-->
+                <!--                <i class="fab fa-facebook-square"></i>-->
+                <!--                <span class="nav-link-inner&#45;&#45;text d-lg-none">Facebook</span>-->
+                <!--              </a>-->
+                <!--            </li>-->
+                <!--            <li class="nav-item">-->
+                <!--              <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank"-->
+                <!--                 data-toggle="tooltip" data-original-title="Follow us on Instagram">-->
+                <!--                <i class="fab fa-instagram"></i>-->
+                <!--                <span class="nav-link-inner&#45;&#45;text d-lg-none">Instagram</span>-->
+                <!--              </a>-->
+                <!--            </li>-->
+                <li *ngSwitchCase="false" class="nav-item d-lg-block ml-lg-4">
+                    <a class="btn btn-portal btn-icon" routerLinkActive="active"
+                        [routerLink]="['/sign-in']">
+                        <span class="btn-inner--icon">
+                            <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
+                            <!-- <mat-icon svgIcon="heroicons_solid:user"></mat-icon> -->
+                        </span>
+                        <span class="nav-link-inner--text">ACESSE SUA CONTA</span>
+                    </a>
+                </li>
+
+                <li *ngSwitchCase="false" class="nav-item d-lg-block ml-lg-4">
+                    <a class="btn bg-green btn-icon text-white" routerLinkActive="active"
+                        [routerLink]="['/sign-up']">
+                        <span class="btn-inner--icon">
+                            <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
+                            <!--              <i class="fas fa-sign-in-alt mr-2"></i>-->
+                            <i class="far fa-user mr-2"></i>
+                        </span>
+                        <span class="nav-link-inner--text">CADASTRE-SE</span>
+                    </a>
+                </li>
+                <!-- </ul> -->
+
+                <!-- User -->
+                <!-- <ul class="navbar-nav align-items-center ml-auto ml-md-0"> -->
+
+                <li *ngSwitchCase="true" class="nav-item d-none d-lg-block ml-lg-4">
+                    <a class="btn btn-portal btn-icon" routerLinkActive="active" (click)="onDashboard()">
+                        <span class="btn-inner--icon">
+                            <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
+                            <i class="fas fa-columns mr-2 text-white"></i>
+                        </span>
+                        <span class="nav-link-inner--text text-white">PAINEL</span>
+                    </a>
+                </li>
+
+                <li *ngSwitchCase="true" class="nav-item dropdown" dropdown placement="bottom-right">
+                    <a class="pr-0 dropdown-toggle" role="button" dropdownToggle>
+                        <div class="media align-items-center">
+                            <span class="avatar avatar-sm rounded-circle">
+                                <img alt="Image placeholder" src="assets/img/theme/team-4.jpg" />
+                            </span>
+                            <div class="media-body ml-2 d-lg-block">
+                                <span class="mb-0 text-sm font-weight-bold"
+                                    style="color: #1e1e1e !important;">{{user}}</span>
+                            </div>
+                            <a href="javascript:void()" (click)="logout()" class="sair">
+                                <i class="ni ni-user-run"></i> <span>Sair</span>
+                            </a>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-arrow d-none dropdown-menu-right" *dropdownMenu>
+                        <div class=" dropdown-header noti-title">
+                            <h6 class="text-overflow m-0">Bem Vindo!</h6>
+                        </div>
+                        <a routerLinkActive="active" (click)="onProfile()" class="dropdown-item">
+                            <i class="ni ni-single-02"></i> <span>Minha Conta</span>
+                        </a>
+                        <!-- <a
+                routerLinkActive="active"
+                [routerLink]="['/user-profile']"
+                class="dropdown-item"
+              >
+                <i class="ni ni-settings-gear-65"></i> <span>Settings</span>
+              </a>
+              <a
+                routerLinkActive="active"
+                [routerLink]="['/user-profile']"
+                class="dropdown-item"
+              >
+                <i class="ni ni-calendar-grid-58"></i> <span>Activity</span>
+              </a>
+              <a
+                routerLinkActive="active"
+                [routerLink]="['/portal/user-profile']"
+                class="dropdown-item"
+              >
+                <i class="ni ni-support-16"></i> <span>Support</span>
+              </a> -->
+                        <div class="dropdown-divider"></div>
+                        <a href="javascript:void()" (click)="logout()" class="dropdown-item">
+                            <i class="ni ni-user-run"></i> <span>Sair</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
+</nav>
+<div class="main-content">
+    <!-- Header -->
+    <div class="header bg-img pt-40 pb-40">
+        <div class="container">
+            <div class="header-body">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="pr-5">
+                            <h1 class="display-2 text-blue-2 font-weight-bold mb-4">
+                                Sistema Mercado & Negócios
+                            </h1>
+                            <h2 class="display-5 text-blue-2 font-weight-light">
+                                O sistema Mercado & Negócios chega no mercado brasileiro para auxiliar as empresas com seus processos de compra.
+                            </h2>
+                            <!-- <p class="text-white mt-0 bold font-weight-light">
+                                O sistema Mercado & Negócios chega no mercado brasileiro para auxiliar as empresas com seus processos de compra, garantindo mais agilidade, transparência, competitividade, menor preço nas aquisição de produtos e diminuição de custo com seus departamentos de compras.
+                            </p> -->
+                            <div class="mt-5">
+                                <a [routerLink]="['/project']"
+                                    class="btn btn-default my-2">Começe agora</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-lg-6">
+                        <div class="row pt-5">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div
+                                            class="icon icon-shape bg-gradient-red text-white rounded-circle shadow mb-4">
+                                            <i class="ni ni-active-40"></i>
+                                        </div>
+                                        <h5 class="h3">Components</h5>
+                                        <p>Argon comes with over 70 handcrafted components.</p>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div
+                                            class="icon icon-shape bg-gradient-info text-white rounded-circle shadow mb-4">
+                                            <i class="ni ni-active-40"></i>
+                                        </div>
+                                        <h5 class="h3">Plugins</h5>
+                                        <p>
+                                            Fully integrated and extendable third-party plugins that
+                                            you will love.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 pt-lg-5 pt-4">
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div
+                                            class="icon icon-shape bg-gradient-success text-white rounded-circle shadow mb-4">
+                                            <i class="ni ni-active-40"></i>
+                                        </div>
+                                        <h5 class="h3">Pages</h5>
+                                        <p>
+                                            From simple to complex, you get a beautiful set of 15+
+                                            page examples.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        <div
+                                            class="icon icon-shape bg-gradient-warning text-white rounded-circle shadow mb-4">
+                                            <i class="ni ni-active-40"></i>
+                                        </div>
+                                        <h5 class="h3">Documentation</h5>
+                                        <p>You will love how easy is to to work with Argon.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <!-- <div class="separator separator-bottom separator-skew zindex-100">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+                xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div> -->
+    </div>
+    <!-- <section class="py-6 pb-9 bg-default">
+        <div class="container-fluid">
+            <div class="row justify-content-center text-center">
+                <div class="col-md-6">
+                    <h2 class="display-3 text-white">A complete HTML solution</h2>
+                    <p class="lead text-white">
+                        Argon is a completly new product built on our newest re-built from
+                        scratch framework structure that is meant to make our products more
+                        intuitive, more adaptive and, needless to say, so much easier to
+                        customize. Let Argon amaze you with its cool features and build tools
+                        and get your project to a whole new level.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section> -->
+    <section class="section section-lg pt-lg-0 mt--5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card card-lift--hover shadow border-0">
+                                <div class="card-body py-5">
+                                    <div class="icon icon-shape bg-gradient-primary text-white rounded-circle mb-4">
+                                        <mat-icon svgIcon="heroicons_solid:user-group"></mat-icon>
+                                    </div>
+                                    <h4 class="h2 text-primary text-uppercase">
+                                        Fornecedor
+                                    </h4>
+                                    <p class="description mt-3">
+                                        Pessoa Física interessada em fornecer produtos ou serviços licitados pelas entidades compradores.
+                                    </p>
+                                    <!-- <div>
+                                        <span class="badge badge-pill badge-primary mr-1">bootstrap 4</span>
+                                        <span class="badge badge-pill badge-primary mr-1">dashboard</span>
+                                        <span class="badge badge-pill badge-primary">template</span>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card card-lift--hover shadow border-0">
+                                <div class="card-body py-5">
+                                    <div class="icon icon-shape bg-gradient-success text-white rounded-circle mb-4">
+                                        <mat-icon svgIcon="mat_solid:work"></mat-icon>
+                                    </div>
+                                    <h4 class="h2 text-success text-uppercase">
+                                        Comprador
+                                    </h4>
+                                    <p class="description mt-3">
+                                        Órgãos Públicos, Autarquias, Empresas Privadas, Fundações, com processos para a aquisição de bens e serviços.
+                                    </p>
+                                    <!-- <div>
+                                        <span class="badge badge-pill badge-success mr-1">npm</span>
+                                        <span class="badge badge-pill badge-success mr-1">gulp</span>
+                                        <span class="badge badge-pill badge-success">build tools</span>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card card-lift--hover shadow border-0">
+                                <div class="card-body py-5">
+                                    <div class="icon icon-shape bg-gradient-warning text-white rounded-circle mb-4">
+                                        <mat-icon svgIcon="mat_solid:checklist_rtl"></mat-icon>
+                                    </div>
+                                    <h4 class="h2 text-warning text-uppercase">
+                                        Transparência
+                                    </h4>
+                                    <p class="description mt-3">
+                                        Publicações e Negociações online de editais, que podem ser acompanhadas em tempo real por fornecedores e pela sociedade.
+                                    </p>
+                                    <!-- <div>
+                                        <span class="badge badge-pill badge-warning mr-1">sass</span>
+                                        <span class="badge badge-pill badge-warning mr-1">design</span>
+                                        <span class="badge badge-pill badge-warning">customize</span>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-6">
+        <div class="container">
+            <div class="row row-grid align-items-center">
+                <div class="col-md-6 order-md-2">
+                    <img src="assets/img/theme/landing-1.png" class="img-fluid" />
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="pr-md-5">
+                        <h1>Transparência e Agilidade</h1>
+                        <p>
+                            Publicações e Negociações online de editais, que podem ser acompanhadas em tempo real por fornecedores e pela sociedade.
+                        </p>
+                        <ul class="list-unstyled mt-5">
+                            <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="badge badge-circle badge-success mr-3">
+                                            <i class="ni ni-settings-gear-65"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="mb-0">Carefully crafted components</h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="badge badge-circle badge-success mr-3">
+                                            <i class="ni ni-html5"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="mb-0">Amazing page examples</h4>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="badge badge-circle badge-success mr-3">
+                                            <i class="ni ni-satisfied"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <h4 class="mb-0">Super friendly support team</h4>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-6">
+        <div class="container">
+            <div class="row row-grid align-items-center">
+                <div class="col-md-6">
+                    <img src="assets/img/theme/landing-2.png" class="img-fluid" />
+                </div>
+                <div class="col-md-6">
+                    <div class="pr-md-5">
+                        <h1>Example pages</h1>
+                        <p>
+                            If you want to get inspiration or just show something directly to
+                            your clients, you can jump start your development with our
+                            pre-built example pages.
+                        </p>
+                        <a [routerLink]="['/examples/profile']" class="font-weight-bold text-warning mt-5">Explore
+                            pages</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-6">
+        <div class="container">
+            <div class="row row-grid align-items-center">
+                <div class="col-md-6 order-md-2">
+                    <img src="assets/img/theme/landing-3.png" class="img-fluid" />
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <div class="pr-md-5">
+                        <h1>Lovable widgets and cards</h1>
+                        <p>
+                            We love cards and everybody on the web seems to. We have gone
+                            above and beyond with options for you to organise your
+                            information. From cards designed for content, to pricing cards or
+                            user profiles, you will have many options to choose from.
+                        </p>
+                        <a [routerLink]="['/widgets']" class="font-weight-bold text-info mt-5">Explore widgets</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-7 section-nucleo-icons bg-white overflow-hidden">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-3">Nucleo Icons</h2>
+                    <p class="lead">
+                        The official package contains over 21.000 icons which are looking
+                        great in combination with Argon Design System. Make sure you check
+                        all of them and use those that you like the most.
+                    </p>
+                    <div class="btn-wrapper">
+                        <a [routerLink]="['/documentation/icons']" target="_blank" class="btn btn-primary">View demo
+                            icons</a>
+                        <a href="https://nucleoapp.com/?ref=1712" target="_blank"
+                            class="btn btn-default mt-3 mt-md-0">View all icons</a>
+                    </div>
+                </div>
+            </div>
+            <div class="blur--hover">
+                <a [routerLink]="['/documentation/icons']">
+                    <div class="icons-container blur-item mt-5">
+                        <!-- Center -->
+                        <i class="icon ni ni-diamond"></i>
+                        <!-- Right 1 -->
+                        <i class="icon icon-sm ni ni-album-2"></i>
+                        <i class="icon icon-sm ni ni-app"></i>
+                        <i class="icon icon-sm ni ni-atom"></i>
+                        <!-- Right 2 -->
+                        <i class="icon ni ni-bag-17"></i>
+                        <i class="icon ni ni-bell-55"></i>
+                        <i class="icon ni ni-credit-card"></i>
+                        <!-- Left 1 -->
+                        <i class="icon icon-sm ni ni-briefcase-24"></i>
+                        <i class="icon icon-sm ni ni-building"></i>
+                        <i class="icon icon-sm ni ni-button-play"></i>
+                        <!-- Left 2 -->
+                        <i class="icon ni ni-calendar-grid-58"></i>
+                        <i class="icon ni ni-camera-compact"></i>
+                        <i class="icon ni ni-chart-bar-32"></i>
+                    </div>
+                    <span class="blur-hidden h5 text-success">Explore all the 21.000+ Nucleo Icons</span>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="py-7">
+        <div class="container">
+            <div class="row row-grid justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-3">
+                        Do you love this awesome
+                        <span class="text-success">Dashboard for Bootstrap 4?</span>
+                    </h2>
+                    <p class="lead">
+                        Cause if you do, it can be yours now. Hit the button below to
+                        navigate to get the free version or purchase a license for your next
+                        project. Build a new web app or give an old Bootstrap project a new
+                        look!
+                    </p>
+                    <div class="btn-wrapper">
+                        <a href="https://www.creative-tim.com/product/argon-dashboard-angular?ref=adpa-presentation-page"
+                            class="btn btn-neutral mb-3 mb-sm-0" target="_blank">
+                            <span class="btn-inner--text">Get FREE version</span>
+                        </a>
+                        <a href="https://www.creative-tim.com/product/argon-dashboard-pro-angular?ref=adpa-presentation-page"
+                            class="btn btn-primary btn-icon mb-3 mb-sm-0">
+                            <span class="btn-inner--icon"><i class="ni ni-basket"></i></span>
+                            <span class="btn-inner--text">Purchase now</span>
+                            <span class="badge badge-md badge-pill badge-floating badge-danger border-white">$89</span>
+                        </a>
+                    </div>
+                    <div class="text-center">
+                        <h4 class="display-4 mb-5 mt-5">Available on these technologies</h4>
+                        <div class="row justify-content-center">
+                            <div class="my-2 col-3 col-md-2">
+                                <a href=" https://www.creative-tim.com/product/argon-dashboard-pro-angular?ref=adpa-presentation-page"
+                                    target="_blank" tooltip="Angular - One framework. Mobile &amp; desktop">
+                                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/angular.jpg"
+                                        class="img-fluid rounded-circle" />
+                                </a>
+                            </div>
+                            <div class="my-2 col-3 col-md-2">
+                                <a href="https://www.creative-tim.com/product/argon-dashboard-pro?ref=adpa-presentation-page"
+                                    target="_blank" tooltip="Bootstrap 4 - Most popular front-end component library">
+                                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/bootstrap.jpg"
+                                        class="img-fluid rounded-circle shadow shadow-lg--hover" />
+                                </a>
+                            </div>
+
+                            <div class="my-2 col-3 col-md-2">
+                                <a href=" https://www.creative-tim.com/product/argon-dashboard-pro-react?ref=adpa-presentation-page"
+                                    target="_blank" tooltip="React - A JavaScript library for building user interfaces">
+                                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/react.jpg"
+                                        class="img-fluid rounded-circle" />
+                                </a>
+                            </div>
+                            <div class="my-2 col-3 col-md-2">
+                                <a href=" https://www.creative-tim.com/product/argon-dashboard-pro-laravel?ref=adpa-presentation-page"
+                                    target="_blank" tooltip="Laravel - The PHP Framework For Web Artisans">
+                                    <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/laravel_logo.png"
+                                        class="img-fluid rounded-circle" />
+                                </a>
+                            </div>
+                            <div class="my-2 col-3 col-md-2">
+                                <a href=" https://www.creative-tim.com/product/argon-dashboard-pro-nodejs?ref=adpa-presentation-page"
+                                    target="_blank"
+                                    tooltip="Node.js - a JavaScript runtime built on Chrome's V8 JavaScript engine">
+                                    <img src="https://raw.githubusercontent.com/creativetimofficial/public-assets/master/logos/nodejs-logo.jpg"
+                                        class="img-fluid rounded-circle" />
+                                </a>
+                            </div>
+                            <div class="my-2 col-3 col-md-2">
+                                <a href=" https://www.creative-tim.com/product/vue-argon-dashboard-pro?ref=adpa-presentation-page"
+                                    target="_blank" tooltip="Vue.js - The progressive javascript framework">
+                                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/vue.jpg"
+                                        class="img-fluid rounded-circle" />
+                                </a>
+                            </div>
+                            <div class="my-2 col-3 col-md-2">
+                                <a href=" https://www.creative-tim.com/product/argon-dashboard-pro-angular?ref=adpa-presentation-page"
+                                    target="_blank" tooltip="Sketch - Digital design toolkit">
+                                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/sketch.jpg"
+                                        class="img-fluid rounded-circle" />
+                                </a>
+                            </div>
+                            <div class="my-2 col-3 col-md-2">
+                                <a href=" https://www.adobe.com/products/photoshop.html?ref=adpa-presentation-page"
+                                    target="_blank"
+                                    tooltip="[Coming Soon] Adobe Photoshop - Software for digital images manipulation">
+                                    <img src="https://s3.amazonaws.com/creativetim_bucket/tim_static_images/presentation-page/ps.jpg"
+                                        class="img-fluid rounded-circle opacity-3" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
+<!-- Footer -->
+<footer class="py-5" id="footer-main">
+    <div class="container">
+        <div class="row align-items-center justify-content-xl-between">
+            <div class="col-xl-6">
+                <div class="copyright text-center text-xl-left text-muted">
+                    &copy; {{ test | date: "yyyy" }}
+                    <a href="https://www.creative-tim.com?ref=adpa-presentation-page" class="font-weight-bold ml-1"
+                        target="_blank">Mercado&Negocios</a>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com?ref=adpa-presentation-page" class="nav-link"
+                            target="_blank">Mercado&Negocios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com/presentation?ref=adpa-presentation-page" class="nav-link"
+                            target="_blank">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://blog.creative-tim.com?ref=adpa-presentation-page" class="nav-link"
+                            target="_blank">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com/license?ref=adpa-presentation-page" class="nav-link"
+                            target="_blank">License</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -61,7 +61,8 @@
                             "src/@fuse/styles/main.scss",
                             "src/styles/styles.scss",
                             "src/styles/tailwind.scss",
-                            "node_modules/bootstrap/dist/css/bootstrap.css"
+                            "node_modules/bootstrap/dist/css/bootstrap.css",
+                            "src/assets/scss/argon.scss"
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.js",
