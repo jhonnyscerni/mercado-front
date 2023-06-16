@@ -1,3 +1,4 @@
+import { ProductModule } from './modules/admin/product/product.module';
 import { Route } from '@angular/router';
 import { LayoutComponent } from 'app/layout/layout.component';
 import { InitialDataResolver } from 'app/app.resolvers';
@@ -79,6 +80,9 @@ export const appRoutes: Route[] = [
             {path: 'project', loadChildren: () => import('app/modules/admin/dashboards/project/project.module').then(m => m.ProjectModule)},
             {path: 'usuarios', loadChildren: () => import('app/modules/admin/users/users.module').then(m => m.UsersModule)},
             {path: 'grupos', loadChildren: () => import('app/modules/admin/roles/roles.module').then(m => m.RolesModule)},
+            {path: 'produtos', loadChildren: () => import('app/modules/admin/product/product.module').then(m => m.ProductModule)},
+            {path: 'categoria-produtos', loadChildren: () => import('app/modules/admin/category-product/category-product.module').then(m => m.CategoryProductModule)},
+            {path: 'marca-produtos', loadChildren: () => import('app/modules/admin/brand-product/brand-product.module').then(m => m.BrandProductModule)},
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
         ]
     }

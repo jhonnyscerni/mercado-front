@@ -40,7 +40,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Categoria de Produtos',
         type: 'basic',
         icon: 'mat_solid:category',
-        link: '/categoriaprodutos'
+        link: '/categoria-produtos'
     },
     {
 
@@ -48,7 +48,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Marca de Produtos',
         type: 'basic',
         icon: 'mat_solid:branding_watermark',
-        link: '/marcaprodutos'
+        link: '/marca-produtos'
     },
 ];
 export const compactNavigation: FuseNavigationItem[] = [
