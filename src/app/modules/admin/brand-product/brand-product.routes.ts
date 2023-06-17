@@ -1,17 +1,33 @@
 import { Routes } from '@angular/router';
 import { BrandProductListComponent } from './brand-product-list/brand-product-list.component';
 import { AuthoritiesGuard } from 'app/core/services/authorities.guard';
+import { BrandFormComponent } from './brand-form/brand-form.component';
 
 export const BRAND_PRODUCT_ROUTES: Routes = [
     {
         path: '',
         children: [
-          {
-            path: 'lista', component: BrandProductListComponent,
-            canActivate: [AuthoritiesGuard],
-             data: ['ROLE_ADMIN']
-          },
-          { path: '', redirectTo: '/marca-produtos/lista', pathMatch: 'full' }
+            {
+                path: 'adicionar', component: BrandFormComponent,
+                canActivate: [AuthoritiesGuard],
+                data: ['ROLE_ADMIN']
+            },
+            {
+                path: 'editar/:idMarca', component: BrandFormComponent,
+                canActivate: [AuthoritiesGuard],
+                data: ['ROLE_ADMIN']
+              },
+              {
+                path: 'detalhe/:idMarca', component: BrandFormComponent,
+                canActivate: [AuthoritiesGuard],
+                data: ['ROLE_ADMIN']
+              },
+            {
+                path: 'lista', component: BrandProductListComponent,
+                canActivate: [AuthoritiesGuard],
+                data: ['ROLE_ADMIN']
+            },
+            { path: '', redirectTo: '/marca-produtos/lista', pathMatch: 'full' }
         ]
-      }
+    }
 ];

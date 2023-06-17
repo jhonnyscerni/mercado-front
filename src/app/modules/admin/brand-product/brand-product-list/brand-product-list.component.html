@@ -108,7 +108,7 @@
                                 <button
                                     mat-flat-button
                                     [color]="'primary'"
-                                    (click)="create()"
+                                    (click)="onCreate()"
                                 >
                                     <mat-icon
                                         [svgIcon]="'heroicons_outline:plus'"
@@ -153,7 +153,7 @@
                                                   marca"
                                             placement="top"
                                             href="javascript:void(0)"
-                                            (click)="onEdit(role.id)"
+                                            (click)="onEdit(brand.id)"
                                         >
                                             <mat-icon matSuffix>edit</mat-icon>
                                         </a>
@@ -162,7 +162,7 @@
                                             tooltip="Deletar marca"
                                             placement="top"
                                             href="javascript:void(0)"
-                                            (click)="onDelete(role)"
+                                            (click)="onDelete(brand)"
                                         >
                                             <mat-icon matSuffix
                                                 >delete</mat-icon
@@ -173,7 +173,7 @@
                                             tooltip="Detalhes marca"
                                             placement="top"
                                             href="javascript:void(0)"
-                                            (click)="onDetalhe(role.id)"
+                                            (click)="onDetalhe(brand.id)"
                                         >
                                             <mat-icon
                                                 svgIcon="details"
@@ -185,7 +185,7 @@
                         </table>
                         <ng-template #loadingError>
                             <div *ngIf="error$ | async; else loading">
-                                Erro ao carregar usuarios. Tente novamente mais
+                                Erro ao carregar marcas de produtos. Tente novamente mais
                                 tarde.
                             </div>
                             <ng-template #loading>
@@ -193,7 +193,7 @@
                                     <div class="row py-3 align-items-center">
                                         <div class="col-sm-9">
                                             <h4 class="mb-0">
-                                                Carregando usuarios...
+                                                Carregando marcas de produtos...
                                             </h4>
                                         </div>
                                     </div>

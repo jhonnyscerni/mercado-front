@@ -46,6 +46,7 @@ export class CrudService<T> extends BaseService {
                 catchError(super.serviceError));;
     }
 
+    // eslint-disable-next-line @typescript-eslint/member-ordering
     save(record: T) {
         console.log(record);
         if (record['id']) {
@@ -56,6 +57,7 @@ export class CrudService<T> extends BaseService {
         return this.create(record);
     }
 
+    // eslint-disable-next-line @typescript-eslint/member-ordering
     remove(id): Observable<T> {
         return this.http.delete(`${this.API_URL}/${id}`)
             .pipe(
