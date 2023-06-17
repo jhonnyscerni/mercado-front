@@ -1,14 +1,14 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {Role} from '../../../../models/role';
-import {RoleService} from '../../../../services/role.service';
-import {MatTableDataSource} from '@angular/material/table';
-import {MatPaginator, PageEvent} from '@angular/material/paginator';
+import { Role } from '../../../../models/role';
+import { RoleService } from '../../../../services/role.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
-  selector: 'app-roles-list',
-  templateUrl: './role-list.component.html',
-  styleUrls: ['./role-list.component.scss']
+    selector: 'app-roles-list',
+    templateUrl: './role-list.component.html',
+    styleUrls: ['./role-list.component.scss']
 })
 export class RoleListComponent implements OnInit {
 
@@ -39,7 +39,15 @@ export class RoleListComponent implements OnInit {
             });
     }
 
-    create(): any {
-        throw new Error('Method not implemented.');
+    onCreate(): any {
+        this.router.navigate(['/grupos/adicionar'], { relativeTo: this.route });
+    }
+
+    onEdit(id): any {
+        this.router.navigate(['/grupos/editar', id], { relativeTo: this.route });
+    }
+
+    onDetalhe(id): any {
+        this.router.navigate(['/grupos/detalhe', id], { relativeTo: this.route });
     }
 }

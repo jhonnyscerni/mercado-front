@@ -1,18 +1,23 @@
 import { RoleListComponent } from './role-list/role-list.component';
 import { Routes, RouterModule, CanActivate } from '@angular/router';
-import {AuthoritiesGuard} from '../../../core/services/authorities.guard';
+import { AuthoritiesGuard } from '../../../core/services/authorities.guard';
+import { RoleFormComponent } from './role-form/role-form.component';
 
 
 export const grupoRoutes: Routes = [
-  {
-    path: '',
-    children: [
-      {
-        path: 'lista', component: RoleListComponent,
-        canActivate: [AuthoritiesGuard],
-         data: ['ROLE_ADMIN']
-      },
-      { path: '', redirectTo: '/grupos/lista', pathMatch: 'full' }
-    ]
-  }
+    {
+        path: '',
+        children: [
+            {
+                path: 'adicionar', component: RoleFormComponent,
+                canActivate: [AuthoritiesGuard],
+            },
+            {
+                path: 'lista', component: RoleListComponent,
+                canActivate: [AuthoritiesGuard],
+                data: ['ROLE_ADMIN']
+            },
+            { path: '', redirectTo: '/grupos/lista', pathMatch: 'full' }
+        ]
+    }
 ];
