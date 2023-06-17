@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BrandProductListComponent } from './brand-product-list/brand-product-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { BrandProductListComponent } from './brand-product-list/brand-product-li
     MatProgressBarModule,
     MatIconModule,
     MatButtonModule,
+    NgxPaginationModule,
 ],
   declarations: [BrandProductComponent, BrandProductListComponent],
   exports: [BrandProductComponent, BrandProductListComponent],

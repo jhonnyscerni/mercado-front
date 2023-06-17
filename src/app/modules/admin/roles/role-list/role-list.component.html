@@ -201,6 +201,10 @@
                             </ng-template>
                         </ng-template>
                     </div>
+                    <div class=" py-4 text-center ngx-pagination">
+                        <pagination-controls previousLabel="Anterior" nextLabel="Próximo" responsive="true"
+                            (pageChange)="page = $event"></pagination-controls>
+                    </div>
                 </div>
             </div>
         </div>

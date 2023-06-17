@@ -11,6 +11,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { NgxPaginationModule } from 'ngx-pagination';
 @NgModule({
     imports: [
         CommonModule,
@@ -23,6 +24,7 @@ import { MatButtonModule } from '@angular/material/button';
         MatProgressBarModule,
         MatIconModule,
         MatButtonModule,
+        NgxPaginationModule,
     ],
   declarations: [RolesComponent, RoleListComponent],
   exports: [RolesComponent, RoleListComponent]

@@ -12,6 +12,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableModule } from '@angular/material/table';
 import { CategoryProductListComponent } from './category-product-list/category-product-list.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { CategoryProductListComponent } from './category-product-list/category-p
     MatProgressBarModule,
     MatIconModule,
     MatButtonModule,
+    NgxPaginationModule,
 ],
   declarations: [CategoryProductComponent, CategoryProductListComponent],
   exports: [CategoryProductComponent, CategoryProductListComponent],
