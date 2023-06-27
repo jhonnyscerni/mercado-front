@@ -1,27 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Brand } from 'app/models/brand';
+import { CategoryProduct } from 'app/models/category-product';
+import { CategoryProductService } from 'app/services/category-product.service';
 import { BaseFormComponent } from 'app/shared/base-form/base-form.component';
 import { ToastrService } from 'ngx-toastr';
 import { Location } from '@angular/common';
-import { BrandService } from 'app/services/brand.service';
 
 @Component({
-  selector: 'app-brand-form',
-  templateUrl: './brand-form.component.html',
-  styleUrls: ['./brand-form.component.scss']
+  selector: 'app-category-product-form',
+  templateUrl: './category-product-form.component.html',
+  styleUrls: ['./category-product-form.component.scss']
 })
-export class BrandFormComponent extends BaseFormComponent implements OnInit {
-    marca: Brand;
-    idMarca: number;
+export class CategoryProductFormComponent extends BaseFormComponent implements OnInit{
+    categoriaProduto: CategoryProduct;
+    idCategoriaProduto: number;
 
     constructor(
         private fb: FormBuilder,
         private location: Location,
         private route: ActivatedRoute,
         private router: Router,
-        private marcaService: BrandService,
+        private categoriaProdutoService: CategoryProductService,
         private toastr: ToastrService,
       ) {
         super();
@@ -29,13 +29,11 @@ export class BrandFormComponent extends BaseFormComponent implements OnInit {
 
       ngOnInit(): any {
         this.route.params.subscribe((params: any) => {
-          const idMarca = params['idMarca'];
-          if (idMarca) {
-            console.log(idMarca);
-            const marca$ = this.marcaService.loadByID(idMarca);
-            marca$.subscribe((marca) => {
-              this.updateForm(marca);
-              console.log(marca);
+          const idCategoriaProduto = params['idCategoriaProduto'];
+          if (idCategoriaProduto) {
+            const categoriaProduto$ = this.categoriaProdutoService.loadByID(idCategoriaProduto);
+            categoriaProduto$.subscribe((categoriaProduto) => {
+              this.updateForm(categoriaProduto);
             });
           }
         });
@@ -52,28 +50,26 @@ export class BrandFormComponent extends BaseFormComponent implements OnInit {
         });
       }
 
-      updateForm(marca): any {
+      updateForm(categoriaProduto): any {
         this.cadastroForm.patchValue({
-          id: marca.id,
-          nomeDesc: marca.nomeDesc
+          id: categoriaProduto.id,
+          nomeDesc: categoriaProduto.nomeDesc
         });
       }
 
       submit(): any {
         //console.log('submit');
 
-        let msgSuccess = 'marca criado com sucesso!';
-        let msgError = 'Erro ao criar marca, tente novamente!';
+        let msgSuccess = 'Categoria Produto criado com sucesso!';
+        let msgError = 'Erro ao criar categoria produto, tente novamente!';
         if (this.cadastroForm.value.id) {
           //console.log(this.cadastroForm.value);
-          msgSuccess = 'marca atualizado com sucesso!';
-          msgError = 'Erro ao atualizar marca, tente novamente!';
+          msgSuccess = 'categoria produto atualizado com sucesso!';
+          msgError = 'Erro ao atualizar categoria produto, tente novamente!';
         }
 
-        this.marcaService.save(this.cadastroForm.value).subscribe(
+        this.categoriaProdutoService.save(this.cadastroForm.value).subscribe(
           (success) => {
-            //this.toastr.success(msgSuccess, 'Sucesso'),
-            // this.alertService.showAlertSuccess(msgSuccess);
             this.toastr.success(msgSuccess, 'Informação :)');
             this.location.back();
           },
@@ -84,10 +80,11 @@ export class BrandFormComponent extends BaseFormComponent implements OnInit {
       }
 
       cancelar(): any {
-        this.router.navigate(['/marca-produtos/lista'], { relativeTo: this.route });
+        this.router.navigate(['/categoria-produtos/lista'], { relativeTo: this.route });
       }
 
       listaMarcas(): any{
-        this.router.navigate(['/marca-produtos/lista'], { relativeTo: this.route });
+        this.router.navigate(['/categoria-produtos/lista'], { relativeTo: this.route });
       }
-    }
+
+}

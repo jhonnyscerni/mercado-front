@@ -108,7 +108,7 @@
                                 <button
                                     mat-flat-button
                                     [color]="'primary'"
-                                    (click)="create()"
+                                    (click)="onCreate()"
                                 >
                                     <mat-icon
                                         [svgIcon]="'heroicons_outline:plus'"
@@ -153,7 +153,7 @@
                                                   Categoria"
                                             placement="top"
                                             href="javascript:void(0)"
-                                            (click)="onEdit(role.id)"
+                                            (click)="onEdit(category.id)"
                                         >
                                             <mat-icon matSuffix>edit</mat-icon>
                                         </a>
@@ -162,7 +162,7 @@
                                             tooltip="Deletar Categoria"
                                             placement="top"
                                             href="javascript:void(0)"
-                                            (click)="onDelete(role)"
+                                            (click)="onDelete(category)"
                                         >
                                             <mat-icon matSuffix
                                                 >delete</mat-icon
@@ -173,7 +173,7 @@
                                             tooltip="Detalhes Categoria"
                                             placement="top"
                                             href="javascript:void(0)"
-                                            (click)="onDetalhe(role.id)"
+                                            (click)="onDetalhe(category.id)"
                                         >
                                             <mat-icon
                                                 svgIcon="details"
