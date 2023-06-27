@@ -102,7 +102,7 @@
                                 </div>
                             </div>
                             <!-- Actions -->
-                            <div
+                            <!-- <div
                                 class="flex shrink-0 items-center mt-2 sm:mt-0"
                             >
                                 <button
@@ -117,7 +117,7 @@
                                         >Cadastrar de Grupo</span
                                     >
                                 </button>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div
@@ -131,7 +131,6 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>NOME</th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -145,40 +144,6 @@
                                         <span class="text-muted">
                                             {{ role?.nome }}</span
                                         >
-                                    </td>
-                                    <td class="table-actions">
-                                        <a
-                                            class="table-action"
-                                            tooltip="Editar
-                                                  usuario"
-                                            placement="top"
-                                            href="javascript:void(0)"
-                                            (click)="onEdit(role.id)"
-                                        >
-                                            <mat-icon matSuffix>edit</mat-icon>
-                                        </a>
-                                        <a
-                                            class="table-action table-action-delete"
-                                            tooltip="Deletar consulta"
-                                            placement="top"
-                                            href="javascript:void(0)"
-                                            (click)="onDelete(role)"
-                                        >
-                                            <mat-icon matSuffix
-                                                >delete</mat-icon
-                                            >
-                                        </a>
-                                        <a
-                                            class="table-action"
-                                            tooltip="Detalhes consulta"
-                                            placement="top"
-                                            href="javascript:void(0)"
-                                            (click)="onDetalhe(role.id)"
-                                        >
-                                            <mat-icon
-                                                svgIcon="details"
-                                            ></mat-icon>
-                                        </a>
                                     </td>
                                 </tr>
                             </tbody>
