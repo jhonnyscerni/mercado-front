@@ -1,25 +1,24 @@
-import { Product } from 'app/models/product';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductService } from 'app/services/product.service';
+import { Notice } from 'app/models/notice';
+import { NoticeService } from 'app/services/notice.service';
 import { AlertModalService } from 'app/shared/alert-modal.service';
 import { EMPTY, switchMap, take } from 'rxjs';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+    selector: 'app-notice-list',
+    templateUrl: './notice-list.component.html',
 })
-export class ProductListComponent implements OnInit {
+export class NoticeListComponent implements OnInit {
 
-    products: Product[];
+    notices: Notice[];
     errorMessage: string;
 
-    productSelecionado: Product;
+    noticeSelecionado: Notice;
 
     searchForm: FormGroup;
-    nomecontrol: FormControl;
+    numerocontrol: FormControl;
 
     // Paginação
     totalElements = 0;
@@ -30,13 +29,13 @@ export class ProductListComponent implements OnInit {
     constructor(
         private router: Router,
         private route: ActivatedRoute,
-        private produtoService: ProductService,
+        private editalService: NoticeService,
         private fb: FormBuilder,
         private alertService: AlertModalService,
-    ) {}
+    ) { }
 
     getRequestParams(pageElement, size): any {
-        let nome = this.nomecontrol.value;
+        let numero = this.numerocontrol.value;
         const params = {};
 
         if (pageElement) {
@@ -47,60 +46,60 @@ export class ProductListComponent implements OnInit {
             params['size'] = size;
         }
 
-        if (nome && (nome = nome.trim()) !== '') {
-            params['nome'] = nome;
+        if (numero && (numero = numero.trim()) !== '') {
+            params['numero'] = numero;
         }
         return params;
     }
 
     ngOnInit(): any {
 
-        this.nomecontrol = this.fb.control('');
+        this.numerocontrol = this.fb.control('');
         this.searchForm = this.fb.group({
-          nomecontrol: this.nomecontrol
+            numerocontrol: this.numerocontrol
         });
         this.onRefresh();
-      }
+    }
 
-      handlePageChange(event): any {
+    handlePageChange(event): any {
         this.page = event;
         this.pageElement = this.page - 1;
         this.onRefresh();
-      }
+    }
 
-      onRefresh(): any {
+    onRefresh(): any {
         const params = this.getRequestParams(this.pageElement, this.size);
 
-        this.produtoService.listSearchPage(params)
+        this.editalService.listSearchPage(params)
           .subscribe(
-            (product) => {
-              this.products = product.content;
-              this.totalElements = product.totalElements;
-              this.pageElement = product.number;
-              this.size = product.size;
+            (notice) => {
+              this.notices = notice.content;
+              this.totalElements = notice.totalElements;
+              this.pageElement = notice.number;
+              this.size = notice.size;
             },
             error => this.errorMessage
           );
       }
 
-      onSearch(): any {
+    onSearch(): any {
         this.totalElements = 0;
         this.page = 1;
         this.pageElement = 0;
         this.size = 10;
         this.onRefresh();
-      }
+    }
 
-      onEdit(id): any {
+    onEdit(id): any {
         this.router.navigate(['../editar', id], { relativeTo: this.route });
-      }
+    }
 
       create(): any {
         this.router.navigate(['../cadastrar'], { relativeTo: this.route });
-      }
+    }
 
-      onDelete(produto): any {
-        this.productSelecionado = produto;
+    onDelete(produto): any {
+        this.noticeSelecionado = produto;
         const result$ = this.alertService.showConfirm(
           'Confirmação',
           'Tem certeza que deseja remover esse item?',
@@ -110,7 +109,7 @@ export class ProductListComponent implements OnInit {
           .pipe(
             take(1),
             switchMap(result =>
-              result ? this.produtoService.remove(produto.id) : EMPTY,
+              result ? this.editalService.remove(produto.id) : EMPTY,
             ),
           )
           .subscribe(

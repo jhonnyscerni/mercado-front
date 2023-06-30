@@ -28,14 +28,6 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
     {
 
-        id: 'produtos',
-        title: 'Produtos',
-        type: 'basic',
-        icon: 'mat_solid:add_shopping_cart',
-        link: '/produtos'
-    },
-    {
-
         id: 'categoriaprodutos',
         title: 'Categoria de Produtos',
         type: 'basic',
@@ -50,7 +42,24 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon: 'mat_solid:branding_watermark',
         link: '/marca-produtos'
     },
+    {
+
+        id: 'produtos',
+        title: 'Produtos',
+        type: 'basic',
+        icon: 'mat_solid:add_shopping_cart',
+        link: '/produtos'
+    },
+    {
+
+        id: 'editais',
+        title: 'Editais',
+        type: 'basic',
+        icon: 'mat_solid:view_headline',
+        link: '/editais'
+    },
 ];
+//https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/
 export const compactNavigation: FuseNavigationItem[] = [
     {
         id: 'example',

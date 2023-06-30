@@ -83,6 +83,7 @@ export const appRoutes: Route[] = [
             {path: 'produtos', loadChildren: () => import('app/modules/admin/product/product.module').then(m => m.ProductModule)},
             {path: 'categoria-produtos', loadChildren: () => import('app/modules/admin/category-product/category-product.module').then(m => m.CategoryProductModule)},
             {path: 'marca-produtos', loadChildren: () => import('app/modules/admin/brand-product/brand-product.module').then(m => m.BrandProductModule)},
+            {path: 'editais', loadChildren: () => import('app/modules/admin/notice/notice.module').then(m => m.NoticeModule)},
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
         ]
     }
