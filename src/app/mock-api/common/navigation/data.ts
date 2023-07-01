@@ -8,6 +8,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'DashBoard',
         type: 'basic',
         icon: 'mat_solid:dashboard',
+        role: 'ROLE_ADMIN',
         link: '/project'
     },
     {
@@ -16,6 +17,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Usuários',
         type: 'basic',
         icon: 'heroicons_outline:users',
+        role: 'ROLE_ADMIN',
         link: '/usuarios'
     },
     {
@@ -24,6 +26,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Grupos',
         type: 'basic',
         icon: 'mat_solid:group',
+        role: 'ROLE_ADMIN',
         link: '/grupos'
     },
     {
@@ -32,6 +35,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Categoria de Produtos',
         type: 'basic',
         icon: 'mat_solid:category',
+        role: 'ROLE_ADMIN',
         link: '/categoria-produtos'
     },
     {
@@ -40,6 +44,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Marca de Produtos',
         type: 'basic',
         icon: 'mat_solid:branding_watermark',
+        role: 'ROLE_ADMIN',
         link: '/marca-produtos'
     },
     {
@@ -48,6 +53,7 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Produtos',
         type: 'basic',
         icon: 'mat_solid:add_shopping_cart',
+        role: 'ROLE_ADMIN',
         link: '/produtos'
     },
     {
@@ -56,6 +62,64 @@ export const defaultNavigation: FuseNavigationItem[] = [
         title: 'Editais',
         type: 'basic',
         icon: 'mat_solid:view_headline',
+        role: 'ROLE_ADMIN',
+        link: '/editais'
+    },
+    // COMPRADOR
+    {
+
+        id: 'dashboard',
+        title: 'DashBoard',
+        type: 'basic',
+        icon: 'mat_solid:dashboard',
+        role: 'ROLE_BUYER',
+        link: '/project'
+    },
+    {
+
+        id: 'categoriaprodutos',
+        title: 'Categoria de Produtos',
+        type: 'basic',
+        icon: 'mat_solid:category',
+        role: 'ROLE_BUYER',
+        link: '/categoria-produtos'
+    },
+    {
+
+        id: 'marcaprodutos',
+        title: 'Marca de Produtos',
+        type: 'basic',
+        icon: 'mat_solid:branding_watermark',
+        role: 'ROLE_BUYER',
+        link: '/marca-produtos'
+    },
+    {
+
+        id: 'produtos',
+        title: 'Produtos',
+        type: 'basic',
+        icon: 'mat_solid:add_shopping_cart',
+        role: 'ROLE_BUYER',
+        link: '/produtos'
+    },
+
+    {
+
+        id: 'editais',
+        title: 'Editais',
+        type: 'basic',
+        icon: 'mat_solid:view_headline',
+        role: 'ROLE_BUYER',
+        link: '/editais'
+    },
+    // VENDEDOR
+    {
+
+        id: 'editais',
+        title: 'Editais',
+        type: 'basic',
+        icon: 'mat_solid:view_headline',
+        role: 'ROLE_VENDOR',
         link: '/editais'
     },
 ];

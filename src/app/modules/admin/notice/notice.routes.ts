@@ -9,8 +9,7 @@ export const NOTICE_ROUTES: Routes = [
         children: [
           {
             path: 'lista', component: NoticeListComponent,
-            canActivate: [AuthoritiesGuard],
-             data: ['ROLE_ADMIN']
+            canActivate: [AuthoritiesGuard]
           },
           { path: '', redirectTo: '/editais/lista', pathMatch: 'full' }
         ]

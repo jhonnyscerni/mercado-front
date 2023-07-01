@@ -61,7 +61,8 @@
                                     [placeholder]="'Search products'">
                             </mat-form-field> -->
                                 <!-- Add product button -->
-                                <button mat-flat-button [color]="'primary'" (click)="create()">
+                                <button mat-flat-button [color]="'primary'" (click)="create()"
+                                    *ngIf="authorities === 'ROLE_ADMIN' || authorities === 'ROLE_BUYER' ">
                                     <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
                                     <span class="ml-2 mr-1">Cadastrar de Editais</span>
                                 </button>
@@ -119,7 +120,7 @@
                                             edital?.empresa?.cnpj }}</span></td>
                                     <td><span class="text-muted"> {{
                                             edital?.produto?.nome }}</span></td>
-                                    <td class="table-actions">
+                                    <td class="table-actions" *ngIf="authorities === 'ROLE_ADMIN' || authorities === 'ROLE_BUYER' ">
                                         <a class="table-action" tooltip="Editar
                                                   produto" placement="top" href="javascript:void(0)"
                                             (click)="onEdit(edital.id)">
@@ -133,6 +134,13 @@
                                         <a class="table-action" tooltip="Detalhes consulta" placement="top"
                                             href="javascript:void(0)" (click)="onDetalhe(edital.id)">
                                             <mat-icon svgIcon="details"></mat-icon>
+                                        </a>
+                                    </td>
+
+                                    <td class="table-actions" *ngIf="authorities === 'ROLE_ADMIN' || authorities === 'ROLE_VENDOR' ">
+                                        <a class="table-action" tooltip="Detalhes consulta" placement="top"
+                                            href="javascript:void(0)" (click)="onDetalhe(edital.id)">
+                                            <mat-icon svgIcon="edit"></mat-icon>
                                         </a>
                                     </td>
                                 </tr>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'app/core/auth/auth.service';
 import { Notice } from 'app/models/notice';
 import { NoticeService } from 'app/services/notice.service';
 import { AlertModalService } from 'app/shared/alert-modal.service';
@@ -14,6 +15,7 @@ export class NoticeListComponent implements OnInit {
 
     notices: Notice[];
     errorMessage: string;
+    authorities: any;
 
     noticeSelecionado: Notice;
 
@@ -32,6 +34,7 @@ export class NoticeListComponent implements OnInit {
         private editalService: NoticeService,
         private fb: FormBuilder,
         private alertService: AlertModalService,
+        private authService: AuthService
     ) { }
 
     getRequestParams(pageElement, size): any {
@@ -53,6 +56,7 @@ export class NoticeListComponent implements OnInit {
     }
 
     ngOnInit(): any {
+        this.authorities = this.authService.getAuthorities()[0].authority;
 
         this.numerocontrol = this.fb.control('');
         this.searchForm = this.fb.group({

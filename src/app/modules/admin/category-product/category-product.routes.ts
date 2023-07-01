@@ -10,22 +10,18 @@ export const CATEGORY_PRODUCT_ROUTES: Routes = [
             {
                 path: 'adicionar', component: CategoryProductFormComponent,
                 canActivate: [AuthoritiesGuard],
-                data: ['ROLE_ADMIN']
             },
             {
                 path: 'editar/:idCategoriaProduto', component: CategoryProductFormComponent,
                 canActivate: [AuthoritiesGuard],
-                data: ['ROLE_ADMIN']
             },
             {
                 path: 'detalhe/:idCategoriaProduto', component: CategoryProductFormComponent,
                 canActivate: [AuthoritiesGuard],
-                data: ['ROLE_ADMIN']
             },
             {
                 path: 'lista', component: CategoryProductListComponent,
                 canActivate: [AuthoritiesGuard],
-                data: ['ROLE_ADMIN']
             },
             { path: '', redirectTo: '/categoria-produtos/lista', pathMatch: 'full' }
         ]

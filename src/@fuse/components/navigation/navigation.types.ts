@@ -1,10 +1,12 @@
 import { IsActiveMatchOptions, Params, QueryParamsHandling } from '@angular/router';
+import { Role } from 'app/models/role';
 
 export interface FuseNavigationItem
 {
     id?: string;
     title?: string;
     subtitle?: string;
+    role?: string;
     type:
         | 'aside'
         | 'basic'

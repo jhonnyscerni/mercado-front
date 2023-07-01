@@ -5,6 +5,7 @@ import { FuseVerticalNavigationComponent } from '@fuse/components/navigation/ver
 import { FuseNavigationService } from '@fuse/components/navigation/navigation.service';
 import { FuseNavigationItem } from '@fuse/components/navigation/navigation.types';
 import { FuseUtilsService } from '@fuse/services/utils/utils.service';
+import { AuthService } from 'app/core/auth/auth.service';
 
 @Component({
     selector       : 'fuse-vertical-navigation-basic-item',
@@ -16,6 +17,8 @@ export class FuseVerticalNavigationBasicItemComponent implements OnInit, OnDestr
     @Input() item: FuseNavigationItem;
     @Input() name: string;
 
+    authorites: any;
+
     isActiveMatchOptions: IsActiveMatchOptions;
     private _fuseVerticalNavigationComponent: FuseVerticalNavigationComponent;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
@@ -26,7 +29,8 @@ export class FuseVerticalNavigationBasicItemComponent implements OnInit, OnDestr
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
         private _fuseNavigationService: FuseNavigationService,
-        private _fuseUtilsService: FuseUtilsService
+        private _fuseUtilsService: FuseUtilsService,
+        private _authService: AuthService
     )
     {
         // Set the equivalent of {exact: false} as default for active match options.
@@ -45,6 +49,8 @@ export class FuseVerticalNavigationBasicItemComponent implements OnInit, OnDestr
      */
     ngOnInit(): void
     {
+
+        this.authorites = this._authService.getAuthorities()[0].authority;
         // Set the "isActiveMatchOptions" either from item's
         // "isActiveMatchOptions" or the equivalent form of
         // item's "exactMatch" option
