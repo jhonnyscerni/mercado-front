@@ -11,6 +11,7 @@ export const grupoRoutes: Routes = [
             {
                 path: 'adicionar', component: RoleFormComponent,
                 canActivate: [AuthoritiesGuard],
+                data: ['ROLE_ADMIN']
             },
             {
                 path: 'lista', component: RoleListComponent,

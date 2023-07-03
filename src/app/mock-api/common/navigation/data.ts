@@ -115,6 +115,15 @@ export const defaultNavigation: FuseNavigationItem[] = [
     // VENDEDOR
     {
 
+        id: 'dashboard',
+        title: 'DashBoard',
+        type: 'basic',
+        icon: 'mat_solid:dashboard',
+        role: 'ROLE_VENDOR',
+        link: '/project'
+    },
+    {
+
         id: 'editais',
         title: 'Editais',
         type: 'basic',

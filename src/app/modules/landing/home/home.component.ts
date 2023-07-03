@@ -29,4 +29,8 @@ export class LandingHomeComponent implements OnInit
       this.authService.signOut();
       this.router.navigate(['/home']);
     }
+
+    onDashboard(): any {
+        this.router.navigate(['/project']);
+    }
 }

@@ -28,14 +28,14 @@ export class AuthoritiesGuard implements CanActivate {
       }
 
       const authorized: any = next.data[0];
-      //console.log(authorized);
+      const authorized1: any = next.data[1];
 
       if (authorized !== undefined) {
         if(!this.namesAuthorities){
           this.navegarAcessoNegado();
         }
 
-        const userAuthorities = this.namesAuthorities.find(x => x === authorized);
+        const userAuthorities = this.namesAuthorities.find(x => x === authorized || x === authorized1 );
 
         if(!userAuthorities){
             this.navegarAcessoNegado();

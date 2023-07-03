@@ -9,19 +9,23 @@ export const BRAND_PRODUCT_ROUTES: Routes = [
         children: [
             {
                 path: 'adicionar', component: BrandFormComponent,
-                canActivate: [AuthoritiesGuard]
+                canActivate: [AuthoritiesGuard],
+                data: ['ROLE_ADMIN', 'ROLE_BUYER']
             },
             {
                 path: 'editar/:idMarca', component: BrandFormComponent,
-                canActivate: [AuthoritiesGuard]
+                canActivate: [AuthoritiesGuard],
+                data: ['ROLE_ADMIN', 'ROLE_BUYER']
               },
               {
                 path: 'detalhe/:idMarca', component: BrandFormComponent,
-                canActivate: [AuthoritiesGuard]
+                canActivate: [AuthoritiesGuard],
+                data: ['ROLE_ADMIN', 'ROLE_BUYER']
               },
             {
                 path: 'lista', component: BrandProductListComponent,
-                canActivate: [AuthoritiesGuard]
+                canActivate: [AuthoritiesGuard],
+                data: ['ROLE_ADMIN', 'ROLE_BUYER']
             },
             { path: '', redirectTo: '/marca-produtos/lista', pathMatch: 'full' }
         ]

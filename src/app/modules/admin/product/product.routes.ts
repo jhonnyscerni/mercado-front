@@ -8,7 +8,8 @@ export const PRODUCT_ROUTES: Routes = [
         children: [
           {
             path: 'lista', component: ProductListComponent,
-            canActivate: [AuthoritiesGuard]
+            canActivate: [AuthoritiesGuard],
+            data: ['ROLE_ADMIN', 'ROLE_BUYER']
           },
           { path: '', redirectTo: '/produtos/lista', pathMatch: 'full' }
         ]
