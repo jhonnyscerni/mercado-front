@@ -1,10 +1,10 @@
-import { ProductModule } from './modules/admin/product/product.module';
 import { Route } from '@angular/router';
 import { LayoutComponent } from 'app/layout/layout.component';
 import { InitialDataResolver } from 'app/app.resolvers';
 import {AuthGuard} from './core/auth/guards/auth.guard';
 import {NoAuthGuard} from './core/auth/guards/noAuth.guard';
 import { LandingHomeComponent } from './modules/landing/home/home.component';
+import { LandingSignupComponent } from './modules/landing/signup/signup.component';
 
 // @formatter:off
 /* eslint-disable max-len */
@@ -28,6 +28,13 @@ export const appRoutes: Route[] = [
         },
         component: LandingHomeComponent
       },
+      {
+        path: 'sign-up',
+        data: {
+            layout: 'empty'
+        },
+        component: LandingSignupComponent
+      },
     // Auth routes for guests
     {
         path: '',
@@ -39,7 +46,7 @@ export const appRoutes: Route[] = [
         children: [
             {path: 'confirmation-required', loadChildren: () => import('app/modules/auth/confirmation-required/confirmation-required.module').then(m => m.AuthConfirmationRequiredModule)},
             {path: 'forgot-password', loadChildren: () => import('app/modules/auth/forgot-password/forgot-password.module').then(m => m.AuthForgotPasswordModule)},
-            {path: 'sign-in', loadChildren: () => import('app/modules/auth/sign-in/sign-in.module').then(m => m.AuthSignInModule)},
+            {path: 'sign-in', loadChildren: () => import('app/modules/auth/sign-in/sign-in.module').then(m => m.AuthSignInModule)}
         ]
     },
 
@@ -52,7 +59,7 @@ export const appRoutes: Route[] = [
             layout: 'empty'
         },
         children: [
-            {path: 'sign-out', loadChildren: () => import('app/modules/auth/sign-out/sign-out.module').then(m => m.AuthSignOutModule)},
+            {path: 'sign-out', loadChildren: () => import('app/modules/auth/sign-out/sign-out.module').then(m => m.AuthSignOutModule)}
         ]
     },
 
@@ -65,6 +72,7 @@ export const appRoutes: Route[] = [
         },
         children   : [
             {path: 'home', loadChildren: () => import('app/modules/landing/home/home.module').then(m => m.LandingHomeModule)},
+            {path: 'sign-up', loadChildren: () => import('app/modules/landing/signup/signup.module').then(m => m.LandingSignupModule)}
         ]
     },
 

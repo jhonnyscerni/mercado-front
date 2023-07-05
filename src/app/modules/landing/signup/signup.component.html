@@ -1,0 +1,443 @@
+<nav id="navbar-main" class=" navbar navbar-horizontal navbar-main navbar-expand-lg navbar-light">
+    <!-- <nav
+    class="navbar navbar-top navbar-expand navbar-dark bg-danger border-bottom"
+    id="navbar-main"
+  > -->
+    <div class="container">
+    <div>
+        <mat-icon svgIcon="heroicons_solid:user-group"></mat-icon>
+        <b style="font-size: 22px;" class="ml-2">Merdado & Negocios</b>
+    </div>
+        <!-- <a class="navbar-brand" [routerLink]="['/project']">
+            Merdado & Negocios
+            <img src="../../../../assets/img/brand/blue.png" />
+        </a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
+            aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse navbar-custom-collapse collapse" id="collapseBasic" id="navbarSupportedContent">
+            <div class="navbar-collapse-header">
+                <div class="row">
+                    <div class="col-8 collapse-brand">
+                        <a [routerLink]="['/home']">
+                            <img src="assets/images/logo.png" class="img-mobile" [width]="45" width="" alt="" />
+                            <span class="logo-mobile">Siberius</span>
+                        </a>
+                    </div>
+                    <div class="col-4 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse"
+                            data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false"
+                            aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+                            <span></span> <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <ul class="navbar-nav mr-auto">
+                <!-- <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLinkActive="active"
+              [routerLink]="['/portal/pricing']"
+            >
+              <span class="nav-link-inner--text">Planos</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLinkActive="active"
+              [routerLink]="['/portal/login']"
+            >
+              <span class="nav-link-inner--text">Login</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLinkActive="active"
+              [routerLink]="['/portal/register']"
+            >
+              <span class="nav-link-inner--text">Registre-se</span>
+            </a>
+          </li> -->
+            </ul>
+            <!--          <hr class="d-lg-none"/>-->
+            <!--Menu-->
+            <ul [ngSwitch]="usuarioLogado()" class="navbar-nav align-items-lg-center ml-lg-auto">
+                <!--            <li class="nav-item">-->
+                <!--              <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank"-->
+                <!--                 data-toggle="tooltip" data-original-title="Like us on Facebook">-->
+                <!--                <i class="fab fa-facebook-square"></i>-->
+                <!--                <span class="nav-link-inner&#45;&#45;text d-lg-none">Facebook</span>-->
+                <!--              </a>-->
+                <!--            </li>-->
+                <!--            <li class="nav-item">-->
+                <!--              <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank"-->
+                <!--                 data-toggle="tooltip" data-original-title="Follow us on Instagram">-->
+                <!--                <i class="fab fa-instagram"></i>-->
+                <!--                <span class="nav-link-inner&#45;&#45;text d-lg-none">Instagram</span>-->
+                <!--              </a>-->
+                <!--            </li>-->
+                <li *ngSwitchCase="false" class="nav-item d-lg-block ml-lg-4">
+                    <a class="btn btn-portal btn-icon" routerLinkActive="active"
+                        [routerLink]="['/sign-in']">
+                        <span class="btn-inner--icon">
+                            <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
+                            <!-- <mat-icon svgIcon="heroicons_solid:user"></mat-icon> -->
+                        </span>
+                        <span class="nav-link-inner--text">ACESSE SUA CONTA</span>
+                    </a>
+                </li>
+
+                <li *ngSwitchCase="false" class="nav-item d-lg-block ml-lg-4">
+                    <a class="btn bg-green btn-icon text-white" routerLinkActive="active"
+                        [routerLink]="['/sign-up']">
+                        <span class="btn-inner--icon">
+                            <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
+                            <!--              <i class="fas fa-sign-in-alt mr-2"></i>-->
+                            <i class="far fa-user mr-2"></i>
+                        </span>
+                        <span class="nav-link-inner--text">CADASTRE-SE</span>
+                    </a>
+                </li>
+                <!-- </ul> -->
+
+                <!-- User -->
+                <!-- <ul class="navbar-nav align-items-center ml-auto ml-md-0"> -->
+
+                <li *ngSwitchCase="true" class="nav-item d-none d-lg-block ml-lg-4">
+                    <a class="btn btn-portal btn-icon" routerLinkActive="active" (click)="onDashboard()">
+                        <span class="btn-inner--icon">
+                            <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
+                            <i class="fas fa-columns mr-2 text-white"></i>
+                        </span>
+                        <span class="nav-link-inner--text text-white">PAINEL</span>
+                    </a>
+                </li>
+
+                <li *ngSwitchCase="true" class="nav-item dropdown" dropdown placement="bottom-right">
+                    <a class="pr-0 dropdown-toggle" role="button" dropdownToggle>
+                        <div class="media align-items-center">
+                            <span class="avatar avatar-sm rounded-circle">
+                                <img alt="Image placeholder" src="assets/img/theme/team-4.jpg" />
+                            </span>
+                            <div class="media-body ml-2 d-lg-block">
+                                <span class="mb-0 text-sm font-weight-bold"
+                                    style="color: #1e1e1e !important;">{{user}}</span>
+                            </div>
+                            <a href="javascript:void()" (click)="logout()" class="sair">
+                                <i class="ni ni-user-run"></i> <span>Sair</span>
+                            </a>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-arrow d-none dropdown-menu-right" *dropdownMenu>
+                        <div class=" dropdown-header noti-title">
+                            <h6 class="text-overflow m-0">Bem Vindo!</h6>
+                        </div>
+                        <a routerLinkActive="active" (click)="onProfile()" class="dropdown-item">
+                            <i class="ni ni-single-02"></i> <span>Minha Conta</span>
+                        </a>
+                        <!-- <a
+                routerLinkActive="active"
+                [routerLink]="['/user-profile']"
+                class="dropdown-item"
+              >
+                <i class="ni ni-settings-gear-65"></i> <span>Settings</span>
+              </a>
+              <a
+                routerLinkActive="active"
+                [routerLink]="['/user-profile']"
+                class="dropdown-item"
+              >
+                <i class="ni ni-calendar-grid-58"></i> <span>Activity</span>
+              </a>
+              <a
+                routerLinkActive="active"
+                [routerLink]="['/portal/user-profile']"
+                class="dropdown-item"
+              >
+                <i class="ni ni-support-16"></i> <span>Support</span>
+              </a> -->
+                        <div class="dropdown-divider"></div>
+                        <a href="javascript:void()" (click)="logout()" class="dropdown-item">
+                            <i class="ni ni-user-run"></i> <span>Sair</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="main-content">
+    <section class="py-7">
+        <div class="container">
+            <div class="row row-grid justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h2 class="display-3">
+                        Cadastre-se
+                        <span class="text-success">Cadastro de Vendedores</span>
+                    </h2>
+                    <!-- Inicio do Form -->
+                    <div class="bg-card">
+                        <div class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+                            <div class="card-body mt-4">
+                                <!-- inicio da Row -->
+                                <form novalidate [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="username">
+                                                    Nome do Usuário
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'username'
+                                                            )
+                                                    }" id="username" placeholder="Nome do Usuário" type="text"
+                                                    formControlName="username" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'username'
+                                                        )
+                                                    " label="username"></app-error-msg>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="cnpj">
+                                                    CNPJ
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'cnpj'
+                                                            )
+                                                    }" id="cnpj" placeholder="CNPJ" type="text"
+                                                    formControlName="cnpj" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get('cnpj')
+                                                    " label="cnpj"></app-error-msg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="razaoSocial">
+                                                    Razão Social
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'razaoSocial'
+                                                            )
+                                                    }" id="razaoSocial" placeholder="Razão Social" type="text"
+                                                    formControlName="razaoSocial" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'razaoSocial'
+                                                        )
+                                                    " label="razaoSocial"></app-error-msg>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="nomeFantasia">
+                                                    Nome Fantasia
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'nomeFantasia'
+                                                            )
+                                                    }" id="nomeFantasia" placeholder="Nome Fantasia" type="text"
+                                                    formControlName="nomeFantasia" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'nomeFantasia'
+                                                        )
+                                                    " label="nomeFantasia"></app-error-msg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="inscEstadual">
+                                                    Inscrição Estadual
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'inscEstadual'
+                                                            )
+                                                    }" id="inscEstadual" placeholder="Inscrição Estadual" type="text"
+                                                    formControlName="inscEstadual" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'inscEstadual'
+                                                        )
+                                                    " label="inscEstadual"></app-error-msg>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="telefone">
+                                                    Telefone
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'telefone'
+                                                            )
+                                                    }" id="telefone" placeholder="Telefone" type="text"
+                                                    formControlName="telefone" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'telefone'
+                                                        )
+                                                    " label="telefone"></app-error-msg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="email">
+                                                    E-mail:
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'email'
+                                                            )
+                                                    }" id="email" placeholder="E-mail" type="text"
+                                                    formControlName="email" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'email'
+                                                        )
+                                                    " label="Email"></app-error-msg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="password">
+                                                    Password:
+                                                </label>
+                                                <input class="form-control" id="password" placeholder="Password"
+                                                    type="password" formControlName="password" name="password" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'password'
+                                                        )
+                                                    " label="Password"></app-error-msg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group text-right">
+                                        <span>
+                                            <button class="btn btn-success" id="registrar"
+                                                [disabled]="!cadastroForm.valid" type="submit">
+                                                Registrar
+                                            </button>
+                                        </span>
+                                        <span>
+                                            <button class="btn" id="cancelar" (click)="resetar()">
+                                                Limpar
+                                            </button>
+                                        </span>
+                                        <span>
+                                            <button class="btn" id="cancelar" (click)="cancelar()" type="submit">
+                                                Cancelar
+                                            </button>
+                                        </span>
+                                    </div>
+
+                                    <!-- <app-form-debug [form]="cadastroForm"></app-form-debug> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <p class="lead">
+                        blablablabla
+                    </p> -->
+                    <!-- <div class="btn-wrapper">
+                        <a href="https://www.creative-tim.com/product/argon-dashboard-angular?ref=adpa-presentation-page"
+                            class="btn btn-neutral mb-3 mb-sm-0" target="_blank">
+                            <span class="btn-inner--text">Get FREE version</span>
+                        </a>
+                        <a href="https://www.creative-tim.com/product/argon-dashboard-pro-angular?ref=adpa-presentation-page"
+                            class="btn btn-primary btn-icon mb-3 mb-sm-0">
+                            <span class="btn-inner--icon"><i class="ni ni-basket"></i></span>
+                            <span class="btn-inner--text">Purchase now</span>
+                            <span class="badge badge-md badge-pill badge-floating badge-danger border-white">$89</span>
+                        </a>
+                    </div> -->
+                    <!-- <div class="text-center">
+                        <h4 class="display-4 mb-5 mt-5">Available on these technologies</h4>
+                        <div class="spinner-border" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<!-- Footer -->
+<footer class="py-5" id="footer-main">
+    <div class="container">
+        <div class="row align-items-center justify-content-xl-between">
+            <div class="col-xl-6">
+                <div class="copyright text-center text-xl-left text-muted">
+                    &copy; {{ test | date : "yyyy" }}
+                    <a href="https://www.creative-tim.com?ref=adpa-presentation-page" class="font-weight-bold ml-1"
+                        target="_blank">Mercado&Negocios</a>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com?ref=adpa-presentation-page" class="nav-link"
+                            target="_blank">Mercado&Negocios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com/presentation?ref=adpa-presentation-page" class="nav-link"
+                            target="_blank">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="http://blog.creative-tim.com?ref=adpa-presentation-page" class="nav-link"
+                            target="_blank">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.creative-tim.com/license?ref=adpa-presentation-page" class="nav-link"
+                            target="_blank">License</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

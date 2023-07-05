@@ -5,5 +5,5 @@ export const landingHomeRoutes: Route[] = [
     {
         path     : '',
         component: LandingHomeComponent
-    }
+    },
 ];
