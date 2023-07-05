@@ -57,6 +57,10 @@ export class AuthSignInComponent implements OnInit {
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
 
+    home(): any {
+        this._router.navigate(['../home'], { relativeTo: this._activatedRoute });
+    }
+
     /**
      * signIn
      */
