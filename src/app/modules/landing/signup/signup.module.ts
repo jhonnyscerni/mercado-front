@@ -20,6 +20,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
     declarations: [
@@ -45,10 +46,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
         MatMenuModule,
         MatRippleModule,
         MatSortModule,
-        MatSelectModule,
         MatSlideToggleModule,
         MatTooltipModule,
-        SharedModule
+        SharedModule,
+        MatDialogModule,
+        MatSelectModule,
+        MatIconModule,
     ]
 })
 export class LandingSignupModule

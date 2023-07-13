@@ -1,6 +1,6 @@
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable, of, switchMap} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {BaseService} from '../services/base.service';
@@ -159,8 +159,9 @@ export class AuthService extends BaseService {
      *
      * @param usuario
      */
-    signUp(usuario: User): Observable<any> {
-        return this.http.post<any>(this.apiURLRegister, usuario);
+    signUp(tipoUsuario: any, usuario: User): Observable<any> {
+        const params = new HttpParams().set('tipoUsuario', tipoUsuario);
+        return this.http.post<any>(this.apiURLRegister, usuario, {params});
     }
 
     /**

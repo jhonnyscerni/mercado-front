@@ -58,161 +58,127 @@
 
     <!-- Inicio do Form -->
     <div class="bg-card">
-    <div class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+        <div class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
 
-        <div class=" card-body mt-4">
-            <!-- inicio da Row -->
-            <form novalidate [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
-                <div class=" row">
+            <div class=" card-body mt-4">
+                <!-- inicio da Row -->
+                <form novalidate [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+                    <h2>Dados de usuario</h2>
 
-                    <div class=" col-md-6">
-                        <div class=" form-group">
-                            <label class=" form-control-label" for="username">
-                                Nome do Usuário
-                            </label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label" for="username">
+                                    Nome do Usuário
+                                </label>
 
-                            <input class=" form-control" [ngClass]="{'is-invalid':verificaValidTouched('username') }"
-                                   id="username"
-                                   placeholder="Nome do Usuário" type="text" formControlName="username"/>
-                            <app-error-msg [control]="cadastroForm.get('username')" label="username"></app-error-msg>
+                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'username'
+                                                            )
+                                                    }" id="username" placeholder="Nome do Usuário" type="text"
+                                    formControlName="username" />
+                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'username'
+                                                        )
+                                                    " label="username"></app-error-msg>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label" for="email">
+                                    E-mail:
+                                </label>
+
+                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'email'
+                                                            )
+                                                    }" id="email" placeholder="E-mail" type="text"
+                                    formControlName="email" />
+                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'email'
+                                                        )
+                                                    " label="Email"></app-error-msg>
+                            </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label" for="telefone">
+                                    Telefone
+                                </label>
 
-                    <div class=" col-md-6">
-                        <div class=" form-group">
-                            <label class=" form-control-label" for="cnpj">
-                                CNPJ
-                            </label>
-
-                            <input class=" form-control" [ngClass]="{'is-invalid':verificaValidTouched('cnpj') }"
-                                   id="cnpj"
-                                   placeholder="CNPJ" type="text" formControlName="cnpj"/>
-                            <app-error-msg [control]="cadastroForm.get('cnpj')" label="cnpj"></app-error-msg>
+                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'telefone'
+                                                            )
+                                                    }" id="telefone" placeholder="Telefone" type="text"
+                                    formControlName="telefone" />
+                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'telefone'
+                                                        )
+                                                    " label="telefone"></app-error-msg>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class=" row">
-
-                    <div class=" col-md-6">
-                        <div class=" form-group">
-                            <label class=" form-control-label" for="razaoSocial">
-                                Razão Social
-                            </label>
-
-                            <input class=" form-control" [ngClass]="{'is-invalid':verificaValidTouched('razaoSocial') }"
-                                   id="razaoSocial"
-                                   placeholder="Razão Social" type="text" formControlName="razaoSocial"/>
-                            <app-error-msg [control]="cadastroForm.get('razaoSocial')" label="razaoSocial"></app-error-msg>
-                        </div>
                     </div>
 
-                    <div class=" col-md-6">
-                        <div class=" form-group">
-                            <label class=" form-control-label" for="nomeFantasia">
-                                Nome Fantasia
-                            </label>
-
-                            <input class=" form-control" [ngClass]="{'is-invalid':verificaValidTouched('nomeFantasia') }"
-                                   id="nomeFantasia"
-                                   placeholder="Nome Fantasia" type="text" formControlName="nomeFantasia"/>
-                            <app-error-msg [control]="cadastroForm.get('nomeFantasia')" label="nomeFantasia"></app-error-msg>
+                    <div class=" row">
+                        <div class=" col-md-6">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="password">
+                                    Password:
+                                </label>
+                                <input class="form-control" id="password" placeholder="Password" type="password"
+                                    formControlName="password" name="password" />
+                                <app-error-msg [control]="cadastroForm.get('password')"
+                                    label="Password"></app-error-msg>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class=" col-md-6">
-                        <div class=" form-group">
-                            <label class=" form-control-label" for="inscEstadual">
-                                Inscrição Estadual
-                            </label>
-
-                            <input class=" form-control" [ngClass]="{'is-invalid':verificaValidTouched('inscEstadual') }"
-                                   id="inscEstadual"
-                                   placeholder="Inscrição Estadual" type="text" formControlName="inscEstadual"/>
-                            <app-error-msg [control]="cadastroForm.get('inscEstadual')" label="inscEstadual"></app-error-msg>
-                        </div>
-                    </div>
-
-                    <div class=" col-md-6">
-                        <div class=" form-group">
-                            <label class=" form-control-label" for="telefone">
-                                Telefone
-                            </label>
-
-                            <input class=" form-control" [ngClass]="{'is-invalid':verificaValidTouched('telefone') }"
-                                   id="telefone"
-                                   placeholder="Telefone" type="text" formControlName="telefone"/>
-                            <app-error-msg [control]="cadastroForm.get('telefone')" label="telefone"></app-error-msg>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class=" form-group">
-                            <label class=" form-control-label" for="email">
-                                E-mail:
-                            </label>
-
-                            <input class=" form-control"
-                                   [ngClass]="{'is-invalid':verificaValidTouched('email') }" id="email"
-                                   placeholder="E-mail" type="text" formControlName="email"/>
-                            <app-error-msg [control]="cadastroForm.get('email')"
-                                           label="Email"></app-error-msg>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class=" row">
-                    <div class=" col-md-6">
-                        <div class=" form-group">
-                            <label class=" form-control-label" for="password">
-                                Password:
-                            </label>
-                            <input class="form-control" id="password" placeholder="Password" type="password"
-                                   formControlName="password" name="password"/>
-                            <app-error-msg [control]="cadastroForm.get('password')" label="Password"></app-error-msg>
-                        </div>
-                    </div>
-
-                    <div class=" col-md-6">
-                        <div class="form-group">
-                            <label class=" form-control-label" for="roles">
-                                Grupos:
-                            </label>
-                            <select multiple="" class="form-control" id="roles" placeholder="Grupos do Usuario"
-                                    formControlName="roles" [ngClass]="{'is-invalid':verificaValidTouched('roles') }"
+                        <div class=" col-md-6">
+                            <div class="form-group">
+                                <label class=" form-control-label" for="grupos">
+                                    Grupos:
+                                </label>
+                                <select multiple="" class="form-control" id="grupos" placeholder="Grupos do Usuario"
+                                    formControlName="grupos" [ngClass]="{'is-invalid':verificaValidTouched('grupos') }"
                                     [compareWith]="compareFn">
-                                <option *ngFor="let role of roles" [value]="role">
-                                    {{ role.nome }}</option>
-                            </select>
+                                    <option *ngFor="let grupo of grupos" [value]="grupo">
+                                        {{ grupo.nome }}</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="form-group text-right">
-          <span>
-            <button class="btn btn-success" id="registrar" [disabled]="!cadastroForm.valid" type="submit">Registrar
-            </button>
-          </span>
-                    <span>
-            <button class="btn" id="cancelar" (click)="resetar()">Limpar
-            </button>
-          </span>
-                    <span>
-            <button class="btn " id="cancelar" (click)="cancelar()" type="submit">Cancelar
-            </button>
-          </span>
-                </div>
+                    <div class="form-group text-right">
+                        <span>
+                            <button class="btn btn-success" id="registrar" [disabled]="!cadastroForm.valid"
+                                type="submit">Registrar
+                            </button>
+                        </span>
+                        <span>
+                            <button class="btn" id="cancelar" (click)="resetar()">Limpar
+                            </button>
+                        </span>
+                        <span>
+                            <button class="btn " id="cancelar" (click)="cancelar()" type="submit">Cancelar
+                            </button>
+                        </span>
+                    </div>
 
-                <app-form-debug [form]="cadastroForm"></app-form-debug>
-            </form>
+                    <app-form-debug [form]="cadastroForm"></app-form-debug>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-</div>
-

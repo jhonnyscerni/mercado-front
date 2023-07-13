@@ -18,7 +18,7 @@ export class UserFormComponent extends BaseFormComponent implements OnInit {
 
     user: User;
     userId: number;
-    roles: Role[];
+    grupos: Role[];
 
     constructor(
         private fb: FormBuilder,
@@ -50,11 +50,6 @@ export class UserFormComponent extends BaseFormComponent implements OnInit {
 
         this.cadastroForm = this.fb.group({
             id: [''],
-            cnpj: ['', [Validators.required]],
-            razaoSocial: ['', [Validators.required]],
-            nomeFantasia: ['', [Validators.required]],
-            inscEstadual: ['', [Validators.required]],
-            telefone: ['', [Validators.required]],
             username: [
                 '',
                 [
@@ -67,8 +62,9 @@ export class UserFormComponent extends BaseFormComponent implements OnInit {
                 '',
                 [Validators.required, Validators.email],
             ],
+            telefone: ['', [Validators.required]],
             password: ['', [Validators.required]],
-            roles: [''],
+            grupos: [''],
         });
 
     }
@@ -76,15 +72,12 @@ export class UserFormComponent extends BaseFormComponent implements OnInit {
     updateForm(user): any {
         this.cadastroForm.patchValue({
             id: user.id,
-            cnpj: user.cnpj,
-            razaoSocial: user.razaoSocial,
-            nomeFantasia: user.nomeFantasia,
-            inscEstadual: user.inscEstadual,
-            telefone: user.telefone,
             username: user.username,
             email: user.email,
+            telefone: user.telefone,
             password: user.password,
-            roles: user.roles
+            grupos: user.grupos,
+            empresa:user.empresa
         });
     }
 
@@ -120,8 +113,8 @@ export class UserFormComponent extends BaseFormComponent implements OnInit {
 
     carregarGrupos(): any {
         return this.grupoService.list()
-            .subscribe((roles) => {
-                this.roles = roles;
+            .subscribe((grupos) => {
+                this.grupos = grupos;
             });
     }
 

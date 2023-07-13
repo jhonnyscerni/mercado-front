@@ -1,19 +1,13 @@
 import { Role } from './role';
-import { Address } from './address';
+import { Company } from './company';
 export class User {
     id?: number;
     username?: string;
-    razaoSocial?: string;
-    nomeFantasia?: string;
-    cnpj?: string;
-    enderecos?: Address[] = [];
-    inscEstadual?: string;
-    inscMunicipal?: string;
-    categoria?: string;
     email?: string;
     telefone?: string;
+    password?: string;
     tipoUsuario?: string;
     statusUsuario?: string;
-    password?: string;
+    empresa?: Company;
     grupos?: Role[] = [];
 }

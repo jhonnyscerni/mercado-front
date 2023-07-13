@@ -1,13 +1,13 @@
-<nav id="navbar-main" class=" navbar navbar-horizontal navbar-main navbar-expand-lg navbar-light">
+<nav id="navbar-main" class="navbar navbar-horizontal navbar-main navbar-expand-lg navbar-light">
     <!-- <nav
     class="navbar navbar-top navbar-expand navbar-dark bg-danger border-bottom"
     id="navbar-main"
   > -->
     <div class="container">
-    <div>
-        <mat-icon svgIcon="heroicons_solid:user-group"></mat-icon>
-        <b style="font-size: 22px;" class="ml-2">Merdado & Negocios</b>
-    </div>
+        <div>
+            <mat-icon svgIcon="heroicons_solid:user-group"></mat-icon>
+            <b style="font-size: 22px" class="ml-2">Merdado & Negocios</b>
+        </div>
         <!-- <a class="navbar-brand" [routerLink]="['/project']">
             Merdado & Negocios
             <img src="../../../../assets/img/brand/blue.png" />
@@ -82,8 +82,7 @@
                 <!--              </a>-->
                 <!--            </li>-->
                 <li *ngSwitchCase="false" class="nav-item d-lg-block ml-lg-4">
-                    <a class="btn btn-portal btn-icon" routerLinkActive="active"
-                        [routerLink]="['/sign-in']">
+                    <a class="btn btn-portal btn-icon" routerLinkActive="active" [routerLink]="['/sign-in']">
                         <span class="btn-inner--icon">
                             <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
                             <!-- <mat-icon svgIcon="heroicons_solid:user"></mat-icon> -->
@@ -93,8 +92,7 @@
                 </li>
 
                 <li *ngSwitchCase="false" class="nav-item d-lg-block ml-lg-4">
-                    <a class="btn bg-green btn-icon text-white" routerLinkActive="active"
-                        [routerLink]="['/sign-up']">
+                    <a class="btn bg-green btn-icon text-white" routerLinkActive="active" [routerLink]="['/sign-up']">
                         <span class="btn-inner--icon">
                             <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
                             <!--              <i class="fas fa-sign-in-alt mr-2"></i>-->
@@ -125,8 +123,8 @@
                                 <img alt="Image placeholder" src="assets/img/theme/team-4.jpg" />
                             </span>
                             <div class="media-body ml-2 d-lg-block">
-                                <span class="mb-0 text-sm font-weight-bold"
-                                    style="color: #1e1e1e !important;">{{user}}</span>
+                                <span class="mb-0 text-sm font-weight-bold" style="color: #1e1e1e !important">{{ user
+                                    }}</span>
                             </div>
                             <a href="javascript:void()" (click)="logout()" class="sair">
                                 <i class="ni ni-user-run"></i> <span>Sair</span>
@@ -134,33 +132,13 @@
                         </div>
                     </a>
                     <div class="dropdown-menu dropdown-menu-arrow d-none dropdown-menu-right" *dropdownMenu>
-                        <div class=" dropdown-header noti-title">
+                        <div class="dropdown-header noti-title">
                             <h6 class="text-overflow m-0">Bem Vindo!</h6>
                         </div>
                         <a routerLinkActive="active" (click)="onProfile()" class="dropdown-item">
-                            <i class="ni ni-single-02"></i> <span>Minha Conta</span>
+                            <i class="ni ni-single-02"></i>
+                            <span>Minha Conta</span>
                         </a>
-                        <!-- <a
-                routerLinkActive="active"
-                [routerLink]="['/user-profile']"
-                class="dropdown-item"
-              >
-                <i class="ni ni-settings-gear-65"></i> <span>Settings</span>
-              </a>
-              <a
-                routerLinkActive="active"
-                [routerLink]="['/user-profile']"
-                class="dropdown-item"
-              >
-                <i class="ni ni-calendar-grid-58"></i> <span>Activity</span>
-              </a>
-              <a
-                routerLinkActive="active"
-                [routerLink]="['/portal/user-profile']"
-                class="dropdown-item"
-              >
-                <i class="ni ni-support-16"></i> <span>Support</span>
-              </a> -->
                         <div class="dropdown-divider"></div>
                         <a href="javascript:void()" (click)="logout()" class="dropdown-item">
                             <i class="ni ni-user-run"></i> <span>Sair</span>
@@ -175,17 +153,35 @@
     <section class="py-7">
         <div class="container">
             <div class="row row-grid justify-content-center">
-                <div class="col-lg-8 text-center">
+                <div class="col-lg-10 text-center">
                     <h2 class="display-3">
                         Cadastre-se
-                        <span class="text-success">Cadastro de Vendedores</span>
+                        <span class="text-success">Cadastro de Vendedores ou Compradores</span>
+                        <p>Selecione o tipo de usuario e complete o cadastro para ter acesso ao painel do sistema</p>
                     </h2>
                     <!-- Inicio do Form -->
                     <div class="bg-card">
                         <div class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
                             <div class="card-body mt-4">
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="username">
+                                                Selecione o tipo de Usuario
+                                            </label>
+                                            <select class="form-control" id="exampleFormControlSelect1" [ngModel]="tipoUsuario" (change)="doSomething($event.target.value)">
+                                                <option value="VENDEDOR">Vendedor de Produtos</option>
+                                                <option value="COMPRADOR">Empresa Compradora de Produtos</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
                                 <!-- inicio da Row -->
                                 <form novalidate [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+                                    <h2>Dados de usuario</h2>
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -210,90 +206,26 @@
 
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="cnpj">
-                                                    CNPJ
+                                                <label class="form-control-label" for="email">
+                                                    E-mail:
                                                 </label>
 
                                                 <input class="form-control" [ngClass]="{
                                                         'is-invalid':
                                                             verificaValidTouched(
-                                                                'cnpj'
+                                                                'email'
                                                             )
-                                                    }" id="cnpj" placeholder="CNPJ" type="text"
-                                                    formControlName="cnpj" />
+                                                    }" id="email" placeholder="E-mail" type="text"
+                                                    formControlName="email" />
                                                 <app-error-msg [control]="
-                                                        cadastroForm.get('cnpj')
-                                                    " label="cnpj"></app-error-msg>
+                                                        cadastroForm.get(
+                                                            'email'
+                                                        )
+                                                    " label="Email"></app-error-msg>
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="razaoSocial">
-                                                    Razão Social
-                                                </label>
-
-                                                <input class="form-control" [ngClass]="{
-                                                        'is-invalid':
-                                                            verificaValidTouched(
-                                                                'razaoSocial'
-                                                            )
-                                                    }" id="razaoSocial" placeholder="Razão Social" type="text"
-                                                    formControlName="razaoSocial" />
-                                                <app-error-msg [control]="
-                                                        cadastroForm.get(
-                                                            'razaoSocial'
-                                                        )
-                                                    " label="razaoSocial"></app-error-msg>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="nomeFantasia">
-                                                    Nome Fantasia
-                                                </label>
-
-                                                <input class="form-control" [ngClass]="{
-                                                        'is-invalid':
-                                                            verificaValidTouched(
-                                                                'nomeFantasia'
-                                                            )
-                                                    }" id="nomeFantasia" placeholder="Nome Fantasia" type="text"
-                                                    formControlName="nomeFantasia" />
-                                                <app-error-msg [control]="
-                                                        cadastroForm.get(
-                                                            'nomeFantasia'
-                                                        )
-                                                    " label="nomeFantasia"></app-error-msg>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="inscEstadual">
-                                                    Inscrição Estadual
-                                                </label>
-
-                                                <input class="form-control" [ngClass]="{
-                                                        'is-invalid':
-                                                            verificaValidTouched(
-                                                                'inscEstadual'
-                                                            )
-                                                    }" id="inscEstadual" placeholder="Inscrição Estadual" type="text"
-                                                    formControlName="inscEstadual" />
-                                                <app-error-msg [control]="
-                                                        cadastroForm.get(
-                                                            'inscEstadual'
-                                                        )
-                                                    " label="inscEstadual"></app-error-msg>
-                                            </div>
-                                        </div>
-
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="telefone">
@@ -314,32 +246,7 @@
                                                     " label="telefone"></app-error-msg>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="email">
-                                                    E-mail:
-                                                </label>
-
-                                                <input class="form-control" [ngClass]="{
-                                                        'is-invalid':
-                                                            verificaValidTouched(
-                                                                'email'
-                                                            )
-                                                    }" id="email" placeholder="E-mail" type="text"
-                                                    formControlName="email" />
-                                                <app-error-msg [control]="
-                                                        cadastroForm.get(
-                                                            'email'
-                                                        )
-                                                    " label="Email"></app-error-msg>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="password">
@@ -355,6 +262,341 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <h2>Dados da Empresa</h2>
+
+                                    <div class="row" formGroupName="empresa">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="razaoSocial">
+                                                    Razão Social
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'empresa.razaoSocial'
+                                                            )
+                                                    }" id="razaoSocial" placeholder="Razão Social" type="text"
+                                                    formControlName="razaoSocial" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'empresa.razaoSocial'
+                                                        )
+                                                    " label="razaoSocial"></app-error-msg>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="nomeFantasia">
+                                                    Nome Fantasia
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'empresa.nomeFantasia'
+                                                            )
+                                                    }" id="nomeFantasia" placeholder="Nome Fantasia" type="text"
+                                                    formControlName="nomeFantasia" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'empresa.nomeFantasia'
+                                                        )
+                                                    " label="nomeFantasia"></app-error-msg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" formGroupName="empresa">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="cnpj">
+                                                    CNPJ
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'empresa.cnpj'
+                                                            )
+                                                    }" id="cnpj" placeholder="CNPJ" type="text"
+                                                    formControlName="cnpj" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get('empresa.cnpj')
+                                                    " label="cnpj"></app-error-msg>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="inscEstadual">
+                                                    Inscrição Estadual
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'empresa.inscEstadual'
+                                                            )
+                                                    }" id="inscEstadual" placeholder="Inscrição Estadual" type="text"
+                                                    formControlName="inscEstadual" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'empresa.inscEstadual'
+                                                        )
+                                                    " label="inscEstadual"></app-error-msg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" formGroupName="empresa">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="inscMunicipal">
+                                                    Inscrição Municipal
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'empresa.inscMunicipal'
+                                                            )
+                                                    }" id="inscMunicipal" placeholder="Inscrição Municipal" type="text"
+                                                    formControlName="inscMunicipal" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'empresa.inscMunicipal'
+                                                        )
+                                                    " label="inscMunicipal"></app-error-msg>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="categoria">
+                                                    Categoria
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'empresa.categoria'
+                                                            )
+                                                    }" id="categoria" placeholder="Categoria" type="text"
+                                                    formControlName="categoria" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'empresa.categoria'
+                                                        )
+                                                    " label="categoria"></app-error-msg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" formGroupName="empresa">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="telefone">
+                                                    Telefone
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'empresa.telefone'
+                                                            )
+                                                    }" id="telefone" placeholder="Telefone" type="text"
+                                                    formControlName="telefone" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'empresa.telefone'
+                                                        )
+                                                    " label="telefone"></app-error-msg>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="email">
+                                                    E-mail:
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'empresa.email'
+                                                            )
+                                                    }" id="email" placeholder="E-mail" type="text"
+                                                    formControlName="email" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'empresa.email'
+                                                        )
+                                                    " label="Email"></app-error-msg>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h2>Endereço</h2>
+
+                                    <div formGroupName="empresa">
+                                        <div class="row" formGroupName="endereco">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="cep">
+                                                        CEP:
+                                                    </label>
+
+                                                    <input class="form-control" [ngClass]="{
+                                                            'is-invalid':
+                                                                verificaValidTouched(
+                                                                    'empresa.endereco.cep'
+                                                                )
+                                                        }" id="cep" placeholder="CEP" type="text"
+                                                        formControlName="cep" />
+                                                    <app-error-msg [control]="
+                                                            cadastroForm.get(
+                                                                'empresa.endereco.cep'
+                                                            )
+                                                        " label="CEP"></app-error-msg>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="ruaLogra">
+                                                        Endereço:
+                                                    </label>
+
+                                                    <input class="form-control" [ngClass]="{
+                                                            'is-invalid':
+                                                                verificaValidTouched(
+                                                                    'empresa.endereco.ruaLogra'
+                                                                )
+                                                        }" id="ruaLogra" placeholder="Endereço" type="text"
+                                                        formControlName="ruaLogra" />
+                                                    <app-error-msg [control]="
+                                                            cadastroForm.get(
+                                                                'empresa.endereco.ruaLogra'
+                                                            )
+                                                        " label="Endereço"></app-error-msg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div formGroupName="empresa">
+                                        <div class="row" formGroupName="endereco">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="numero">
+                                                        Numero:
+                                                    </label>
+
+                                                    <input class="form-control" [ngClass]="{
+                                                            'is-invalid':
+                                                                verificaValidTouched(
+                                                                    'empresa.endereco.numero'
+                                                                )
+                                                        }" id="numero" placeholder="Numero" type="text"
+                                                        formControlName="numero" />
+                                                    <app-error-msg [control]="
+                                                            cadastroForm.get(
+                                                                'empresa.endereco.numero'
+                                                            )
+                                                        " label="Numero"></app-error-msg>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="complemento">
+                                                        Complemento:
+                                                    </label>
+
+                                                    <input class="form-control" [ngClass]="{
+                                                            'is-invalid':
+                                                                verificaValidTouched(
+                                                                    'empresa.endereco.complemento'
+                                                                )
+                                                        }" id="complemento" placeholder="Complemento" type="text"
+                                                        formControlName="complemento" />
+                                                    <app-error-msg [control]="
+                                                            cadastroForm.get(
+                                                                'empresa.endereco.complemento'
+                                                            )
+                                                        " label="complemento"></app-error-msg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div formGroupName="empresa">
+                                        <div class="row" formGroupName="endereco">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="bairro">
+                                                        Bairro:
+                                                    </label>
+
+                                                    <input class="form-control" [ngClass]="{
+                                                            'is-invalid':
+                                                                verificaValidTouched(
+                                                                    'empresa.endereco.bairro'
+                                                                )
+                                                        }" id="bairro" placeholder="Bairro" type="text"
+                                                        formControlName="bairro" />
+                                                    <app-error-msg [control]="
+                                                            cadastroForm.get(
+                                                                'empresa.endereco.bairro'
+                                                            )
+                                                        " label="bairro"></app-error-msg>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="cidade">
+                                                        Cidade:
+                                                    </label>
+
+                                                    <input class="form-control" [ngClass]="{
+                                                            'is-invalid':
+                                                                verificaValidTouched(
+                                                                    'empresa.endereco.cidade'
+                                                                )
+                                                        }" id="cidade" placeholder="Cidade" type="text"
+                                                        formControlName="cidade" />
+                                                    <app-error-msg [control]="
+                                                            cadastroForm.get(
+                                                                'empresa.endereco.cidade'
+                                                            )
+                                                        " label="cidade"></app-error-msg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div formGroupName="empresa">
+                                        <div class="row" formGroupName="endereco">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label" for="estado">
+                                                        estado:
+                                                    </label>
+
+                                                    <input class="form-control" [ngClass]="{
+                                                            'is-invalid':
+                                                                verificaValidTouched(
+                                                                    'empresa.endereco.estado'
+                                                                )
+                                                        }" id="estado" placeholder="Estado" type="text"
+                                                        formControlName="estado" />
+                                                    <app-error-msg [control]="
+                                                            cadastroForm.get(
+                                                                'empresa.endereco.estado'
+                                                            )
+                                                        " label="estado"></app-error-msg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
                                     <div class="form-group text-right">
                                         <span>
@@ -375,7 +617,7 @@
                                         </span>
                                     </div>
 
-                                    <!-- <app-form-debug [form]="cadastroForm"></app-form-debug> -->
+                                    <app-form-debug [form]="cadastroForm"></app-form-debug>
                                 </form>
                             </div>
                         </div>

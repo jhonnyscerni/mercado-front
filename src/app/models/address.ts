@@ -4,7 +4,6 @@ export class Address {
     numero?: string;
     complemento?: string;
     bairro?: string;
-    uf?: string;
     cidade?: string;
     estado?: string;
     tipoEndereco?: string;
