@@ -9,7 +9,7 @@ export const PRODUCT_ROUTES: Routes = [
           {
             path: 'lista', component: ProductListComponent,
             canActivate: [AuthoritiesGuard],
-            data: ['ROLE_ADMIN', 'ROLE_BUYER']
+            data: ['ROLE_SUPER_ADMIN','ROLE_ADMIN', 'ROLE_BUYER']
           },
           { path: '', redirectTo: '/produtos/lista', pathMatch: 'full' }
         ]

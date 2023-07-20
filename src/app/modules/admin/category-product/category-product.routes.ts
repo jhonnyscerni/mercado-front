@@ -10,22 +10,22 @@ export const CATEGORY_PRODUCT_ROUTES: Routes = [
             {
                 path: 'adicionar', component: CategoryProductFormComponent,
                 canActivate: [AuthoritiesGuard],
-                data: ['ROLE_ADMIN', 'ROLE_BUYER']
+                data: ['ROLE_SUPER_ADMIN','ROLE_ADMIN', 'ROLE_BUYER']
             },
             {
                 path: 'editar/:idCategoriaProduto', component: CategoryProductFormComponent,
                 canActivate: [AuthoritiesGuard],
-                data: ['ROLE_ADMIN', 'ROLE_BUYER']
+                data: ['ROLE_SUPER_ADMIN','ROLE_ADMIN', 'ROLE_BUYER']
             },
             {
                 path: 'detalhe/:idCategoriaProduto', component: CategoryProductFormComponent,
                 canActivate: [AuthoritiesGuard],
-                data: ['ROLE_ADMIN', 'ROLE_BUYER']
+                data: ['ROLE_SUPER_ADMIN','ROLE_ADMIN', 'ROLE_BUYER']
             },
             {
                 path: 'lista', component: CategoryProductListComponent,
                 canActivate: [AuthoritiesGuard],
-                data: ['ROLE_ADMIN', 'ROLE_BUYER']
+                data: ['ROLE_SUPER_ADMIN','ROLE_ADMIN', 'ROLE_BUYER']
             },
             { path: '', redirectTo: '/categoria-produtos/lista', pathMatch: 'full' }
         ]

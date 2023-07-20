@@ -8,6 +8,7 @@ import { UsuarioService } from 'app/services/usuario.service';
 import { ToastrService } from 'ngx-toastr';
 import {Location} from '@angular/common';
 import { BaseFormComponent } from 'app/shared/base-form/base-form.component';
+import { AuthService } from 'app/core/auth/auth.service';
 
 @Component({
   selector: 'app-user-form',
@@ -18,7 +19,7 @@ export class UserFormComponent extends BaseFormComponent implements OnInit {
 
     user: User;
     userId: number;
-    grupos: Role[];
+    grupos = [];
 
     constructor(
         private fb: FormBuilder,
@@ -28,6 +29,7 @@ export class UserFormComponent extends BaseFormComponent implements OnInit {
         private router: Router,
         private grupoService: RoleService,
         private toastr: ToastrService,
+        private _authService: AuthService
     ) {
         super();
     }
@@ -112,9 +114,16 @@ export class UserFormComponent extends BaseFormComponent implements OnInit {
     }
 
     carregarGrupos(): any {
-        return this.grupoService.list()
+         return this.grupoService.list()
             .subscribe((grupos) => {
-                this.grupos = grupos;
+                grupos.forEach((element) => {
+                     if (!(this._authService.getAuthorities()[0].authority === 'ROLE_SUPER_ADMIN') &&
+                     (element.nome !== 'ROLE_SUPER_ADMIN' && element.nome !== 'ROLE_ADMIN')){
+                        this.grupos.push(element);
+                     }else if (this._authService.getAuthorities()[0].authority === 'ROLE_SUPER_ADMIN') {
+                        this.grupos.push(element);
+                     }
+                });
             });
     }
 

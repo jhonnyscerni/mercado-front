@@ -2,6 +2,72 @@
 import {FuseNavigationItem} from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
+    // SUPER ADMIN
+    {
+
+        id: 'dashboard',
+        title: 'DashBoard',
+        type: 'basic',
+        icon: 'mat_solid:dashboard',
+        role: 'ROLE_SUPER_ADMIN',
+        link: '/project'
+    },
+    {
+
+        id: 'usuarios',
+        title: 'Usuários',
+        type: 'basic',
+        icon: 'heroicons_outline:users',
+        role: 'ROLE_SUPER_ADMIN',
+        link: '/usuarios'
+    },
+    {
+
+        id: 'grupos',
+        title: 'Grupos',
+        type: 'basic',
+        icon: 'mat_solid:group',
+        role: 'ROLE_SUPER_ADMIN',
+        link: '/grupos'
+    },
+    {
+
+        id: 'categoriaprodutos',
+        title: 'Categoria de Produtos',
+        type: 'basic',
+        icon: 'mat_solid:category',
+        role: 'ROLE_SUPER_ADMIN',
+        link: '/categoria-produtos'
+    },
+    {
+
+        id: 'marcaprodutos',
+        title: 'Marca de Produtos',
+        type: 'basic',
+        icon: 'mat_solid:branding_watermark',
+        role: 'ROLE_SUPER_ADMIN',
+        link: '/marca-produtos'
+    },
+    {
+
+        id: 'produtos',
+        title: 'Produtos',
+        type: 'basic',
+        icon: 'mat_solid:add_shopping_cart',
+        role: 'ROLE_SUPER_ADMIN',
+        link: '/produtos'
+    },
+    {
+
+        id: 'editais',
+        title: 'Editais',
+        type: 'basic',
+        icon: 'mat_solid:view_headline',
+        role: 'ROLE_SUPER_ADMIN',
+        link: '/editais'
+    },
+
+    // ADMIN
     {
 
         id: 'dashboard',
@@ -19,15 +85,6 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon: 'heroicons_outline:users',
         role: 'ROLE_ADMIN',
         link: '/usuarios'
-    },
-    {
-
-        id: 'grupos',
-        title: 'Grupos',
-        type: 'basic',
-        icon: 'mat_solid:group',
-        role: 'ROLE_ADMIN',
-        link: '/grupos'
     },
     {
 

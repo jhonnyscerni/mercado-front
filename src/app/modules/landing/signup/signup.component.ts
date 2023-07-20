@@ -23,7 +23,7 @@ export class LandingSignupComponent extends BaseFormComponent implements OnInit 
     roles: Role[];
     userAuth: any;
 
-    tipoUsuario = 'USER';
+    tipoUsuario = 'ADMIN';
 
     constructor(
         private router: Router,
@@ -84,7 +84,8 @@ export class LandingSignupComponent extends BaseFormComponent implements OnInit 
         const msgSuccess = 'Usuário criado com sucesso!';
         const msgError = 'Erro ao criar usuario, tente novamente!';
         console.log(this.tipoUsuario);
-        if (this.tipoUsuario === 'VENDEDOR') {
+        // TODO: Antes tinha uma conta para cada Usuario onde ele poderia escolher qual tipo agora vamos manter padrao ADMIN
+        // if (this.tipoUsuario === 'ADMIN') {
             this.authService.signUp(this.tipoUsuario, this.cadastroForm.value).subscribe(
                 (success) => {
                     this.toastr.success(msgSuccess, 'Informação :)');
@@ -92,17 +93,7 @@ export class LandingSignupComponent extends BaseFormComponent implements OnInit 
                 },
                 error => this.toastr.error(msgError, 'Opa :(')
             );
-        }
-
-        if (this.tipoUsuario === 'COMPRADOR') {
-            this.authService.signUp(this.tipoUsuario, this.cadastroForm.value).subscribe(
-                (success) => {
-                    this.toastr.success(msgSuccess, 'Informação :)');
-                    this.location.back();
-                },
-                error => this.toastr.error(msgError, 'Opa :(')
-            );
-        }
+        // }
     }
 
     cancelar(): any {

@@ -10,17 +10,17 @@ export const USERS_ROUTES: Routes = [
           {
             path: 'lista', component: UserListComponent,
             canActivate: [AuthoritiesGuard],
-            data: ['ROLE_ADMIN']
+            data: ['ROLE_SUPER_ADMIN','ROLE_ADMIN']
           },
           {
             path: 'cadastrar', component: UserFormComponent,
             canActivate: [AuthoritiesGuard],
-            data: ['ROLE_ADMIN']
+            data: ['ROLE_SUPER_ADMIN','ROLE_ADMIN']
           },
           {
             path: 'editar/:userId', component: UserFormComponent,
             canActivate: [AuthoritiesGuard],
-            data: ['ROLE_ADMIN']
+            data: ['ROLE_SUPER_ADMIN','ROLE_ADMIN']
           },
           { path: '', redirectTo: '/usuarios/lista', pathMatch: 'full' }
         ]

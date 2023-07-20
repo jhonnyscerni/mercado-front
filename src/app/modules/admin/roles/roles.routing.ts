@@ -11,12 +11,12 @@ export const grupoRoutes: Routes = [
             {
                 path: 'adicionar', component: RoleFormComponent,
                 canActivate: [AuthoritiesGuard],
-                data: ['ROLE_ADMIN']
+                data: ['ROLE_SUPER_ADMIN']
             },
             {
                 path: 'lista', component: RoleListComponent,
                 canActivate: [AuthoritiesGuard],
-                data: ['ROLE_ADMIN']
+                data: ['ROLE_SUPER_ADMIN']
             },
             { path: '', redirectTo: '/grupos/lista', pathMatch: 'full' }
         ]
