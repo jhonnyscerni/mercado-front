@@ -21,6 +21,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
     declarations: [
@@ -52,6 +53,7 @@ import { MatDialogModule } from '@angular/material/dialog';
         MatDialogModule,
         MatSelectModule,
         MatIconModule,
+        TextMaskModule
     ]
 })
 export class LandingSignupModule

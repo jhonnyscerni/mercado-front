@@ -200,7 +200,7 @@
                                                         cadastroForm.get(
                                                             'username'
                                                         )
-                                                    " label="username"></app-error-msg>
+                                                    " label="Nome de Usuário"></app-error-msg>
                                             </div>
                                         </div>
 
@@ -221,7 +221,7 @@
                                                         cadastroForm.get(
                                                             'email'
                                                         )
-                                                    " label="Email"></app-error-msg>
+                                                    " label="E-mail"></app-error-msg>
                                             </div>
                                         </div>
                                     </div>
@@ -232,7 +232,7 @@
                                                     Telefone
                                                 </label>
 
-                                                <input class="form-control" [ngClass]="{
+                                                <input class="form-control" [textMask]="{mask: mask}" [ngClass]="{
                                                         'is-invalid':
                                                             verificaValidTouched(
                                                                 'telefone'
@@ -243,7 +243,7 @@
                                                         cadastroForm.get(
                                                             'telefone'
                                                         )
-                                                    " label="telefone"></app-error-msg>
+                                                    " label="Telefone"></app-error-msg>
                                             </div>
                                         </div>
 
@@ -266,7 +266,25 @@
                                     <h2>Dados da Empresa</h2>
 
                                     <div class="row" formGroupName="empresa">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="cnpj">
+                                                    CNPJ
+                                                </label>
+
+                                                <input class="form-control" [textMask]="{mask: cnpjMask}" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'empresa.cnpj'
+                                                            )
+                                                    }" id="cnpj" placeholder="CNPJ" type="text"
+                                                    formControlName="cnpj" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get('empresa.cnpj')
+                                                    " label="CNPJ"></app-error-msg>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="razaoSocial">
                                                     Razão Social
@@ -283,9 +301,13 @@
                                                         cadastroForm.get(
                                                             'empresa.razaoSocial'
                                                         )
-                                                    " label="razaoSocial"></app-error-msg>
+                                                    " label="Razão Social"></app-error-msg>
                                             </div>
                                         </div>
+
+                                    </div>
+
+                                    <div class="row" formGroupName="empresa">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="nomeFantasia">
@@ -303,37 +325,39 @@
                                                         cadastroForm.get(
                                                             'empresa.nomeFantasia'
                                                         )
-                                                    " label="nomeFantasia"></app-error-msg>
+                                                    " label="Nome Fantasia"></app-error-msg>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row" formGroupName="empresa">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="cnpj">
-                                                    CNPJ
+                                                <label class="form-control-label" for="email">
+                                                    E-mail da Empresa
                                                 </label>
 
                                                 <input class="form-control" [ngClass]="{
                                                         'is-invalid':
                                                             verificaValidTouched(
-                                                                'empresa.cnpj'
+                                                                'empresa.email'
                                                             )
-                                                    }" id="cnpj" placeholder="CNPJ" type="text"
-                                                    formControlName="cnpj" />
+                                                    }" id="email" placeholder="E-mail" type="text"
+                                                    formControlName="email" />
                                                 <app-error-msg [control]="
-                                                        cadastroForm.get('empresa.cnpj')
-                                                    " label="cnpj"></app-error-msg>
+                                                        cadastroForm.get(
+                                                            'empresa.email'
+                                                        )
+                                                    " label="E-mail"></app-error-msg>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                    </div>
+
+                                    <div class="row" formGroupName="empresa">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="inscEstadual">
                                                     Inscrição Estadual
                                                 </label>
 
-                                                <input class="form-control" [ngClass]="{
+                                                <input class="form-control" pattern="\d*" [ngClass]="{
                                                         'is-invalid':
                                                             verificaValidTouched(
                                                                 'empresa.inscEstadual'
@@ -344,19 +368,16 @@
                                                         cadastroForm.get(
                                                             'empresa.inscEstadual'
                                                         )
-                                                    " label="inscEstadual"></app-error-msg>
+                                                    " label="Inscrição Estadual"></app-error-msg>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row" formGroupName="empresa">
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="inscMunicipal">
                                                     Inscrição Municipal
                                                 </label>
 
-                                                <input class="form-control" [ngClass]="{
+                                                <input class="form-control" pattern="\d*" [ngClass]="{
                                                         'is-invalid':
                                                             verificaValidTouched(
                                                                 'empresa.inscMunicipal'
@@ -367,10 +388,10 @@
                                                         cadastroForm.get(
                                                             'empresa.inscMunicipal'
                                                         )
-                                                    " label="inscMunicipal"></app-error-msg>
+                                                    " label="Inscrição Municipal"></app-error-msg>
                                             </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="categoria">
                                                     Categoria
@@ -387,13 +408,10 @@
                                                         cadastroForm.get(
                                                             'empresa.categoria'
                                                         )
-                                                    " label="categoria"></app-error-msg>
+                                                    " label="Categoria"></app-error-msg>
                                             </div>
                                         </div>
-                                    </div>
-
-                                    <div class="row" formGroupName="empresa">
-                                        <div class="col-md-6">
+                                        <div class="col-md-3">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="telefone">
                                                     Telefone
@@ -404,48 +422,27 @@
                                                             verificaValidTouched(
                                                                 'empresa.telefone'
                                                             )
-                                                    }" id="telefone" placeholder="Telefone" type="text"
-                                                    formControlName="telefone" />
+                                                    }" id="telefone" [textMask]="{mask: mask}" placeholder="Telefone"
+                                                    type="text" formControlName="telefone" />
                                                 <app-error-msg [control]="
                                                         cadastroForm.get(
                                                             'empresa.telefone'
                                                         )
-                                                    " label="telefone"></app-error-msg>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="form-control-label" for="email">
-                                                    E-mail:
-                                                </label>
-
-                                                <input class="form-control" [ngClass]="{
-                                                        'is-invalid':
-                                                            verificaValidTouched(
-                                                                'empresa.email'
-                                                            )
-                                                    }" id="email" placeholder="E-mail" type="text"
-                                                    formControlName="email" />
-                                                <app-error-msg [control]="
-                                                        cadastroForm.get(
-                                                            'empresa.email'
-                                                        )
-                                                    " label="Email"></app-error-msg>
+                                                    " label="Telefone"></app-error-msg>
                                             </div>
                                         </div>
                                     </div>
-
                                     <h2>Endereço</h2>
 
                                     <div formGroupName="empresa">
                                         <div class="row" formGroupName="endereco">
-                                            <div class="col-md-6">
+                                            <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="cep">
-                                                        CEP:
+                                                        CEP
                                                     </label>
 
-                                                    <input class="form-control" [ngClass]="{
+                                                    <input class="form-control" [textMask]="{mask: cepMask}" [ngClass]="{
                                                             'is-invalid':
                                                                 verificaValidTouched(
                                                                     'empresa.endereco.cep'
@@ -459,10 +456,10 @@
                                                         " label="CEP"></app-error-msg>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-7">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="ruaLogra">
-                                                        Endereço:
+                                                        Endereço
                                                     </label>
 
                                                     <input class="form-control" [ngClass]="{
@@ -479,18 +476,13 @@
                                                         " label="Endereço"></app-error-msg>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div formGroupName="empresa">
-                                        <div class="row" formGroupName="endereco">
-                                            <div class="col-md-6">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="numero">
-                                                        Numero:
+                                                        Numero
                                                     </label>
 
-                                                    <input class="form-control" [ngClass]="{
+                                                    <input class="form-control" pattern="\d*" [ngClass]="{
                                                             'is-invalid':
                                                                 verificaValidTouched(
                                                                     'empresa.endereco.numero'
@@ -504,10 +496,16 @@
                                                         " label="Numero"></app-error-msg>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+
+                                    <div formGroupName="empresa">
+                                        <div class="row" formGroupName="endereco">
+
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="complemento">
-                                                        Complemento:
+                                                        Complemento
                                                     </label>
 
                                                     <input class="form-control" [ngClass]="{
@@ -521,18 +519,13 @@
                                                             cadastroForm.get(
                                                                 'empresa.endereco.complemento'
                                                             )
-                                                        " label="complemento"></app-error-msg>
+                                                        " label="Complemento"></app-error-msg>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div formGroupName="empresa">
-                                        <div class="row" formGroupName="endereco">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="bairro">
-                                                        Bairro:
+                                                        Bairro
                                                     </label>
 
                                                     <input class="form-control" [ngClass]="{
@@ -546,13 +539,17 @@
                                                             cadastroForm.get(
                                                                 'empresa.endereco.bairro'
                                                             )
-                                                        " label="bairro"></app-error-msg>
+                                                        " label="Bairro"></app-error-msg>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div formGroupName="empresa">
+                                        <div class="row" formGroupName="endereco">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="cidade">
-                                                        Cidade:
+                                                        Cidade
                                                     </label>
 
                                                     <input class="form-control" [ngClass]="{
@@ -566,18 +563,13 @@
                                                             cadastroForm.get(
                                                                 'empresa.endereco.cidade'
                                                             )
-                                                        " label="cidade"></app-error-msg>
+                                                        " label="Cidade"></app-error-msg>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div formGroupName="empresa">
-                                        <div class="row" formGroupName="endereco">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-control-label" for="estado">
-                                                        estado:
+                                                        Estado
                                                     </label>
 
                                                     <input class="form-control" [ngClass]="{
@@ -591,7 +583,7 @@
                                                             cadastroForm.get(
                                                                 'empresa.endereco.estado'
                                                             )
-                                                        " label="estado"></app-error-msg>
+                                                        " label="Estado"></app-error-msg>
                                                 </div>
                                             </div>
                                         </div>

@@ -40,7 +40,7 @@ export class AuthSignOutComponent implements OnInit, OnDestroy
         this._authService.signOut();
 
         // Redirect after the countdown
-        timer(1000, 1000)
+        timer(0, 0)
             .pipe(
                 finalize(() => {
                     this._router.navigate(['sign-in']);
