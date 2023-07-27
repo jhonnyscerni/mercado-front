@@ -37,7 +37,7 @@ export class NoticeSaleFormComponent extends BaseFormComponent implements OnInit
       if (editalId) {
           const edital$ = this.editaService.loadByID(editalId);
           edital$.subscribe(edital => {
-              this.edital =edital;
+              this.edital = edital;
               console.log(edital)
           });
       }
@@ -68,7 +68,7 @@ export class NoticeSaleFormComponent extends BaseFormComponent implements OnInit
             msgError = 'Erro ao atualizar cadastro, tente novamente!';
         }
 
-        this.noticeSaleService.savarLeilao(this.cadastroForm.value, this.id).subscribe(
+        this.noticeSaleService.savarLeilao(this.cadastroForm.value, this.edital.id).subscribe(
           (success) => {
             this.toastr.success(msgSuccess, 'Informação :)');
             this.location.back();
