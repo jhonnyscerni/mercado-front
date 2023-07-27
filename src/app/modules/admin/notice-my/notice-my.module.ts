@@ -1,7 +1,8 @@
-import { NoticeSaleFormComponent } from './notice-sale-form/notice-sale-form.component';
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { NoticeMyListComponent } from './notice-my-list/notice-my-list.component';
+import { NOTICE_MY_ROUTES } from './notice-my.routing';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -20,13 +21,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'app/shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { NOTICE_ROUTES } from './notice.routes';
-import { NoticeListComponent } from './notice-list/notice-list.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(NOTICE_ROUTES),
+    RouterModule.forChild(NOTICE_MY_ROUTES),
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
@@ -47,7 +46,7 @@ import { NoticeListComponent } from './notice-list/notice-list.component';
     MatTooltipModule,
     SharedModule
   ],
-  declarations: [NoticeListComponent, NoticeSaleFormComponent],
-  exports: [NoticeListComponent, NoticeSaleFormComponent],
+  declarations: [NoticeMyListComponent],
+  exports: [NoticeMyListComponent]
 })
-export class NoticeModule {}
+export class NoticeMyModule { }

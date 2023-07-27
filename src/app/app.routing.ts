@@ -1,3 +1,4 @@
+import { NoticeMyModule } from './modules/admin/notice-my/notice-my.module';
 import { Route } from '@angular/router';
 import { LayoutComponent } from 'app/layout/layout.component';
 import { InitialDataResolver } from 'app/app.resolvers';
@@ -92,6 +93,7 @@ export const appRoutes: Route[] = [
             {path: 'categoria-produtos', loadChildren: () => import('app/modules/admin/category-product/category-product.module').then(m => m.CategoryProductModule)},
             {path: 'marca-produtos', loadChildren: () => import('app/modules/admin/brand-product/brand-product.module').then(m => m.BrandProductModule)},
             {path: 'editais', loadChildren: () => import('app/modules/admin/notice/notice.module').then(m => m.NoticeModule)},
+            {path: 'meus-editais', loadChildren: () => import('app/modules/admin/notice-my/notice-my.module').then(m => m.NoticeMyModule)},
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
         ]
     }

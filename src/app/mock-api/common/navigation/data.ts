@@ -59,6 +59,15 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
     {
 
+        id: 'meus-editais',
+        title: 'Meus Editais',
+        type: 'basic',
+        icon: 'mat_solid:view_headline',
+        role: 'ROLE_SUPER_ADMIN',
+        link: '/meus-editais'
+    },
+    {
+
         id: 'editais',
         title: 'Editais',
         type: 'basic',
@@ -115,6 +124,15 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
     {
 
+        id: 'meus-editais',
+        title: 'Meus Editais',
+        type: 'basic',
+        icon: 'mat_solid:view_headline',
+        role: 'ROLE_ADMIN',
+        link: '/meus-editais'
+    },
+    {
+
         id: 'editais',
         title: 'Editais',
         type: 'basic',
@@ -159,7 +177,15 @@ export const defaultNavigation: FuseNavigationItem[] = [
         role: 'ROLE_BUYER',
         link: '/produtos'
     },
+    {
 
+        id: 'meus-editais',
+        title: 'Meus Editais',
+        type: 'basic',
+        icon: 'mat_solid:view_headline',
+        role: 'ROLE_BUYER',
+        link: '/meus-editais'
+    },
     {
 
         id: 'editais',
@@ -178,6 +204,15 @@ export const defaultNavigation: FuseNavigationItem[] = [
         icon: 'mat_solid:dashboard',
         role: 'ROLE_VENDOR',
         link: '/project'
+    },
+    {
+
+        id: 'meus-editais',
+        title: 'Meus Editais',
+        type: 'basic',
+        icon: 'mat_solid:view_headline',
+        role: 'ROLE_VENDOR',
+        link: '/meus-editais'
     },
     {
 

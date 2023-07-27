@@ -77,6 +77,7 @@ export class NoticeListComponent implements OnInit {
         this.editalService.listSearchPage(params)
           .subscribe(
             (notice) => {
+              console.log(notice)
               this.notices = notice.content;
               this.totalElements = notice.totalElements;
               this.pageElement = notice.number;
@@ -95,7 +96,7 @@ export class NoticeListComponent implements OnInit {
     }
 
     onEdit(id): any {
-        this.router.navigate(['../editar', id], { relativeTo: this.route });
+        this.router.navigate(['../', id ,'leilao', ], { relativeTo: this.route });
     }
 
       create(): any {

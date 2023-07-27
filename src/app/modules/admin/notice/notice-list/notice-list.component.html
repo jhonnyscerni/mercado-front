@@ -97,11 +97,12 @@
                               loadingError">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
                                     <th>NUMERO</th>
-                                    <th>EMPRESA</th>
-                                    <th>EMPRESA CNPJ</th>
+                                    <th>EMPRESA COMPRADORA</th>
                                     <th>PRODUTO</th>
+                                    <th>TIPO</th>
+                                    <th>ABERTURA</th>
+                                    <th>SITUACAO</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -111,36 +112,20 @@
                                       currentPage: page,
                                       totalItems: totalElements }">
                                     <td><span class="text-muted"> {{
-                                            edital?.id }}</span></td>
-                                    <td><span class="text-muted"> {{
                                             edital?.numero }}</span></td>
                                     <td><span class="text-muted"> {{
-                                            edital?.empresa?.razaoSocial }}</span></td>
-                                    <td><span class="text-muted"> {{
-                                            edital?.empresa?.cnpj }}</span></td>
+                                        edital?.empresa?.razaoSocial }}</span></td>
                                     <td><span class="text-muted"> {{
                                             edital?.produto?.nome }}</span></td>
-                                    <td class="table-actions" *ngIf="authorities === 'ROLE_ADMIN' || authorities === 'ROLE_BUYER' ">
-                                        <a class="table-action" tooltip="Editar
-                                                  produto" placement="top" href="javascript:void(0)"
-                                            (click)="onEdit(edital.id)">
-                                            <mat-icon matSuffix>edit</mat-icon>
-                                        </a>
-                                        <a class="table-action
-                                                  table-action-delete" tooltip="Deletar consulta" placement="top"
-                                            href="javascript:void(0)" (click)="onDelete(edital)">
-                                            <mat-icon matSuffix>delete</mat-icon>
-                                        </a>
+                                    <td><span class="text-muted"> {{
+                                            edital?.produto?.categoriaProduto?.nomeDesc }}</span></td>
+                                    <td><span class="text-muted"> {{
+                                            edital?.dataInicio | date : 'dd/MM/yyyy HH:mm' }}</span></td>
+                                    <td><span class="text-muted"> status</span></td>
+                                    <td class="table-actions">
                                         <a class="table-action" tooltip="Detalhes consulta" placement="top"
-                                            href="javascript:void(0)" (click)="onDetalhe(edital.id)">
-                                            <mat-icon svgIcon="details"></mat-icon>
-                                        </a>
-                                    </td>
-
-                                    <td class="table-actions" *ngIf="authorities === 'ROLE_ADMIN' || authorities === 'ROLE_VENDOR' ">
-                                        <a class="table-action" tooltip="Detalhes consulta" placement="top"
-                                            href="javascript:void(0)" (click)="onDetalhe(edital.id)">
-                                            <mat-icon svgIcon="edit"></mat-icon>
+                                            href="javascript:void(0)" (click)="onEdit(edital.id)">
+                                            <mat-icon svgIcon="desktop_mac"></mat-icon>
                                         </a>
                                     </td>
                                 </tr>

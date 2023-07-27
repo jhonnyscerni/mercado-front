@@ -1,0 +1,91 @@
+import { NoticeService } from './../../../../services/notice.service';
+import { NoticeSaleService } from './../../../../services/notice-sale.service';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BaseFormComponent } from 'app/shared/base-form/base-form.component';
+import { ToastrService } from 'ngx-toastr';
+import { Location } from '@angular/common';
+import { Notice } from 'app/models/notice';
+
+@Component({
+  selector: 'app-notice-sale-form',
+  templateUrl: './notice-sale-form.component.html',
+  styleUrls: ['./notice-sale-form.component.css']
+})
+export class NoticeSaleFormComponent extends BaseFormComponent implements OnInit {
+  
+  id: number
+  edital: Notice;
+
+  constructor(
+        private fb: FormBuilder,
+        private location: Location,
+        private route: ActivatedRoute,
+        private router: Router,
+        private toastr: ToastrService,
+        private noticeSaleService: NoticeSaleService,
+        private editaService: NoticeService
+  ) {
+    super();
+  }
+
+  ngOnInit() {
+
+    this.route.params.subscribe((params: any) => {
+      const editalId = params['id'];
+      if (editalId) {
+          const edital$ = this.editaService.loadByID(editalId);
+          edital$.subscribe(edital => {
+              this.edital =edital;
+              console.log(edital)
+          });
+      }
+  });
+
+
+
+  this.cadastroForm = this.fb.group({
+    id: [''],
+    valorLance: [
+      '',
+      [
+        Validators.required
+      ],
+    ]
+  });
+
+
+
+  }
+
+  submit() {
+    let msgSuccess = 'Cadastro criado com sucesso!';
+        let msgError = 'Erro ao criar Cadastro, tente novamente!';
+        if (this.cadastroForm.value.id) {
+            console.log(this.cadastroForm.value);
+            msgSuccess = 'Cadastro atualizado com sucesso!';
+            msgError = 'Erro ao atualizar cadastro, tente novamente!';
+        }
+
+        this.noticeSaleService.savarLeilao(this.cadastroForm.value, this.id).subscribe(
+          (success) => {
+            this.toastr.success(msgSuccess, 'Informação :)');
+            this.location.back();
+          },
+          error =>
+          //this.alertService.showAlertDanger(msgError),
+          this.toastr.error(msgError, 'Opa :(')
+        );
+  }
+
+  cancelar(): any {
+    this.router.navigate(['/editais/lista'], { relativeTo: this.route });
+  }
+
+  listaEditais(): any{
+    this.router.navigate(['/editais/lista'], { relativeTo: this.route });
+  }
+
+
+}
