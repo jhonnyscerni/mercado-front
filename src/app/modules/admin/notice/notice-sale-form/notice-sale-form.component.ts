@@ -17,6 +17,7 @@ export class NoticeSaleFormComponent extends BaseFormComponent implements OnInit
   
   id: number
   edital: Notice;
+  editalId : number
 
   constructor(
         private fb: FormBuilder,
@@ -33,9 +34,9 @@ export class NoticeSaleFormComponent extends BaseFormComponent implements OnInit
   ngOnInit() {
 
     this.route.params.subscribe((params: any) => {
-      const editalId = params['id'];
-      if (editalId) {
-          const edital$ = this.editaService.loadByID(editalId);
+      this.editalId = params['id'];
+      if (this.editalId) {
+          const edital$ = this.editaService.loadByID(this.editalId);
           edital$.subscribe(edital => {
               this.edital = edital;
               console.log(edital)

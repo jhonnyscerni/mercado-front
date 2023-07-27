@@ -13,7 +13,7 @@ export const NOTICE_ROUTES: Routes = [
             canActivate: [AuthoritiesGuard]
           },
           {
-            path: ":id/leilao", component: NoticeSaleFormComponent,
+            path: ":id/leilao/lance", component: NoticeSaleFormComponent,
           },
           { path: '', redirectTo: '/editais/lista', pathMatch: 'full' }
         ]

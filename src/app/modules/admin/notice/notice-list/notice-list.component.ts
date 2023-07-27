@@ -96,12 +96,9 @@ export class NoticeListComponent implements OnInit {
     }
 
     onEdit(id): any {
-        this.router.navigate(['../', id ,'leilao', ], { relativeTo: this.route });
+        this.router.navigate(['../', id ,'leilao', 'lance' ], { relativeTo: this.route });
     }
 
-      create(): any {
-        this.router.navigate(['../cadastrar'], { relativeTo: this.route });
-    }
 
     onDelete(produto): any {
         this.noticeSelecionado = produto;

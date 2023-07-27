@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NoticeMyListComponent } from './notice-my-list/notice-my-list.component';
@@ -21,6 +22,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'app/shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { NoticeMySaleListComponent } from './notice-my-sale-list/notice-my-sale-list.component';
 
 @NgModule({
   imports: [
@@ -46,7 +48,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatTooltipModule,
     SharedModule
   ],
-  declarations: [NoticeMyListComponent],
-  exports: [NoticeMyListComponent]
+  declarations: [NoticeMyListComponent, NoticeMySaleListComponent],
+  exports: [NoticeMyListComponent, NoticeMySaleListComponent]
 })
 export class NoticeMyModule { }

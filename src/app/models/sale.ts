@@ -4,6 +4,6 @@ import { User } from "./user";
 export class Sale {
     id?: number;
     valorLance?: number;
-    empresa?: User;
-    notice?: Notice;
+    usuario?: User;
+    edital?: Notice;
 }

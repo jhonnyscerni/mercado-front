@@ -1,0 +1,70 @@
+.dataInfoBlock, .dataInfoBlock3, .dataInfoBlock5, .dataInfoBlock6 {
+    cursor: pointer;
+    display: block;
+    float: left;
+    width: calc(100% - 30px);
+    height: auto;
+    /* margin: 25px 65px 10px; */
+    /* padding: 15px 50px; */
+    text-align: left;
+/* border: 1px solid #ddd; */
+}
+
+.dataInnerBlock1, .dataInnerBlock2 {
+    display: block;
+    float: left;
+    width: 100%;
+    height: auto;
+    font: normal 14px/20px Trebuchet MS,Arial,'Tahoma',Helvetica,sans-serif;
+    color: #333;
+}
+.dataInfoBlock p, .dataInfoBlock3 p, .dataInfoBlock5 p, .dataInfoBlock6 p {
+    float: left;
+    width: auto;
+    min-width: calc(50% - 10px);
+    max-width: 100%;
+    margin: 0px;
+    padding: 0px 5px;
+    font: normal 14px/20px Trebuchet MS,Arial,'Tahoma',Helvetica,sans-serif;
+    color: #666;
+}
+.dataInfoBlock p b, .dataInfoBlock3 p b, .dataInfoBlock5 p b, .dataInfoBlock6 p b {
+    margin: 0px 10px 0px 0px;
+    color: #0070af;
+}
+.h3TitleBlue.divisor {
+    border-bottom: 2px solid #b7b7b7;
+    color: #0070af;
+    padding: 0px;
+    margin-top: 20px;
+}
+
+.h3TitleBlue, .h3TitleBlueB, .h3TitleBlueC, .h3TitleBlueD, .h3TitleBlueE {
+    display: block;
+    float: left;
+    width: 100%;
+    min-height: 30px;
+    margin: 0px 0px 15px;
+    font: bold 16px Trebuchet MS, Arial, 'Tahoma', Helvetica, sans-serif;
+    line-height: 20px;
+    text-align: left;
+    color: #333;
+}
+
+.datasProcessoBlock div.labels {
+    float: left;
+    width: calc(50%);
+    height: auto;
+}
+.datasProcessoBlock div.iconeEdital {
+    float: left;
+    width: calc(50% - 10px);
+}
+
+.dataInfoBlock hr, .dataInfoBlock3 hr, .dataInfoBlock5 hr {
+    float: left;
+    width: 100%;
+    height: auto;
+    margin: 10px 0px;
+    border-bottom: 1px solid #ddd;
+}

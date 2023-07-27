@@ -4,6 +4,7 @@ import { BaseService } from 'app/core/services/base.service';
 import { Sale } from 'app/models/sale';
 import { environment } from 'environments/environment';
 import { Observable, catchError } from 'rxjs';
+import { Page } from '../models/page/page';
 
 const headers = new HttpHeaders().set('Content-Type', 'application/json');
 
@@ -27,5 +28,9 @@ public savarLeilao(sale: Sale, id: any): Observable<any> {
       .pipe(
           catchError(super.serviceError));
 }
+
+  listSearchPage(id: any, params): Observable<Page<Sale>> {
+    return this.http.get<Page<Sale>>(this.url + "/"+ id +"/leilao", { params });
+  }
 
 }
