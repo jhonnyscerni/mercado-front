@@ -103,7 +103,7 @@ export class LandingSignupComponent extends BaseFormComponent implements OnInit 
     }
 
     cancelar(): any {
-        this.router.navigate(['/home'], { relativeTo: this.route });
+        this.router.navigate(['/'], { relativeTo: this.route });
     }
 
     resetar(): any {
@@ -117,7 +117,7 @@ export class LandingSignupComponent extends BaseFormComponent implements OnInit 
 
     logout(): any {
         this.authService.signOut();
-        this.router.navigate(['/home']);
+        this.router.navigate(['/']);
     }
 
     onDashboard(): any {

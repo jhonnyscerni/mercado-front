@@ -27,7 +27,7 @@ export class LandingHomeComponent implements OnInit
 
     logout(): any {
       this.authService.signOut();
-      this.router.navigate(['/home']);
+      this.router.navigate(['/']);
     }
 
     onDashboard(): any {

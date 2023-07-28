@@ -17,13 +17,8 @@ export const appRoutes: Route[] = [
 
     // {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'project'},
 
-    {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-      },
       {
-        path: 'home',
+        path: '',
         data: {
             layout: 'empty'
         },
