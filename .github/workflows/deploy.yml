@@ -1,31 +1,85 @@
+name: Deploy to FTP - Projeto Mercado&Negocios
+
 on:
   push:
     branches:
       - master
-name: 🚀 Deploy website on push 
+
+  # the follow line allow this script to be started manually.
+  workflow_dispatch:
 
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  build:
+
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 14.17.0
+    - name: Install packages with NPM
+      run: npm install
+    - name: Build for production
+      run: npx ng build --configuration production
+    - name: Upload artifacts to be used in next job
+      if: success()
+      uses: actions/upload-artifact@v1
+      with:
+        name: deploy_dist
+        path: dist
 
-      - name: Use Node.js 12
-        uses: actions/setup-node@v2-beta
-        with:
-          node-version: "14.17.0"
+  ftp-deploy:
+    needs: build
+    runs-on: self-hosted
 
-      - name: 🔨 Build Project
-        run: |
-          npm install
-          npx ng build --configuration production
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/fuse
+    steps:
+
+    - name: Download artifacts created at previous job
+      if: success()
+      uses: actions/download-artifact@v1
+      with:
+        name: deploy_dist
+        path: dist
+    - name: Deploy to FTP
+      uses: SamKirkland/FTP-Deploy-Actions@master
+      with:
+        server: ${{ secrets.FTP_SERVER }}
+        username: ${{ secrets.FTP_USER }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: dist/fuse
+        server-dir: ${{ secrets.FTP_APP_DIR }}
+        dangerous-clean-slate: true # optional
+
+
+# on:
+#   push:
+#     branches:
+#       - master
+# name: 🚀 Deploy website on push 
+
+# jobs:
+#   web-deploy:
+#     name: 🎉 Deploy
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: 🚚 Get latest code
+#         uses: actions/checkout@v2
+
+#       - name: Use Node.js 12
+#         uses: actions/setup-node@v2-beta
+#         with:
+#           node-version: "14.17.0"
+
+#       - name: 🔨 Build Project
+#         run: |
+#           npm install
+#           npx ng build --configuration production
+#       - name: 📂 Sync files
+#         uses: SamKirkland/FTP-Deploy-Action@4.1.0
+#         with:
+#           server: ${{ secrets.FTP_SERVER }}
+#           username: ${{ secrets.FTP_USER }}
+#           password: ${{ secrets.FTP_PASSWORD }}
+#           local-dir: ./dist/fuse
