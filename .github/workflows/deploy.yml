@@ -1,5 +1,3 @@
-name: Deploy to FTP - Projeto Mercado&Negocios
-
 on:
   push:
     branches:
