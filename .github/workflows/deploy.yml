@@ -29,3 +29,4 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/fuse/
+          dangerous-clean-slate: true # optional
