@@ -2,15 +2,15 @@ on:
   push:
     branches:
       - master
-name: Deploy website on push
+name: 🚀 Deploy website on push
 
 jobs:
   web-deploy:
-    name: Deploy
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get latest code
+      - name: 🚚 Get latest code
         uses: actions/checkout@v2
 
       - name: Use Node.js 12
@@ -22,7 +22,7 @@ jobs:
         run: |
           npm install
           npx ng build --configuration production
-      - name: Sync files
+      - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.1.0
         with:
           server: ${{ secrets.FTP_SERVER }}
