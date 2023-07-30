@@ -3,10 +3,11 @@ import { Product } from './product';
 import { User } from './user';
 export class Notice {
     id?: number;
+    titulo?: string;
     numero?: number;
     dataInicio?: Date;
     dataFim?: Date;
     empresa?: User;
-    produto?: Product;
+    produtos?: Product[] = [];;
     endereco?: Address;
 }

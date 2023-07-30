@@ -39,7 +39,6 @@ export class NoticeSaleFormComponent extends BaseFormComponent implements OnInit
           const edital$ = this.editaService.loadByID(this.editalId);
           edital$.subscribe(edital => {
               this.edital = edital;
-              console.log(edital)
           });
       }
   });
@@ -61,13 +60,8 @@ export class NoticeSaleFormComponent extends BaseFormComponent implements OnInit
   }
 
   submit() {
-    let msgSuccess = 'Cadastro criado com sucesso!';
-        let msgError = 'Erro ao criar Cadastro, tente novamente!';
-        if (this.cadastroForm.value.id) {
-            console.log(this.cadastroForm.value);
-            msgSuccess = 'Cadastro atualizado com sucesso!';
-            msgError = 'Erro ao atualizar cadastro, tente novamente!';
-        }
+        let msgSuccess = 'Lance fetuado com sucesso!';
+        let msgError = 'Erro ao efetuar um Lance ou a empresa que você está ja efetuaou um lance nesse edital!';
 
         this.noticeSaleService.savarLeilao(this.cadastroForm.value, this.edital.id).subscribe(
           (success) => {

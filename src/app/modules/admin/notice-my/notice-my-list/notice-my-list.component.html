@@ -96,8 +96,6 @@
                 <tr>
                   <th>NUMERO</th>
                   <th>EMPRESA COMPRADORA</th>
-                  <th>PRODUTO</th>
-                  <th>TIPO</th>
                   <th>ABERTURA</th>
                   <th>SITUACAO</th>
                   <th></th>
@@ -112,10 +110,6 @@
                       edital?.numero }}</span></td>
                   <td><span class="text-muted"> {{
                       edital?.empresa?.razaoSocial }}</span></td>
-                  <td><span class="text-muted"> {{
-                      edital?.produto?.nome }}</span></td>
-                  <td><span class="text-muted"> {{
-                      edital?.produto?.categoriaProduto?.nomeDesc }}</span></td>
                   <td><span class="text-muted"> {{
                       edital?.dataInicio | date : 'dd/MM/yyyy HH:mm' }}</span></td>
                   <td><span class="text-muted"> status</span></td>
