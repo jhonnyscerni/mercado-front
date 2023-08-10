@@ -22,6 +22,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { SharedModule } from 'app/shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ProductListComponent } from './product-list/product-list.component';
+import { ProductFormComponent } from './product-form/product-form.component';
 
 @NgModule({
     imports: [
@@ -47,7 +48,7 @@ import { ProductListComponent } from './product-list/product-list.component';
         MatTooltipModule,
         SharedModule
     ],
-    declarations: [ProductComponent, ProductListComponent],
-    exports: [ProductComponent, ProductListComponent],
+    declarations: [ProductComponent, ProductListComponent, ProductFormComponent],
+    exports: [ProductComponent, ProductListComponent, ProductFormComponent],
 })
 export class ProductModule { }

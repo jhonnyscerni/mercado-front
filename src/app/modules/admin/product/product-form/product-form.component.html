@@ -1,0 +1,151 @@
+<div class="flex flex-col flex-auto min-w-0">
+    <div class="bg-card">
+        <div class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+            <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-4 sm:my-8">
+                <div class="flex-1 min-w-0">
+                    <!-- Breadcrumbs -->
+                    <div>
+                        <div class="hidden sm:flex flex-wrap items-center font-medium">
+                            <div>
+                                <a class="whitespace-nowrap text-primary-500">Inicio</a>
+                            </div>
+                            <div class="flex items-center ml-1 whitespace-nowrap">
+                                <mat-icon class="icon-size-5 text-secondary"
+                                    [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+                                <a class="ml-1 text-primary-500">Cadastro Produto</a>
+                            </div>
+                        </div>
+                        <div class="flex sm:hidden">
+                            <a class="inline-flex items-center -ml-1.5 text-secondary font-medium"
+                                [routerLink]="'./..'">
+                                <mat-icon class="icon-size-5 text-secondary"
+                                    [svgIcon]="'heroicons_solid:chevron-left'"></mat-icon>
+                                <span class="ml-1">voltar</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Title -->
+                    <div class="mt-2">
+                        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+                            Cadastro Produto
+                        </h2>
+                    </div>
+                </div>
+                <!-- Actions -->
+                <div class="flex shrink-0 items-center mt-2 sm:mt-0">
+
+                    <button mat-flat-button [color]="'primary'" (click)="lista()">
+                        <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                        <span class="ml-2 mr-1">Lista Produto</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inicio do Form -->
+    <div class="bg-card">
+        <div class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+
+            <div class=" card-body mt-4">
+                <!-- inicio da Row -->
+                <form novalidate [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+
+                    <div class=" row">
+                        <div class=" col-md-6">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="codigoExterno">
+                                    Codigo Externo
+                                </label>
+
+                                <input class=" form-control"
+                                    [ngClass]="{'is-invalid':verificaValidTouched('codigoExterno') }" id="codigoExterno"
+                                    placeholder="Codigo Externo" type="text" formControlName="codigoExterno" />
+                                <app-error-msg [control]="cadastroForm.get('codigoExterno')"
+                                    label="codigoExterno"></app-error-msg>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class=" row">
+
+                        <div class=" col-md-6">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="nome">
+                                    Nome
+                                </label>
+
+                                <input class=" form-control" [ngClass]="{'is-invalid':verificaValidTouched('nome') }"
+                                    id="nome" placeholder="Nome" type="text" formControlName="nome" />
+                                <app-error-msg [control]="cadastroForm.get('nome')" label="nome"></app-error-msg>
+                            </div>
+                        </div>
+
+                        <div class=" col-md-6">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="descricao">
+                                    Descrição
+                                </label>
+
+                                <input class=" form-control"
+                                    [ngClass]="{'is-invalid':verificaValidTouched('descricao') }" id="descricao"
+                                    placeholder="Descrição" type="text" formControlName="descricao" />
+                                <app-error-msg [control]="cadastroForm.get('descricao')"
+                                    label="descricao"></app-error-msg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" row">
+                        <div class=" col-md-6">
+                            <div class="form-group">
+                                <label class=" form-control-label" for="categoriaId">
+                                    Categoria:
+                                </label>
+                                <select class="form-control" id="categoriaId" placeholder="Categoria do Produto"
+                                    formControlName="categoriaId" [ngClass]="{'is-invalid':verificaValidTouched('categoriaId') }"
+                                    [compareWith]="compareFn">
+                                    <option *ngFor="let categoria of categoriasProdutos" [value]="categoria.id">
+                                        {{ categoria.nomeDesc }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class=" col-md-6">
+                            <div class="form-group">
+                                <label class=" form-control-label" for="marcaId">
+                                    Marca do Produto:
+                                </label>
+                                <select class="form-control" id="marcaId" placeholder="Marca do Produto"
+                                    formControlName="marcaId" [ngClass]="{'is-invalid':verificaValidTouched('marcaId') }"
+                                    [compareWith]="compareFn">
+                                    <option *ngFor="let marca of marcasProdutos" [value]="marca.id">
+                                        {{ marca.nomeDesc }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-right">
+                        <span>
+                            <!-- [disabled]="!cadastroForm.valid" -->
+                            <button class="btn btn-success" id="registrar" [disabled]="!cadastroForm.valid"
+                                type="submit">Registrar
+                            </button>
+                        </span>
+                        <span>
+                            <button class="btn" id="cancelar" (click)="resetar()">Limpar
+                            </button>
+                        </span>
+                        <span>
+                            <!-- [disabled]="!cadastroForm.valid" -->
+                            <button class="btn " id="cancelar" (click)="cancelar()" type="submit">Cancelar
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

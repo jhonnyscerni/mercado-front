@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Role } from 'app/models/role';
 import { User } from 'app/models/user';
 import { RoleService } from 'app/services/role.service';
 import { UsuarioService } from 'app/services/usuario.service';
