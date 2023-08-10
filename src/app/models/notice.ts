@@ -1,13 +1,20 @@
 import { Address } from './address';
+import { Company } from './company';
+import { FormPayment } from './form-payment';
+import { NoticeItem } from './notice-item';
 import { Product } from './product';
-import { User } from './user';
+import { Regions } from './regions';
 export class Notice {
     id?: number;
     titulo?: string;
     numero?: number;
     dataInicio?: Date;
     dataFim?: Date;
-    empresa?: User;
-    produtos?: Product[] = [];;
+    dataExibicao?: Date;
+    tempoMaximoEntrega?: number;
+    empresa?: Company;
+    itens?: NoticeItem[] = [];
+    formasPagamento?: FormPayment[] = []
+    regioes?: Regions[] = []
     endereco?: Address;
 }

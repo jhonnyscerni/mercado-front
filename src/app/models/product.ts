@@ -1,21 +1,14 @@
 import { Brand } from './brand';
 import { CategoryProduct } from './category-product';
+import { Company } from './company';
 import { User } from './user';
 
 export class Product {
     id?: number;
-    tipoUnidade?: string;
+    codigoExterno?: string;
     nome?: string;
-    ativo?: boolean;
     descricao?: string;
-    peso?: number;
-    largura?: string;
-    altura?: string;
-    profundidade?: string;
-    valorVenda?: string;
-    qtdEstoque?: string;
-    qtdeAlertaEstoque?: string;
-    empresa?: User;
+    empresa?: Company;
     categoriaProduto?: CategoryProduct;
     marcaProduto?: Brand;
 }

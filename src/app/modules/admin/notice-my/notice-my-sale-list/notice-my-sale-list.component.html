@@ -122,7 +122,7 @@
             <h3 class="text-3xl md:text-3xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
               Lista dos Produtos
             </h3>
-      <table class="table text-center" *ngIf="edital?.produtos; else
+      <table class="table text-center" *ngIf="edital?.itens; else
             loadingError">
           <thead>
               <tr>
@@ -133,18 +133,18 @@
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let produto of edital?.produtos |
+              <tr *ngFor="let item of edital?.itens |
                     paginate: { itemsPerPage: size,
                     currentPage: page,
                     totalItems: totalElements }">
                   <td><span class="text-muted"> {{
-                          produto?.id }}</span></td>
+                    item?.produto?.id }}</span></td>
                   <td><span class="text-muted"> {{
-                          produto?.nome }}</span></td>
+                    item?.produto?.nome }}</span></td>
                   <td><span class="text-muted"> {{
-                          produto?.categoriaProduto?.nomeDesc }}</span></td>
+                    item?.produto?.categoriaProduto?.nomeDesc }}</span></td>
                   <td><span class="text-muted"> {{
-                          produto?.marcaProduto?.nomeDesc }}</span></td>
+                    item?.produto?.marcaProduto?.nomeDesc }}</span></td>
               </tr>
           </tbody>
       </table>
