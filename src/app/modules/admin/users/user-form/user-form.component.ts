@@ -19,6 +19,7 @@ export class UserFormComponent extends BaseFormComponent implements OnInit {
     user: User;
     userId: number;
     grupos = [];
+    public maskTelefone = ['(', /[1-9]/, /\d/, ')', ' ',/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
 
     constructor(
         private fb: FormBuilder,

@@ -24,6 +24,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { SharedModule } from 'app/shared/shared.module';
 import { UserFormComponent } from './user-form/user-form.component';
+import { TextMaskModule } from 'angular2-text-mask';
 
 @NgModule({
     imports: [
@@ -47,7 +48,8 @@ import { UserFormComponent } from './user-form/user-form.component';
         MatSelectModule,
         MatSlideToggleModule,
         MatTooltipModule,
-        SharedModule
+        SharedModule,
+        TextMaskModule
     ],
   declarations: [UsersComponent, UserListComponent, UserFormComponent],
   exports: [UsersComponent, UserListComponent, UserFormComponent],

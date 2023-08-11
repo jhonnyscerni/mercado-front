@@ -48,24 +48,6 @@
                             </div>
                             <!-- Actions -->
                             <div class="flex shrink-0 items-center mt-2 sm:mt-0">
-                                <!-- Search -->
-                                <!-- <mat-form-field class="fuse-mat-dense fuse-mat-no-subscript fuse-mat-rounded min-w-64">
-                                <mat-icon
-                                    class="icon-size-5"
-                                    matPrefix
-                                    [svgIcon]="'heroicons_solid:search'"></mat-icon>
-                                <input
-                                    matInput
-                                    [formControl]=""
-                                    [autocomplete]="'off'"
-                                    [placeholder]="'Search products'">
-                            </mat-form-field> -->
-                                <!-- Add product button -->
-                                <button mat-flat-button [color]="'primary'" (click)="create()"
-                                    *ngIf="authorities === 'ROLE_ADMIN' || authorities === 'ROLE_BUYER' ">
-                                    <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
-                                    <span class="ml-2 mr-1">Cadastrar de Editais</span>
-                                </button>
                             </div>
                         </div>
                         <div class="mb-6">

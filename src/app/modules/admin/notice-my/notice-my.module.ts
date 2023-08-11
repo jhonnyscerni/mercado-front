@@ -23,6 +23,10 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'app/shared/shared.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { NoticeMySaleListComponent } from './notice-my-sale-list/notice-my-sale-list.component';
+import { NoticeMyFormComponent } from './notice-my-form/notice-my-form.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   imports: [
@@ -46,9 +50,12 @@ import { NoticeMySaleListComponent } from './notice-my-sale-list/notice-my-sale-
     MatSelectModule,
     MatSlideToggleModule,
     MatTooltipModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatTabsModule,
   ],
-  declarations: [NoticeMyListComponent, NoticeMySaleListComponent],
-  exports: [NoticeMyListComponent, NoticeMySaleListComponent]
+  declarations: [NoticeMyListComponent, NoticeMySaleListComponent, NoticeMyFormComponent],
+  exports: [NoticeMyListComponent, NoticeMySaleListComponent, NoticeMyFormComponent]
 })
 export class NoticeMyModule { }

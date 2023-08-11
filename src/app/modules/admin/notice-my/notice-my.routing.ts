@@ -19,6 +19,10 @@ export const NOTICE_MY_ROUTES: Routes = [
             canActivate: [AuthoritiesGuard]
           },
           {
+            path: 'editar/:editalId', component: NoticeMyFormComponent,
+            canActivate: [AuthoritiesGuard]
+          },
+          {
             path: ":id/leilao/lista", component: NoticeMySaleListComponent,
           },
           { path: '', redirectTo: '/meus-editais/lista', pathMatch: 'full' }

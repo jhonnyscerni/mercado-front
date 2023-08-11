@@ -100,6 +100,10 @@ export class NoticeMyListComponent implements OnInit {
   }
 
   onEdit(id): any {
+    this.router.navigate(['../editar', id], { relativeTo: this.route });
+  }
+
+  onLeilao(id): any {
     this.router.navigate(['../', id, 'leilao',], { relativeTo: this.route });
   }
 

@@ -120,7 +120,7 @@
                                                             verificaValidTouched(
                                                                 'telefone'
                                                             )
-                                                    }" id="telefone" placeholder="Telefone" type="text"
+                                                    }" id="telefone"  [textMask]="{mask: maskTelefone}" placeholder="Telefone" type="text"
                                     formControlName="telefone" />
                                 <app-error-msg [control]="
                                                         cadastroForm.get(

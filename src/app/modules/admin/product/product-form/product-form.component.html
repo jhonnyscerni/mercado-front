@@ -58,7 +58,7 @@
                                     Codigo Externo
                                 </label>
 
-                                <input class=" form-control"
+                                <input pattern="\d*" class=" form-control"
                                     [ngClass]="{'is-invalid':verificaValidTouched('codigoExterno') }" id="codigoExterno"
                                     placeholder="Codigo Externo" type="text" formControlName="codigoExterno" />
                                 <app-error-msg [control]="cadastroForm.get('codigoExterno')"

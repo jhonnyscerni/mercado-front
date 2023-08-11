@@ -1,0 +1,134 @@
+<div class="flex flex-col flex-auto min-w-0">
+    <div class="bg-card">
+        <div class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+            <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-4 sm:my-8">
+                <div class="flex-1 min-w-0">
+                    <!-- Breadcrumbs -->
+                    <div>
+                        <div class="hidden sm:flex flex-wrap items-center font-medium">
+                            <div>
+                                <a class="whitespace-nowrap text-primary-500">Inicio</a>
+                            </div>
+                            <div class="flex items-center ml-1 whitespace-nowrap">
+                                <mat-icon class="icon-size-5 text-secondary"
+                                    [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+                                <a class="ml-1 text-primary-500">Cadastro do Edital</a>
+                            </div>
+                        </div>
+                        <div class="flex sm:hidden">
+                            <a class="inline-flex items-center -ml-1.5 text-secondary font-medium"
+                                [routerLink]="'./..'">
+                                <mat-icon class="icon-size-5 text-secondary"
+                                    [svgIcon]="'heroicons_solid:chevron-left'"></mat-icon>
+                                <span class="ml-1">voltar</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Title -->
+                    <div class="mt-2">
+                        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+                            Cadastro do Edital
+                        </h2>
+                    </div>
+                </div>
+                <!-- Actions -->
+                <div class="flex shrink-0 items-center mt-2 sm:mt-0">
+
+                    <button mat-flat-button [color]="'primary'" (click)="lista()">
+                        <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                        <span class="ml-2 mr-1">Lista do Edital</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inicio do Form -->
+    <div class="bg-card">
+        <div class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+
+            <div class=" card-body mt-4">
+                <!-- inicio da Row -->
+                <form novalidate [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+
+                    <div class=" row">
+                        <div class=" col-md-6">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="numero">
+                                    Número
+                                </label>
+
+                                <input pattern="\d*" class=" form-control" [ngClass]="{'is-invalid':verificaValidTouched('numero') }"
+                                    id="numero" placeholder="Numero" type="text" formControlName="numero" />
+                                <app-error-msg [control]="cadastroForm.get('numero')" label="numero"></app-error-msg>
+                            </div>
+                        </div>
+                        <div class=" col-md-6">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="titulo">
+                                    Titulo
+                                </label>
+
+                                <input class=" form-control" [ngClass]="{'is-invalid':verificaValidTouched('titulo') }"
+                                    id="titulo" placeholder="Titulo" type="text" formControlName="titulo" />
+                                <app-error-msg [control]="cadastroForm.get('titulo')" label="titulo"></app-error-msg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <mat-form-field class="example-full-width"
+                              appearance="outline">
+                              <mat-label>Data Inicio</mat-label>
+                              <input matInput [matDatepicker]="picker"
+                                formControlName="dataInicio" >
+                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                              <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+                            <app-error-msg
+                              [control]="cadastroForm.get('dataInicio')"
+                              label="Data Inicio"></app-error-msg>
+                        </div>
+
+                        <div class="col-md-3">
+                            <mat-form-field class="example-full-width"
+                              appearance="outline">
+                              <mat-label>Data Fim</mat-label>
+                              <input matInput [matDatepicker]="picker2"
+                                formControlName="dataFim" >
+                              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                              <mat-datepicker #picker2></mat-datepicker>
+                            </mat-form-field>
+                            <app-error-msg
+                              [control]="cadastroForm.get('dataFim')"
+                              label="Data Fim"></app-error-msg>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group text-right">
+                        <span>
+                            <!-- [disabled]="!cadastroForm.valid" -->
+                            <button class="btn btn-success" id="registrar" [disabled]="!cadastroForm.valid"
+                                type="submit">Registrar
+                            </button>
+                        </span>
+                        <span>
+                            <button class="btn" id="cancelar" (click)="resetar()">Limpar
+                            </button>
+                        </span>
+                        <span>
+                            <!-- [disabled]="!cadastroForm.valid" -->
+                            <button class="btn " id="cancelar" (click)="cancelar()" type="submit">Cancelar
+                            </button>
+                        </span>
+                    </div>
+                </form>
+
+                <app-form-debug [form]="cadastroForm"></app-form-debug>
+            </div>
+        </div>
+    </div>
+</div>
