@@ -96,8 +96,11 @@
                 <tr>
                   <th>NUMERO</th>
                   <th>EMPRESA COMPRADORA</th>
-                  <th>ABERTURA</th>
+                  <th>DATA INICIO</th>
+                  <th>DATA FIM</th>
+                  <th>DATA EXIBICAO</th>
                   <th>SITUACAO</th>
+                  <th>TEMPO MAXIMO ENTREGA</th>
                   <th></th>
                 </tr>
               </thead>
@@ -111,7 +114,13 @@
                   <td><span class="text-muted"> {{
                       edital?.empresa?.razaoSocial }}</span></td>
                   <td><span class="text-muted"> {{
-                      edital?.dataInicio | date : 'dd/MM/yyyy HH:mm' }}</span></td>
+                      edital?.dataInicio | date : 'dd/MM/yyyy' }}</span></td>
+                  <td><span class="text-muted"> {{
+                      edital?.dataFim | date : 'dd/MM/yyyy' }}</span></td>
+                  <td><span class="text-muted"> {{
+                      edital?.dataExibicao | date : 'dd/MM/yyyy' }}</span></td>
+                  <td><span class="text-muted"> {{
+                      edital?.tempoMaximoEntrega }}</span></td>
                   <td><span class="text-muted"> status</span></td>
                   <td class="table-actions" *ngIf="authorities === 'ROLE_ADMIN' || authorities === 'ROLE_BUYER' ">
                     <a class="table-action" tooltip="Editar

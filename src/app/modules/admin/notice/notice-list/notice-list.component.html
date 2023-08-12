@@ -81,22 +81,31 @@
                                 <tr>
                                     <th>NUMERO</th>
                                     <th>EMPRESA COMPRADORA</th>
-                                    <th>ABERTURA</th>
+                                    <th>DATA INICIO</th>
+                                    <th>DATA FIM</th>
+                                    <th>DATA EXIBICAO</th>
                                     <th>SITUACAO</th>
+                                    <th>TEMPO MAXIMO ENTREGA</th>
                                     <th></th>
-                                </tr>
+                                  </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let edital of notices |
                                       paginate: { itemsPerPage: size,
                                       currentPage: page,
                                       totalItems: totalElements }">
-                                    <td><span class="text-muted"> {{
-                                            edital?.numero }}</span></td>
+                                      <td><span class="text-muted"> {{
+                                        edital?.numero }}</span></td>
                                     <td><span class="text-muted"> {{
                                         edital?.empresa?.razaoSocial }}</span></td>
                                     <td><span class="text-muted"> {{
-                                            edital?.dataInicio | date : 'dd/MM/yyyy HH:mm' }}</span></td>
+                                        edital?.dataInicio | date : 'dd/MM/yyyy' }}</span></td>
+                                    <td><span class="text-muted"> {{
+                                        edital?.dataFim | date : 'dd/MM/yyyy' }}</span></td>
+                                    <td><span class="text-muted"> {{
+                                        edital?.dataExibicao | date : 'dd/MM/yyyy' }}</span></td>
+                                    <td><span class="text-muted"> {{
+                                        edital?.tempoMaximoEntrega }}</span></td>
                                     <td><span class="text-muted"> status</span></td>
                                     <td class="table-actions">
                                         <a class="table-action" tooltip="Efetuar um Lance no Leilao" placement="top"
