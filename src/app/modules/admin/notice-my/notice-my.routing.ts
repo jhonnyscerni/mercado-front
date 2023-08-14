@@ -4,6 +4,7 @@ import { AuthoritiesGuard } from 'app/core/services/authorities.guard';
 import { NoticeMyListComponent } from './notice-my-list/notice-my-list.component';
 import { NoticeMySaleListComponent } from './notice-my-sale-list/notice-my-sale-list.component';
 import { NoticeMyFormComponent } from './notice-my-form/notice-my-form.component';
+import { NoticeMyItemFormComponent } from './notice-my-item-form/notice-my-item-form.component';
 
 
 export const NOTICE_MY_ROUTES: Routes = [
@@ -20,6 +21,10 @@ export const NOTICE_MY_ROUTES: Routes = [
           },
           {
             path: 'editar/:editalId', component: NoticeMyFormComponent,
+            canActivate: [AuthoritiesGuard]
+          },
+          {
+            path: 'adicionar-item/:editalId', component: NoticeMyItemFormComponent,
             canActivate: [AuthoritiesGuard]
           },
           {

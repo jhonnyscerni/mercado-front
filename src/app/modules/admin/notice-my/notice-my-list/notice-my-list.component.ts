@@ -111,6 +111,11 @@ export class NoticeMyListComponent implements OnInit {
     this.router.navigate(['../', id ,'leilao', 'lista' ], { relativeTo: this.route });
   }
 
+  onItem(id): any {
+    this.router.navigate(['../adicionar-item', id ], { relativeTo: this.route });
+  }
+
+
   create(): any {
     this.router.navigate(['../cadastrar'], { relativeTo: this.route });
   }

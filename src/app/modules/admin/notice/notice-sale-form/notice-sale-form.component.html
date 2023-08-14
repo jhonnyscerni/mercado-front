@@ -125,31 +125,52 @@
             Lista dos Produtos
           </h3>
           <table class="table text-center" *ngIf="edital?.itens; else
-            loadingError">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>NOME</th>
-                <th>CATEGORIA</th>
-                <th>MARCA</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of edital?.itens |
-                    paginate: { itemsPerPage: size,
-                    currentPage: page,
-                    totalItems: totalElements }">
-                <td><span class="text-muted"> {{
-                    item?.produto?.id }}</span></td>
-                <td><span class="text-muted"> {{
-                    item?.produto?.nome }}</span></td>
-                <td><span class="text-muted"> {{
-                    item?.produto?.categoriaProduto?.nomeDesc }}</span></td>
-                <td><span class="text-muted"> {{
-                    item?.produto?.marcaProduto?.nomeDesc }}</span></td>
-              </tr>
-            </tbody>
-          </table>
+                loadingError">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NOME</th>
+                                <th>CATEGORIA</th>
+                                <th>MARCA</th>
+                                <th>QUANTIDADE</th>
+                                <th>VALOR MAXIMO</th>
+                                <th>UNIDADE DE MEDIDA</th>
+                                <th>PESO</th>
+                                <th>LARGURA</th>
+                                <th>ALTURA</th>
+                                <th>PROFUNDIDADE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of edital?.itens |
+                        paginate: { itemsPerPage: size,
+                        currentPage: page,
+                        totalItems: totalElements }">
+                                <td><span class="text-muted"> {{
+                                        item?.produto?.id }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.produto?.nome }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.produto?.categoriaProduto?.nomeDesc }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.produto?.marcaProduto?.nomeDesc }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.quantidade }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.valorMaximo }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.unidadeMedida?.nome }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.peso }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.largura }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.altura }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.profundidade }}</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
           <ng-template #loadingError>
             <div *ngIf="error$ | async; else loading">
               Erro ao carregar produtos. Tente novamente mais

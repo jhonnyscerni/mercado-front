@@ -1,0 +1,273 @@
+<div class="flex flex-col flex-auto min-w-0">
+    <div class="bg-card">
+        <div class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+            <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-4 sm:my-8">
+                <div class="flex-1 min-w-0">
+                    <!-- Breadcrumbs -->
+                    <div>
+                        <div class="hidden sm:flex flex-wrap items-center font-medium">
+                            <div>
+                                <a class="whitespace-nowrap text-primary-500">Inicio</a>
+                            </div>
+                            <div class="flex items-center ml-1 whitespace-nowrap">
+                                <mat-icon class="icon-size-5 text-secondary"
+                                    [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+                                <a class="ml-1 text-primary-500">Adicionar item ao Edital</a>
+                            </div>
+                        </div>
+                        <div class="flex sm:hidden">
+                            <a class="inline-flex items-center -ml-1.5 text-secondary font-medium"
+                                [routerLink]="'./..'">
+                                <mat-icon class="icon-size-5 text-secondary"
+                                    [svgIcon]="'heroicons_solid:chevron-left'"></mat-icon>
+                                <span class="ml-1">voltar</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Title -->
+                    <div class="mt-2">
+                        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+                            Adicionar item ao Edital
+                        </h2>
+                    </div>
+                </div>
+                <!-- Actions -->
+                <div class="flex shrink-0 items-center mt-2 sm:mt-0">
+                    <button mat-flat-button [color]="'primary'" (click)="lista()">
+                        <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+                        <span class="ml-2 mr-1">Lista de Editais</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Inicio do Form -->
+    <div class="bg-card">
+        <div class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+
+            <div class=" card-body mt-4">
+                <!-- inicio da Row -->
+                <form novalidate [formGroup]="cadastroForm" (ngSubmit)="onSubmit()">
+
+                    <div class=" row">
+                        <div class=" col-md-6">
+                            <div class="form-group">
+                                <label class=" form-control-label" for="produtoId">
+                                    Produtos:
+                                </label>
+                                <select class="form-control" id="produtoId" placeholder="Produtos"
+                                    formControlName="produtoId"
+                                    [ngClass]="{'is-invalid':verificaValidTouched('produtoId') }"
+                                    [compareWith]="compareFn">
+                                    <option *ngFor="let produto of products" [value]="produto.id">
+                                        {{ produto.nome }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class=" col-md-6">
+                            <div class="form-group">
+                                <label class=" form-control-label" for="unidadeMedidaId">
+                                    Unidade de Medidas:
+                                </label>
+                                <select class="form-control" id="unidadeMedidaId" placeholder="Unidade de Medidas"
+                                    formControlName="unidadeMedidaId"
+                                    [ngClass]="{'is-invalid':verificaValidTouched('unidadeMedidaId') }"
+                                    [compareWith]="compareFn2">
+                                    <option *ngFor="let unidadeMedida of unidadeMedidas" [value]="unidadeMedida.id">
+                                        {{ unidadeMedida.nome }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class=" row">
+
+                        <div class=" col-md-2">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="quantidade">
+                                    Quantidade
+                                </label>
+
+                                <input class=" form-control"
+                                    [ngClass]="{'is-invalid':verificaValidTouched('quantidade') }" id="quantidade"
+                                    placeholder="Quantidade" type="text" formControlName="quantidade" />
+                                <app-error-msg [control]="cadastroForm.get('quantidade')"
+                                    label="quantidade"></app-error-msg>
+                            </div>
+                        </div>
+
+                        <div class=" col-md-2">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="peso">
+                                    Peso
+                                </label>
+
+                                <input class=" form-control" [ngClass]="{'is-invalid':verificaValidTouched('peso') }"
+                                    id="peso" placeholder="Peso" type="text" formControlName="peso" />
+                                <app-error-msg [control]="cadastroForm.get('peso')" label="peso"></app-error-msg>
+                            </div>
+                        </div>
+
+                        <div class=" col-md-2">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="largura">
+                                    Largura
+                                </label>
+
+                                <input class=" form-control" [ngClass]="{'is-invalid':verificaValidTouched('largura') }"
+                                    id="largura" placeholder="Largura" type="text" formControlName="largura" />
+                                <app-error-msg [control]="cadastroForm.get('largura')" label="largura"></app-error-msg>
+                            </div>
+                        </div>
+
+                        <div class=" col-md-2">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="altura">
+                                    Altura
+                                </label>
+
+                                <input class=" form-control" [ngClass]="{'is-invalid':verificaValidTouched('altura') }"
+                                    id="altura" placeholder="Altura" type="text" formControlName="altura" />
+                                <app-error-msg [control]="cadastroForm.get('altura')" label="altura"></app-error-msg>
+                            </div>
+                        </div>
+
+                        <div class=" col-md-2">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="profundidade">
+                                    Profundidade
+                                </label>
+
+                                <input class=" form-control"
+                                    [ngClass]="{'is-invalid':verificaValidTouched('profundidade') }" id="profundidade"
+                                    placeholder="Profundidade" type="text" formControlName="profundidade" />
+                                <app-error-msg [control]="cadastroForm.get('profundidade')"
+                                    label="profundidade"></app-error-msg>
+                            </div>
+                        </div>
+
+                        <div class=" col-md-2">
+                            <div class=" form-group">
+                                <label class=" form-control-label" for="valorMaximo">
+                                    Valor Máximo
+                                </label>
+
+                                <input class=" form-control"
+                                    [ngClass]="{'is-invalid':verificaValidTouched('valorMaximo') }" id="valorMaximo"
+                                    placeholder="Valor Maximo" type="text" formControlName="valorMaximo" />
+                                <app-error-msg [control]="cadastroForm.get('valorMaximo')"
+                                    label="valorMaximo"></app-error-msg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-right">
+                        <span>
+                            <button class="btn btn-success" id="registrar" [disabled]="!cadastroForm.valid"
+                                type="submit">Registrar
+                            </button>
+                        </span>
+                        <span>
+                            <button class="btn" id="cancelar" (click)="resetar()">Limpar
+                            </button>
+                        </span>
+                        <span>
+                            <!-- [disabled]="!cadastroForm.valid" -->
+                            <button class="btn " id="cancelar" (click)="cancelar()" type="submit">Cancelar
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="bg-card">
+        <div class="flex flex-col w-full max-w-screen-xl mx-auto">
+            <div class=" card-body mt-4">
+                <!-- Table -->
+                <div class="body table-responsive flex flex-col w-full max-w-screen-xl mx-auto">
+                    <h3 class="h3TitleBlue divisor">
+                        Lista de Itens
+                    </h3>
+                    <table class="table text-center" *ngIf="edital?.itens; else
+                loadingError">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NOME</th>
+                                <th>CATEGORIA</th>
+                                <th>MARCA</th>
+                                <th>QUANTIDADE</th>
+                                <th>VALOR MAXIMO</th>
+                                <th>UNIDADE DE MEDIDA</th>
+                                <th>PESO</th>
+                                <th>LARGURA</th>
+                                <th>ALTURA</th>
+                                <th>PROFUNDIDADE</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of edital?.itens |
+                        paginate: { itemsPerPage: size,
+                        currentPage: page,
+                        totalItems: totalElements }">
+                                <td><span class="text-muted"> {{
+                                        item?.produto?.id }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.produto?.nome }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.produto?.categoriaProduto?.nomeDesc }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.produto?.marcaProduto?.nomeDesc }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.quantidade }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.valorMaximo }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.unidadeMedida?.nome }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.peso }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.largura }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.altura }}</span></td>
+                                <td><span class="text-muted"> {{
+                                        item?.profundidade }}</span></td>
+                                <td class="table-actions">
+                                    <a class="table-action
+                                                  table-action-delete" tooltip="Deletar" placement="top"
+                                        href="javascript:void(0)" (click)="onDelete(item)">
+                                        <mat-icon matSuffix>delete</mat-icon>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <ng-template #loadingError>
+                        <div *ngIf="error$ | async; else loading">
+                            Erro ao carregar produtos. Tente novamente mais
+                            tarde.
+                        </div>
+                        <ng-template #loading>
+                            <div class="card-body">
+                                <div class="row py-3 align-items-center">
+                                    <div class="col-sm-9">
+                                        <h4 class="mb-0">Carregando
+                                            produtos...</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
