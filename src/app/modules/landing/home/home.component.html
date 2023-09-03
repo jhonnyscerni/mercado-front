@@ -1,10 +1,15 @@
+<!-- <nav id="navbar-main" style="background-color: #1e1e1e; padding: 10px;">
+    <div class="container">
+        <b style="font-size: 12px; color: #FFF;" class="ml-2">CENTRAL DE ATENDIMENTO 9999-99999 | 9999-9999</b><a href="#"><mat-icon>facebook</mat-icon></a>
+    </div>
+</nav> -->
 <nav id="navbar-main" class=" navbar navbar-horizontal navbar-main navbar-expand-lg navbar-light">
     <!-- <nav
     class="navbar navbar-top navbar-expand navbar-dark bg-danger border-bottom"
     id="navbar-main"
   > -->
     <div class="container">
-    <!-- <div>
+        <!-- <div>
         <mat-icon svgIcon="heroicons_solid:user-group"></mat-icon>
         <b style="font-size: 22px;" class="ml-2">Merdado & Negocios</b>
     </div> -->
@@ -67,23 +72,22 @@
             <!--          <hr class="d-lg-none"/>-->
             <!--Menu-->
             <ul [ngSwitch]="usuarioLogado()" class="navbar-nav align-items-lg-center ml-lg-auto">
-                <!--            <li class="nav-item">-->
-                <!--              <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank"-->
-                <!--                 data-toggle="tooltip" data-original-title="Like us on Facebook">-->
-                <!--                <i class="fab fa-facebook-square"></i>-->
-                <!--                <span class="nav-link-inner&#45;&#45;text d-lg-none">Facebook</span>-->
-                <!--              </a>-->
-                <!--            </li>-->
-                <!--            <li class="nav-item">-->
-                <!--              <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank"-->
-                <!--                 data-toggle="tooltip" data-original-title="Follow us on Instagram">-->
-                <!--                <i class="fab fa-instagram"></i>-->
-                <!--                <span class="nav-link-inner&#45;&#45;text d-lg-none">Instagram</span>-->
-                <!--              </a>-->
-                <!--            </li>-->
+                <li class="nav-item">
+                    <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank"
+                        data-toggle="tooltip" data-original-title="Like us on Facebook">
+                        <i class="fab fa-facebook-square"></i>
+                        <span class="nav-link-inner&#45;&#45;text d-lg-none">Facebook</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial"
+                        target="_blank" data-toggle="tooltip" data-original-title="Follow us on Instagram">
+                        <i class="fab fa-instagram"></i>
+                        <span class="nav-link-inner&#45;&#45;text d-lg-none">Instagram</span>
+                    </a>
+                </li>
                 <li *ngSwitchCase="false" class="nav-item d-lg-block ml-lg-4">
-                    <a class="btn btn-portal btn-icon" routerLinkActive="active"
-                        [routerLink]="['/sign-in']">
+                    <a class="btn btn-portal btn-icon" routerLinkActive="active" [routerLink]="['/sign-in']">
                         <span class="btn-inner--icon">
                             <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
                             <!-- <mat-icon svgIcon="heroicons_solid:user"></mat-icon> -->
@@ -93,8 +97,7 @@
                 </li>
 
                 <li *ngSwitchCase="false" class="nav-item d-lg-block ml-lg-4">
-                    <a class="btn bg-green btn-icon text-white" routerLinkActive="active"
-                        [routerLink]="['/sign-up']">
+                    <a class="btn bg-green btn-icon text-white" routerLinkActive="active" [routerLink]="['/sign-up']">
                         <span class="btn-inner--icon">
                             <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
                             <!--              <i class="fas fa-sign-in-alt mr-2"></i>-->
@@ -172,38 +175,45 @@
     </div>
 </nav>
 <div class="main-content">
+
     <!-- Header -->
-    <div class="header bg-img pt-20 pb-40">
+    <div class="header bg-img pt-30 pb-30">
         <div class="container">
             <div class="header-body">
                 <div class="row align-items-center">
-                    <div class="col-lg-6">
-                            <h2 class="text-warning mb-4">Conheça a plataforma</h2>
-                            <h1 class="display-2 text-blue2 font-weight-bold mb-4">
-                                Sistema Mercado & Negócios
-                            </h1>
-                            <!-- <h2 class="display-5 text-white font-weight-light">
+                    <div class="col-lg-8">
+                        <h2 style="color: #F7A625; margin-bottom: 40px; font-size: 18px;">Conheça a plataforma</h2>
+                        <h1 class="display-2 text-white font-weight-bold mb-4" style="font-size: 32px;">
+                            Sistema Mercado & Negócios
+                        </h1>
+                        <!-- <h2 class="display-5 text-white font-weight-light">
                                 O sistema Mercado & Negócios chega no mercado brasileiro para auxiliar as empresas com seus processos de compra.
                             </h2> -->
-                            <h2 class="text-blue2 mt-0 bold font-weight-light">
-                                O sistema Mercado & Negócios chega no mercado brasileiro para auxiliar as empresas com seus processos de compra, garantindo mais agilidade, transparência, competitividade, menor preço nas aquisição de produtos.
-                            </h2>
-                            <div class="mt-5">
-                                <a [routerLink]="['/project']"
-                                    class="btn btn-default my-2">Começe agora</a>
-                            </div>
+                        <h2 class="text-white mt-0 bold font-weight-light" style="font-size: 18px;">
+                            O sistema Mercado & Negócios chega no mercado brasileiro para auxiliar as empresas com seus
+                            processos de compra, garantindo mais agilidade, transparência, competitividade, menor preço
+                            nas aquisição de produtos.
+                        </h2>
                     </div>
-                    <div class="col-lg-6 col-md-12">
-                        <img style="border-radius: 100%; max-width: 100%;
-                        height: auto;
-                        display: inline-block;
-                        vertical-align: middle;"
-                             id="cross-platform"
-                             src="../../../../assets/images/bgs/banner-image-4.jpg">
-                      </div>
+                    <div class="col-lg-12 col-md-12 mt-10">
+                        <h2 style="font-size: 18px; color: #FFF;">Pesquisa de Processos</h2>
+                        <form id="pesquisa-p" name="pesquisa-p" class="pesquisa-p" [formGroup]="searchForm">
+                            <div class="input-block"><label for="filtro">Produto:</label> <input type="text"
+                                    maxlength="255" id="objeto" name="objeto" placeholder="Termo ou palavra-passe">
+                            </div>
+                            <div class="input-block min"><label for="processo">Edital:</label> <input
+                                    formControlName="numerocontrol" type="text" maxlength="40" id="processo"
+                                    name="processo" placeholder="Número do Edital"></div>
+                            <div class="input-block min"><label for="orgao">Empresa:</label> <input type="text"
+                                    maxlength="100" id="orgao" name="orgao" placeholder="Nome do Comprador"></div>
+
+                            <button class="btn-pesquisa-p second" (click)="onSearch()">Pesquisar</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
+
         <!-- <div class="separator separator-bottom separator-skew zindex-100">
             <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
                 xmlns="http://www.w3.org/2000/svg">
@@ -211,24 +221,77 @@
             </svg>
         </div> -->
     </div>
-    <!-- <section class="py-6 pb-9 bg-default">
-        <div class="container-fluid">
-            <div class="row justify-content-center text-center">
-                <div class="col-md-6">
-                    <h2 class="display-3 text-white">A complete HTML solution</h2>
-                    <p class="lead text-white">
-                        Argon is a completly new product built on our newest re-built from
-                        scratch framework structure that is meant to make our products more
-                        intuitive, more adaptive and, needless to say, so much easier to
-                        customize. Let Argon amaze you with its cool features and build tools
-                        and get your project to a whole new level.
-                    </p>
+
+    <section class="container-fluid resultado-pesquisa">
+        <div class="container">
+            <h1>Lista de Editais</h1>
+            <p class="mb-10">Utilize a busca e filtros para localizar processos do seu interesse.</p>
+            <div class="lista-processos" *ngIf="notices; else loadingError">
+                <div class="item" *ngFor="let edital of notices |
+                paginate: { itemsPerPage: size,
+                currentPage: page,
+                totalItems: totalElements }">
+                    <div class="main-item">
+                        <h2><span style="color: rgb(0, 96, 108); font-weight: bold;">{{
+                                edital?.numero }}</span> <a href="" title="">{{
+                                edital?.titulo }}</a></h2>
+                        <div class="info"><span><i class="ico-cp cp-calendario verde">&nbsp;</i>
+                                {{
+                                edital?.dataInicio | date : 'dd/MM/yyyy' }}
+
+                            </span> <span><i class="ico-cp cp-martelo verde">&nbsp;</i>
+                                <span>Credenciamento</span></span> <span><i class="ico-cp cp-pin-mapa verde">&nbsp;</i>
+                                {{
+                                edital?.empresa?.razaoSocial }}
+                            </span> <!----></div>
+                    </div>
+                    <div class="aside-item">
+                        <div class="info-processo">
+                            <p class="recebendo">
+                                <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M23.25 12H26.5C27.6046 12 28.5 12.8954 28.5 14V29.5C28.5 30.6046 27.6046 31.5 26.5 31.5H9.5C8.39543 31.5 7.5 30.6046 7.5 29.5V14C7.5 12.8954 8.39543 12 9.5 12H12.75"
+                                        stroke="#039B6C" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                    <path d="M18 25.5V4.5M18 25.5L12 19.5M18 25.5L24 19.5" stroke="#039B6C"
+                                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                                Recebendo Propostas
+                            </p>
+                        </div> <a href="" blank="" title="" class="btn-default third">ACESSAR PROCESSO</a>
+                    </div>
                 </div>
             </div>
+
+            <ng-template #loadingError>
+                <div *ngIf="error$ | async; else loading">
+                    Erro ao carregar editais. Tente novamente mais
+                    tarde.
+                </div>
+                <ng-template #loading>
+                    <div class="card-body">
+                        <div class="row py-3 align-items-center">
+                            <div class="col-sm-9">
+                                <h4 class="mb-0">Carregando
+                                    editais...</h4>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            </ng-template>
         </div>
-    </section> -->
-    <section class="section section-lg pt-lg-0 mt--5">
+
+        <div class="py-4 text-center ngx-pagination">
+            <pagination-controls previousLabel="Anterior" nextLabel="Próximo" responsive="true"
+                (pageChange)="handlePageChange($event)">
+            </pagination-controls>
+        </div>
+    </section>
+    <section class="section section-lg pt-lg-0">
         <div class="container">
+            <h1>Caracteristicas e Como funciona o Mercado de Negocios</h1>
+            <p class="mb-10">Breve explicação sobre nossa plataforma.</p>
             <div class="row justify-content-center">
                 <div class="col-lg-12">
                     <div class="row">
@@ -242,7 +305,8 @@
                                         Fornecedor
                                     </h4>
                                     <p class="description mt-3">
-                                        Pessoa Física interessada em fornecer produtos ou serviços licitados pelas entidades compradores.
+                                        Pessoa Física interessada em fornecer produtos ou serviços licitados pelas
+                                        entidades compradores.
                                     </p>
                                     <!-- <div>
                                         <span class="badge badge-pill badge-primary mr-1">bootstrap 4</span>
@@ -262,7 +326,8 @@
                                         Comprador
                                     </h4>
                                     <p class="description mt-3">
-                                        Órgãos Públicos, Autarquias, Empresas Privadas, Fundações, com processos para a aquisição de bens e serviços.
+                                        Órgãos Públicos, Autarquias, Empresas Privadas, Fundações, com processos para a
+                                        aquisição de bens e serviços.
                                     </p>
                                     <!-- <div>
                                         <span class="badge badge-pill badge-success mr-1">npm</span>
@@ -282,7 +347,8 @@
                                         Transparência
                                     </h4>
                                     <p class="description mt-3">
-                                        Publicações e Negociações online de editais, que podem ser acompanhadas em tempo real por fornecedores e pela sociedade.
+                                        Publicações e Negociações online de editais, que podem ser acompanhadas em tempo
+                                        real por fornecedores e pela sociedade.
                                     </p>
                                     <!-- <div>
                                         <span class="badge badge-pill badge-warning mr-1">sass</span>
@@ -307,7 +373,8 @@
                     <div class="pr-md-5">
                         <h1>Transparência e Agilidade</h1>
                         <p>
-                            Publicações e Negociações online de editais, que podem ser acompanhadas em tempo real por fornecedores e pela sociedade.
+                            Publicações e Negociações online de editais, que podem ser acompanhadas em tempo real por
+                            fornecedores e pela sociedade.
                         </p>
                         <ul class="list-unstyled mt-5">
                             <li class="py-2">
@@ -394,52 +461,8 @@
             </div>
         </div>
     </section>
-    <section class="py-7 section-nucleo-icons bg-white overflow-hidden">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center">
-                    <h2 class="display-3">Nucleo Icons</h2>
-                    <p class="lead">
-                        The official package contains over 21.000 icons which are looking
-                        great in combination with Argon Design System. Make sure you check
-                        all of them and use those that you like the most.
-                    </p>
-                    <div class="btn-wrapper">
-                        <a [routerLink]="['/documentation/icons']" target="_blank" class="btn btn-primary">View demo
-                            icons</a>
-                        <a href="https://nucleoapp.com/?ref=1712" target="_blank"
-                            class="btn btn-default mt-3 mt-md-0">View all icons</a>
-                    </div>
-                </div>
-            </div>
-            <div class="blur--hover">
-                <a [routerLink]="['/documentation/icons']">
-                    <div class="icons-container blur-item mt-5">
-                        <!-- Center -->
-                        <i class="icon ni ni-diamond"></i>
-                        <!-- Right 1 -->
-                        <i class="icon icon-sm ni ni-album-2"></i>
-                        <i class="icon icon-sm ni ni-app"></i>
-                        <i class="icon icon-sm ni ni-atom"></i>
-                        <!-- Right 2 -->
-                        <i class="icon ni ni-bag-17"></i>
-                        <i class="icon ni ni-bell-55"></i>
-                        <i class="icon ni ni-credit-card"></i>
-                        <!-- Left 1 -->
-                        <i class="icon icon-sm ni ni-briefcase-24"></i>
-                        <i class="icon icon-sm ni ni-building"></i>
-                        <i class="icon icon-sm ni ni-button-play"></i>
-                        <!-- Left 2 -->
-                        <i class="icon ni ni-calendar-grid-58"></i>
-                        <i class="icon ni ni-camera-compact"></i>
-                        <i class="icon ni ni-chart-bar-32"></i>
-                    </div>
-                    <span class="blur-hidden h5 text-success">Explore all the 21.000+ Nucleo Icons</span>
-                </a>
-            </div>
-        </div>
-    </section>
-    <section class="py-7">
+    
+    <!-- <section class="py-7">
         <div class="container">
             <div class="row row-grid justify-content-center">
                 <div class="col-lg-8 text-center">
@@ -535,7 +558,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 </div>
 <!-- Footer -->
 <footer class="py-5" id="footer-main">
@@ -549,24 +572,24 @@
                 </div>
             </div>
             <div class="col-xl-6">
-                <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-                    <li class="nav-item">
-                        <a href="https://www.creative-tim.com?ref=adpa-presentation-page" class="nav-link"
-                            target="_blank">Mercado&Negocios</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://www.creative-tim.com/presentation?ref=adpa-presentation-page" class="nav-link"
-                            target="_blank">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="http://blog.creative-tim.com?ref=adpa-presentation-page" class="nav-link"
-                            target="_blank">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://www.creative-tim.com/license?ref=adpa-presentation-page" class="nav-link"
-                            target="_blank">License</a>
-                    </li>
-                </ul>
+                <!-- <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+                        <li class="nav-item">
+                            <a href="https://www.creative-tim.com?ref=adpa-presentation-page" class="nav-link"
+                                target="_blank">Mercado&Negocios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.creative-tim.com/presentation?ref=adpa-presentation-page" class="nav-link"
+                                target="_blank">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="http://blog.creative-tim.com?ref=adpa-presentation-page" class="nav-link"
+                                target="_blank">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="https://www.creative-tim.com/license?ref=adpa-presentation-page" class="nav-link"
+                                target="_blank">License</a>
+                        </li>
+                    </ul> -->
             </div>
         </div>
     </div>

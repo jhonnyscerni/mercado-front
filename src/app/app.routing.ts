@@ -22,7 +22,9 @@ export const appRoutes: Route[] = [
         data: {
             layout: 'empty'
         },
-        component: LandingHomeComponent
+        children: [
+            {path: '', loadChildren: () => import('app/modules/landing/home/home.module').then(m => m.LandingHomeModule)},
+           ]
       },
       {
         path: 'sign-up',
