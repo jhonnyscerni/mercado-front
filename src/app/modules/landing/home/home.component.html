@@ -232,18 +232,31 @@
                 currentPage: page,
                 totalItems: totalElements }">
                     <div class="main-item">
-                        <h2><span style="color: rgb(0, 96, 108); font-weight: bold;">{{
-                                edital?.numero }}</span> <a href="" title="">{{
-                                edital?.titulo }}</a></h2>
-                        <div class="info"><span><i class="ico-cp cp-calendario verde">&nbsp;</i>
-                                {{
-                                edital?.dataInicio | date : 'dd/MM/yyyy' }}
+                        <h2>
+                            <span style="color: rgb(0, 96, 108); font-weight: bold;">
+                                {{edital?.numero }}
+                            </span> <a href="" title="">{{
+                                edital?.titulo }}</a>
+                        </h2>
+                        <div class="info">
+                            <span>
+                                <mat-icon>date_range</mat-icon>
+                                <!-- <i class="ico-cp cp-calendario verde">&nbsp;</i> -->
+                                <p>{{ edital?.dataInicio | date : 'dd/MM/yyyy' }}</p>
 
-                            </span> <span><i class="ico-cp cp-martelo verde">&nbsp;</i>
-                                <span>Credenciamento</span></span> <span><i class="ico-cp cp-pin-mapa verde">&nbsp;</i>
-                                {{
-                                edital?.empresa?.razaoSocial }}
-                            </span> <!----></div>
+                            </span>
+                            <span>
+                                <mat-icon>pan_tool</mat-icon>
+                                <!-- <i class="ico-cp cp-martelo verde">&nbsp;</i> -->
+                                <p>Credenciamento</p>
+                            </span>
+
+                            <span>
+                                <!-- <i class="ico-cp cp-pin-mapa verde">&nbsp;</i> -->
+                                <mat-icon>work</mat-icon>
+                                <p>{{edital?.empresa?.razaoSocial }}</p>
+                            </span>
+                        </div>
                     </div>
                     <div class="aside-item">
                         <div class="info-processo">
@@ -257,7 +270,7 @@
                                     <path d="M18 25.5V4.5M18 25.5L12 19.5M18 25.5L24 19.5" stroke="#039B6C"
                                         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
                                 </svg>
-                                Recebendo Propostas
+                                <span>Recebendo Propostas</span>
                             </p>
                         </div> <a href="" blank="" title="" class="btn-default third">ACESSAR PROCESSO</a>
                     </div>
@@ -288,7 +301,7 @@
             </pagination-controls>
         </div>
     </section>
-    <section class="section section-lg pt-lg-0">
+    <!-- <section class="section section-lg pt-lg-0">
         <div class="container">
             <h1>Caracteristicas e Como funciona o Mercado de Negocios</h1>
             <p class="mb-10">Breve explicação sobre nossa plataforma.</p>
@@ -308,11 +321,11 @@
                                         Pessoa Física interessada em fornecer produtos ou serviços licitados pelas
                                         entidades compradores.
                                     </p>
-                                    <!-- <div>
+                                    <div>
                                         <span class="badge badge-pill badge-primary mr-1">bootstrap 4</span>
                                         <span class="badge badge-pill badge-primary mr-1">dashboard</span>
                                         <span class="badge badge-pill badge-primary">template</span>
-                                    </div> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -329,11 +342,11 @@
                                         Órgãos Públicos, Autarquias, Empresas Privadas, Fundações, com processos para a
                                         aquisição de bens e serviços.
                                     </p>
-                                    <!-- <div>
+                                     <div>
                                         <span class="badge badge-pill badge-success mr-1">npm</span>
                                         <span class="badge badge-pill badge-success mr-1">gulp</span>
                                         <span class="badge badge-pill badge-success">build tools</span>
-                                    </div> -->
+                                    </div> 
                                 </div>
                             </div>
                         </div>
@@ -350,11 +363,11 @@
                                         Publicações e Negociações online de editais, que podem ser acompanhadas em tempo
                                         real por fornecedores e pela sociedade.
                                     </p>
-                                    <!-- <div>
+                                    <div>
                                         <span class="badge badge-pill badge-warning mr-1">sass</span>
                                         <span class="badge badge-pill badge-warning mr-1">design</span>
                                         <span class="badge badge-pill badge-warning">customize</span>
-                                    </div> -->
+                                    </div> 
                                 </div>
                             </div>
                         </div>
@@ -362,8 +375,8 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section class="py-6">
+    </section> -->
+    <!-- <section class="py-6">
         <div class="container">
             <div class="row row-grid align-items-center">
                 <div class="col-md-6 order-md-2">
@@ -460,8 +473,8 @@
                 </div>
             </div>
         </div>
-    </section>
-    
+    </section> -->
+
     <!-- <section class="py-7">
         <div class="container">
             <div class="row row-grid justify-content-center">
@@ -561,36 +574,44 @@
     </section> -->
 </div>
 <!-- Footer -->
-<footer class="py-5" id="footer-main">
+<footer class="py-5 footer" id="footer-main">
+    <section class="container-fluid main-foot">
     <div class="container">
         <div class="row align-items-center justify-content-xl-between">
-            <div class="col-xl-6">
+            <div class="col-xl-3">
                 <div class="copyright text-center text-xl-left text-muted">
-                    &copy; {{ test | date: "yyyy" }}
-                    <a href="https://www.creative-tim.com?ref=adpa-presentation-page" class="font-weight-bold ml-1"
-                        target="_blank">Mercado&Negocios</a>
+                    <a href="#" class="font-weight-bold ml-1"
+                        target="_blank" style="color: #FFF; font-size: 22px">Mercado & Negocios</a>
+                        <div class="cta-foot">
+                            <div class="social-block">
+                        <a rel="canonical" href="#"
+                                    title=""><i class="ico-cp cp-whatsapp branco">&nbsp;</i></a> <a rel="canonical"
+                                    href="#" title=""><i
+                                        class="ico-cp cp-facebook branco">&nbsp;</i></a> <a rel="canonical"
+                                    href="#" title=""><i
+                                        class="ico-cp cp-instagram branco">&nbsp;</i></a> <a rel="canonical"
+                                    href="#" title=""><i class="ico-cp cp-linkedin branco">&nbsp;</i></a>
+                                    </div></div>
                 </div>
+                
             </div>
-            <div class="col-xl-6">
-                <!-- <ul class="nav nav-footer justify-content-center justify-content-xl-end">
-                        <li class="nav-item">
-                            <a href="https://www.creative-tim.com?ref=adpa-presentation-page" class="nav-link"
-                                target="_blank">Mercado&Negocios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://www.creative-tim.com/presentation?ref=adpa-presentation-page" class="nav-link"
-                                target="_blank">About Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="http://blog.creative-tim.com?ref=adpa-presentation-page" class="nav-link"
-                                target="_blank">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://www.creative-tim.com/license?ref=adpa-presentation-page" class="nav-link"
-                                target="_blank">License</a>
-                        </li>
-                    </ul> -->
+            <div class="col-xl-9">
+                    <span class="info-foot"><strong>
+                        CENTRAL DE ATENDIMENTO:
+                    </strong><br>
+                  
+                    Telefone: (91) 9999-9999
+                    <br>
+                    Dúvidas? sugestões sobre a plataforma? <br>
+                    Entre em contato conosco através de nossos contatos exclusivos.<br>
+                    Se você vende ou pretende vender ao governo e quer falar com a gente, envie um email para vendedor@mercadoenegocios.com.br<br>
+                    Se você é comprador envie um e-mail para comprador@mercadoenegocios.com.br<br>
+                    De segunda a Sexta, exceto feriados, das 8hs às 18hs, horário de Brasília.<br>
+                    Endereço<br>
+                    &copy; {{ test | date: "yyyy" }} - Mercado e Negocios. Todos os direitos reservados.<br>
+                </span>
             </div>
         </div>
     </div>
+    </section>
 </footer>

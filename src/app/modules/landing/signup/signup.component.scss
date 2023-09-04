@@ -332,3 +332,790 @@
 .description {
   font-size: 16px;
 }
+
+
+
+.mat-icon {
+  -webkit-user-select: none;
+  user-select: none;
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  overflow: hidden;
+  margin-right: 5px;
+}
+
+.info p {
+float: right;
+}
+
+svg {
+overflow: hidden;
+vertical-align: middle;
+float: left;
+}
+
+.recebendo span {
+float: left;
+margin-top: 10px;
+}
+
+// footer
+
+.top-foot {
+background: #4f4f4f
+}
+
+.mini-page .top-foot {
+display: none
+}
+
+.parceiros-foot {
+display: block;
+float: left;
+width: 100%;
+padding: 50px 0 30px
+}
+
+.parceiros-foot h2 {
+font-family: rawlinebold;
+font-size: 36px;
+font-weight: 400;
+line-height: 48px;
+text-align: left;
+color: #fff
+}
+
+.parceiros-foot a {
+display: block;
+float: left;
+width: 50%;
+height: 76px;
+margin: 0 0 40px;
+text-align: center
+}
+
+.parceiros-foot a img {
+display: block;
+width: auto;
+height: 76px;
+margin: 0 auto
+}
+
+.menu-foot {
+display: none
+}
+
+.main-foot {
+background: #333;
+padding: 40px 0 50px
+}
+
+.main-foot .logo-portal {
+display: block;
+width: 100%;
+height: 42px;
+margin: 0 0 60px
+}
+
+.main-foot .logo-portal i {
+display: block;
+width: 150px;
+height: 64px;
+margin: 0 auto
+}
+
+.cta-foot {
+display: block;
+text-align: center;
+position: relative;
+z-index: 2
+}
+
+.cta-foot .cta-cadastro {
+display: inline-block;
+float: none;
+width: calc(50% - 10px);
+height: 40px;
+font-size: 16px;
+line-height: 40px;
+margin-right: 15px
+}
+
+.cta-foot .cta-login {
+display: inline-block;
+float: none;
+width: calc(50% - 10px);
+height: 40px;
+font-size: 16px;
+line-height: 40px;
+margin: 0
+}
+
+.cta-foot .cta-cadastro i,.ctaFoot .cta-login i {
+height: 22px
+}
+
+.cta-foot .social-block {
+float: none;
+width: 100%;
+text-align: center;
+padding: 10px 0 34px
+}
+
+.cta-foot .social-block a {
+margin: 0 8px;
+float: left;
+margin: 10px;
+}
+
+.selos-foot {
+display: block;
+margin: 0
+}
+
+.selos-foot span {
+display: block;
+width: 100%;
+height: auto;
+margin: 10px 0 20px;
+padding: 0;
+font: 700 normal 14px/22px rawlineregular;
+text-align: center;
+color: #f2f2f2
+}
+
+.selos-foot img {
+display: inline-block;
+width: auto;
+height: 50px;
+margin: 0 5px 30px 5px
+}
+
+.info-foot {
+display: block;
+width: 100%;
+height: auto;
+margin: 0;
+padding: 0;
+font-size: 14px;
+text-align: left;
+color: #f2f2f2
+}
+
+.info-foot strong {
+color: #0ba8bc;
+}
+
+.info-foot strong b {
+margin-left: 5px;
+color: #f2f2f2
+}
+
+.info-foot img {
+display: inline;
+height: 22px;
+vertical-align: bottom
+}
+
+.chat-button {
+display: none
+}
+
+.chat-button:hover {
+color: #fff
+}
+
+@media (min-width: 576px) {
+.actions-block {
+    width:100%
+}
+
+.actions-block a {
+    display: inline-block;
+    width: calc(33.33% - 16px);
+    margin: 0 16px 0 0
+}
+}
+
+@media (min-width: 768px) {
+.selos-foot img {
+    height:70px;
+    margin: 0 10px 30px 10px
+}
+}
+
+@media (min-width: 1024px) {
+main {
+    margin-top:146px
+}
+
+.mini-page main {
+    margin-top: 102px
+}
+
+.title {
+    margin: 0 0 40px;
+    font: 400 normal 48px/56px rawlinebold
+}
+
+h2.title {
+    margin: 0 0 20px;
+    font: 400 normal 36px/48px rawlinebold
+}
+
+.title i {
+    margin: 20px 0 0 -30px
+}
+
+.subtitle {
+    margin: 0 0 35px
+}
+
+.main-left {
+    float: left;
+    width: 570px
+}
+
+.aside-right {
+    float: right;
+    width: 310px
+}
+
+.actions-block {
+    position: relative
+}
+
+.actions-block {
+    text-align: left
+}
+
+.actions-block a {
+    width: 190px;
+    margin: 0 16px 0 0
+}
+
+.filtro-resultados {
+    width: auto;
+    height: 46px;
+    margin: -40px 0 75px 50%;
+    float: right;
+    padding: 2px
+}
+
+.filtro-resultados i {
+    display: none
+}
+
+.filtro-resultados a {
+    width: auto;
+    margin: 10px 0;
+    font: 400 normal 14px/22px rawlinebold;
+    float: left
+}
+
+.filtro-resultados a+a {
+    border-left: 1px solid #b0b0b0
+}
+
+.filtro-resultados a:hover {
+    background: 0 0
+}
+
+.filtro-resultados a.select {
+    margin: 0 -1px 0 0;
+    font: 400 normal 16px/42px rawlinebold;
+    color: #fff;
+    background: #00606c;
+    border-radius: 6px;
+    z-index: 3;
+    border-left: 0 solid #b0b0b0
+}
+
+.social-block a {
+    display: block;
+    float: left
+}
+
+.contato-head {
+    display: block;
+    float: left;
+    margin: 2px 0 0 30px
+}
+
+.contato-head b {
+    font: 400 normal 16px/26px rawlinebold;
+    color: #0ba8bc
+}
+
+.cta-cadastro,.cta-login {
+    margin: 0;
+    font-size: 16px
+}
+
+.cta-cadastro {
+    background: #f7a625;
+    height: 50px;
+    padding: 10px;
+    position: absolute;
+    top: calc(100% + 30px);
+    right: 0;
+    width: 160px;
+    transition: all .3s ease
+}
+
+.open+.cta-cadastro {
+    top: calc(100% + 270px)
+}
+
+.cta-login {
+    float: right;
+    width: auto;
+    padding: 0 15px;
+    margin: 0 0 0 30px
+}
+
+.cta-cadastro i,.cta-login i {
+    vertical-align: text-top;
+    height: 22px
+}
+
+.cta-cadastro a {
+    width: calc(100% + 20px);
+    padding: 10px 15px 0 15px;
+    height: auto;
+    margin: 0 0 -7px -10px
+}
+
+.cta-cadastro a:last-child {
+    height: auto;
+    padding-bottom: 15px
+}
+
+.top-head .social-block {
+    display: block;
+    float: left;
+    width: auto;
+    color: #fff;
+    font: 400 normal 14px/26px rawlineregular;
+    padding: 6px 0
+}
+
+.cta-head {
+    float: right;
+    width: auto;
+    position: relative
+}
+
+.open-search-head {
+    font-size: 14px;
+    float: left;
+    width: auto;
+    color: #fff;
+    font-family: rawlineregular
+}
+
+.open-search-head i {
+    float: right;
+    margin: 0 0 0 10px
+}
+
+.main-head .logo-portal {
+    height: 64px;
+    margin: 18px 0 18px -20px
+}
+
+.main-head .logo-portal i {
+    width: 150px;
+    height: 64px
+}
+
+.open-menu-head {
+    display: none
+}
+
+.menu-head {
+    display: block;
+    opacity: 1;
+    overflow: visible;
+    width: auto;
+    height: auto;
+    padding: 43px 170px 0 0;
+    position: relative;
+    top: 0;
+    background: 0 0
+}
+
+.mini-page .menu-head {
+    padding: 43px 0 0 0;
+    top: 0
+}
+
+.menu-head>a,.menu-head>div {
+    width: auto;
+    padding: 0 3px 30px;
+    color: #00606c
+}
+
+.menu-head>div {
+    padding: 0 10px 30px 10px;
+    position: relative
+}
+
+.menu-head>div>i {
+    margin: 0;
+    width: 10px
+}
+
+.menu-head>div s {
+    display: none;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #00606c;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 15px)
+}
+
+.menu-head div.open s {
+    display: block
+}
+
+.menu-head>a:hover,.menu-head>div.open,.menu-head>div:hover {
+    background-color: transparent
+}
+
+.menu-head>div .submenu-head {
+    width: auto;
+    margin: 0;
+    background: #00606c;
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 0 0 6px 6px
+}
+
+.menu-head div.open .submenu-head a {
+    height: auto;
+    padding: 10px 20px
+}
+
+.parceiros-foot {
+    padding: 40px 0 0
+}
+
+.parceiros-foot a {
+    width: auto;
+    height: 78px;
+    margin: 0 50px 50px 0
+}
+
+.parceiros-foot a:last-child {
+    margin: 0 0 40px
+}
+
+.menu-foot {
+    display: inline-block;
+    width: 100%;
+    height: auto
+}
+
+.menu-foot .coluna {
+    display: block;
+    float: left;
+    width: auto;
+    margin: 0 0 20px 45px;
+    text-align: left
+}
+
+.menu-foot .coluna:first-child {
+    margin: 0 0 20px
+}
+
+.menu-foot .coluna:last-child {
+    display: block;
+    float: left;
+    width: 100%;
+    margin: 0;
+    margin: 0 0 20px
+}
+
+.menu-foot {
+    display: inline-block;
+    width: 100%;
+    height: auto
+}
+
+.menu-foot .coluna {
+    display: block;
+    float: left;
+    width: auto;
+    margin: 0 0 20px 45px;
+    text-align: left
+}
+
+.menu-foot .coluna:first-child {
+    margin: 0 0 20px
+}
+
+.menu-foot .coluna:last-child {
+    display: block;
+    float: left;
+    width: 100%;
+    margin: 0;
+    margin: 0 0 20px
+}
+
+.menu-foot .coluna a {
+    display: block;
+    width: auto;
+    margin: 0 0 10px;
+    color: #fff
+}
+
+.menu-foot .coluna span {
+    display: block;
+    width: auto;
+    margin: 0 0 10px;
+    color: #0ba8bc
+}
+
+.main-foot .logo-portal {
+    width: auto;
+    margin: 0 60px 200px 0;
+    float: left
+}
+
+.cta-foot {
+    float: left;
+    width: 150px;
+}
+
+.cta-foot .cta-cadastro {
+    display: block;
+    float: left;
+    width: 100%;
+    line-height: 30px;
+    position: relative;
+    top: 0;
+    padding: 5px 10px
+}
+
+.cta-foot .cta-cadastro a {
+    padding: 10px 25px 0
+}
+
+.cta-cadastro a:last-child {
+    padding-bottom: 15px
+}
+
+.cta-foot .cta-login {
+    display: block;
+    float: left;
+    width: 100%
+}
+
+.cta-foot .social-block {
+    float: right;
+    width: auto;
+    padding: 10px 0 0
+}
+
+.cta-foot .social-block a {
+    margin: 0 5px
+}
+
+.cta-foot .social-block a i {
+    width: 27px
+}
+
+.selos-foot {
+    float: right;
+    width: 180px
+}
+
+.selos-foot span {
+    text-align: left;
+    margin: 0 0 20px
+}
+
+.selos-foot img {
+    height: 60px;
+    margin: 0 10px 15px 10px
+}
+
+.info-foot strong {
+    font-weight: 400
+}
+
+.info-foot strong b {
+    margin: 0 0 0 5px
+}
+
+.info-foot b {
+    font-weight: 400;
+    margin: 0 0 15px 0;
+    display: inline-block
+}
+
+.info-foot img {
+    height: 20px
+}
+
+.chat-button {
+    display: block;
+    width: 72px;
+    height: 72px;
+    border-radius: 72px;
+    box-shadow: 0 16px 16px rgba(0,0,0,.12);
+    position: fixed;
+    right: 25px;
+    bottom: 100px;
+    z-index: 10;
+    text-align: center;
+    color: #fff;
+    background: #f7a625
+}
+
+.comprador+.footer+.chat-button {
+    background: #0ba8bc
+}
+
+.chat-button i {
+    display: inline-block;
+    width: 30px;
+    height: 33px;
+    margin: 10px 20px -5px
+}
+}
+
+@media (min-width: 1024px) and (max-width:1365px) {
+.top-head .social-block a i {
+    width:24px
+}
+
+.contato-head {
+    margin: 2px 0 0 5px;
+    font-size: 12px
+}
+
+
+
+.cta-login {
+    margin: 0 0 0 5px
+}
+}
+
+@media (min-width: 1200px) {
+.menu-head>a,.menu-head>div {
+    width:auto;
+    padding: 0 10px 30px;
+    color: #00606c
+}
+}
+
+@media (min-width: 1366px) {
+.cta-cadastro {
+    width:180px
+}
+
+.cta-cadastro a {
+    padding: 10px 25px 0
+}
+
+.main-head .logo-portal i {
+    width: 180px
+}
+
+
+
+.menu-head {
+    padding: 43px 200px 0 0
+}
+
+
+.menu-foot .coluna {
+    margin: 0 0 20px 70px
+}
+
+.selos-foot {
+    float: right;
+    width: 380px;
+    text-align: left;
+    margin: 0 0 0 20px
+}
+
+.selos-foot span {
+    text-align: left;
+    margin: 0 0 20px
+}
+
+.selos-foot img {
+    width: auto;
+    height: 60px
+}
+}
+
+.ico-cp {
+background-position: center center;
+background-repeat: no-repeat;
+background-size: 100% 100%;
+transition: all .3s ease
+}
+
+.loading {
+z-index: 1000;
+border: none;
+margin: 0;
+padding: 0;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+background-color: rgba(255,255,255,.6);
+cursor: wait;
+position: fixed
+}
+
+.loading img {
+margin-top: 20%!important
+}
+
+.ico-cp.cp-instagram.branco {
+background-image: url(../../../../assets/icons/ico-instagram-branco.svg)
+}
+
+.ico-cp.cp-facebook.branco {
+background-image: url(../../../../assets/icons/ico-facebook-branco.svg);
+}
+
+.ico-cp.cp-whatsapp.branco {
+background-image: url(../../../../assets/icons/ico-whatsapp-branco.svg);
+}
+
+.ico-cp.cp-linkedin.branco {
+background-image: url(../../../../assets/icons/ico-linkedin-branco.svg);
+}
+
+.cta-foot .social-block a i {
+width: 27px;
+}
+
+.social-block a i {
+display: block;
+width: 32px;
+height: 30px;
+}
+
+.ico-cp {
+background-position: center center;
+background-repeat: no-repeat;
+background-size: 100% 100%;
+}
+
+.footer .copyright {
+float: left;
+}
