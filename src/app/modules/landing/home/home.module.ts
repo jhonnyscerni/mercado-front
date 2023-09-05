@@ -21,10 +21,11 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NoticeDetailComponent } from '../notice-detail/notice-detail.component';
 
 @NgModule({
     declarations: [
-        LandingHomeComponent
+        LandingHomeComponent, NoticeDetailComponent
     ],
     imports     : [
         RouterModule.forChild(landingHomeRoutes),
@@ -52,7 +53,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         MatTooltipModule,
         SharedModule
     ],
-    exports: [LandingHomeComponent],
+    exports: [LandingHomeComponent, NoticeDetailComponent],
 })
 export class LandingHomeModule
 {

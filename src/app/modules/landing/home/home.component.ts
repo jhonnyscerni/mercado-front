@@ -107,4 +107,8 @@ export class LandingHomeComponent implements OnInit
     onDashboard(): any {
         this.router.navigate(['/project']);
     }
+
+    onEdit(id): any {
+      this.router.navigate(['../editar', id], { relativeTo: this.route });
+    }
 }

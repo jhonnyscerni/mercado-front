@@ -235,7 +235,7 @@
                         <h2>
                             <span style="color: rgb(0, 96, 108); font-weight: bold;">
                                 {{edital?.numero }}
-                            </span> <a href="" title="">{{
+                            </span> <a href="javascript:void(0)" (click)="onEdit(edital.id)" title="">{{
                                 edital?.titulo }}</a>
                         </h2>
                         <div class="info">
@@ -272,7 +272,7 @@
                                 </svg>
                                 <span>Recebendo Propostas</span>
                             </p>
-                        </div> <a href="" blank="" title="" class="btn-default third">ACESSAR PROCESSO</a>
+                        </div> <a href="javascript:void(0)" (click)="onEdit(edital.id)" blank="" title="" class="btn-default third">ACESSAR PROCESSO</a>
                     </div>
                 </div>
             </div>

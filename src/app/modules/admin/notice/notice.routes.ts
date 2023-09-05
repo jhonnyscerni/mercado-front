@@ -14,6 +14,7 @@ export const NOTICE_ROUTES: Routes = [
           },
           {
             path: ":id/leilao/lance", component: NoticeSaleFormComponent,
+            canActivate: [AuthoritiesGuard],
           },
           { path: '', redirectTo: '/editais/lista', pathMatch: 'full' }
         ]

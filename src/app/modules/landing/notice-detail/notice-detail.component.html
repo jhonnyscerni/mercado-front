@@ -1,0 +1,388 @@
+<nav id="navbar-main" class="navbar navbar-horizontal navbar-main navbar-expand-lg navbar-light">
+  <!-- <nav
+  class="navbar navbar-top navbar-expand navbar-dark bg-danger border-bottom"
+  id="navbar-main"
+> -->
+  <div class="container">
+    <!-- <div>
+      <mat-icon svgIcon="heroicons_solid:user-group"></mat-icon>
+      <b style="font-size: 22px;" class="ml-2">Merdado & Negocios</b>
+  </div> -->
+    <a class="navbar-brand" [routerLink]="['/']">
+      <!-- Merdado & Negocios -->
+      <img src="../../../../assets/images/logo/logo.png" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
+      aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed"
+      [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse navbar-custom-collapse collapse" id="collapseBasic" id="navbarSupportedContent">
+      <div class="navbar-collapse-header">
+        <div class="row">
+          <div class="col-8 collapse-brand">
+            <a [routerLink]="['/']">
+              <img src="assets/images/logo.png" class="img-mobile" [width]="45" width="" alt="" />
+              <span class="logo-mobile">Siberius</span>
+            </a>
+          </div>
+          <div class="col-4 collapse-close">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse"
+              aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation"
+              (click)="isCollapsed = !isCollapsed">
+              <span></span> <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <ul class="navbar-nav mr-auto">
+        <!-- <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['/portal/pricing']"
+          >
+            <span class="nav-link-inner--text">Planos</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['/portal/login']"
+          >
+            <span class="nav-link-inner--text">Login</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['/portal/register']"
+          >
+            <span class="nav-link-inner--text">Registre-se</span>
+          </a>
+        </li> -->
+      </ul>
+      <!--          <hr class="d-lg-none"/>-->
+      <!--Menu-->
+      <ul [ngSwitch]="usuarioLogado()" class="navbar-nav align-items-lg-center ml-lg-auto">
+        <!--            <li class="nav-item">-->
+        <!--              <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank"-->
+        <!--                 data-toggle="tooltip" data-original-title="Like us on Facebook">-->
+        <!--                <i class="fab fa-facebook-square"></i>-->
+        <!--                <span class="nav-link-inner&#45;&#45;text d-lg-none">Facebook</span>-->
+        <!--              </a>-->
+        <!--            </li>-->
+        <!--            <li class="nav-item">-->
+        <!--              <a class="nav-link nav-link-icon" href="https://www.instagram.com/creativetimofficial" target="_blank"-->
+        <!--                 data-toggle="tooltip" data-original-title="Follow us on Instagram">-->
+        <!--                <i class="fab fa-instagram"></i>-->
+        <!--                <span class="nav-link-inner&#45;&#45;text d-lg-none">Instagram</span>-->
+        <!--              </a>-->
+        <!--            </li>-->
+        <li *ngSwitchCase="false" class="nav-item d-lg-block ml-lg-4">
+          <a class="btn btn-portal btn-icon" routerLinkActive="active" [routerLink]="['/sign-in']">
+            <span class="btn-inner--icon">
+              <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
+              <!-- <mat-icon svgIcon="heroicons_solid:user"></mat-icon> -->
+            </span>
+            <span class="nav-link-inner--text">ACESSE SUA CONTA</span>
+          </a>
+        </li>
+
+        <li *ngSwitchCase="false" class="nav-item d-lg-block ml-lg-4">
+          <a class="btn bg-green btn-icon text-white" routerLinkActive="active" [routerLink]="['/sign-up']">
+            <span class="btn-inner--icon">
+              <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
+              <!--              <i class="fas fa-sign-in-alt mr-2"></i>-->
+              <i class="far fa-user mr-2"></i>
+            </span>
+            <span class="nav-link-inner--text">CADASTRE-SE</span>
+          </a>
+        </li>
+        <!-- </ul> -->
+
+        <!-- User -->
+        <!-- <ul class="navbar-nav align-items-center ml-auto ml-md-0"> -->
+
+        <li *ngSwitchCase="true" class="nav-item d-none d-lg-block ml-lg-4">
+          <a class="btn btn-portal btn-icon" routerLinkActive="active" (click)="onDashboard()">
+            <span class="btn-inner--icon">
+              <!-- <i class="fas fa-shopping-cart mr-2"></i> -->
+              <i class="fas fa-columns mr-2 text-white"></i>
+            </span>
+            <span class="nav-link-inner--text text-white">PAINEL</span>
+          </a>
+        </li>
+
+        <li *ngSwitchCase="true" class="nav-item dropdown" dropdown placement="bottom-right">
+          <a class="pr-0 dropdown-toggle" role="button" dropdownToggle>
+            <div class="media align-items-center">
+              <span class="avatar avatar-sm rounded-circle">
+                <img alt="Image placeholder" src="assets/img/theme/team-4.jpg" />
+              </span>
+              <div class="media-body ml-2 d-lg-block">
+                <span class="mb-0 text-sm font-weight-bold" style="color: #1e1e1e !important">{{ user
+                  }}</span>
+              </div>
+              <a href="javascript:void()" (click)="logout()" class="sair">
+                <i class="ni ni-user-run"></i> <span>Sair</span>
+              </a>
+            </div>
+          </a>
+          <div class="dropdown-menu dropdown-menu-arrow d-none dropdown-menu-right" *dropdownMenu>
+            <div class="dropdown-header noti-title">
+              <h6 class="text-overflow m-0">Bem Vindo!</h6>
+            </div>
+            <a routerLinkActive="active" (click)="onProfile()" class="dropdown-item">
+              <i class="ni ni-single-02"></i>
+              <span>Minha Conta</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="javascript:void()" (click)="logout()" class="dropdown-item">
+              <i class="ni ni-user-run"></i> <span>Sair</span>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main-content">
+  <section class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+
+          <div class="body table-responsive flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+            <div class="col-12 p-0">
+              <div style="float: left;">
+                <span><b>Nº do Processo: {{edital?.numero}}</b>
+                </span>
+              </div>
+            </div>
+            <h1>{{edital?.titulo}}</h1>
+            
+            <div class="dataInfoBlock">
+              <div class="dataInnerBlock1">
+                <p><b>Empresa CNPJ:</b>{{edital?.empresa?.cnpj}}</p>
+                <p><b>Empresa de Compra:</b>{{edital?.empresa?.razaoSocial}}</p>
+                <p><b>Municipio/UF:</b>{{edital?.endereco?.cidade}}/{{edital?.endereco?.estado}}</p>
+                <p><b>Data de inicio:</b>{{edital?.dataInicio | date : 'dd/MM/yyyy hh:mm'}}</p>
+                <p><b>Data Fim:</b>{{edital?.dataFim | date : 'dd/MM/yyyy hh:mm'}}</p>
+                <hr>
+              </div>
+              <div class="dataInnerBlock2">
+                <p><b>Edital:</b><a href="#" title="Download do Edital">Download</a></p>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="bg-card">
+            <div class="flex flex-col w-full max-w-screen-xl mx-auto">
+              <div class=" card-body ">
+                <!-- Table -->
+                <div class="body table-responsive flex flex-col w-full max-w-screen-xl mx-auto">
+                  <h3 class="h3TitleBlue divisor">
+                    Lista dos Produtos
+                  </h3>
+                  <table class="table text-center" *ngIf="edital?.itens; else
+                    loadingError">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>NOME</th>
+                        <th>CATEGORIA</th>
+                        <th>MARCA</th>
+                        <th>QUANTIDADE</th>
+                        <th>VALOR MAXIMO</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let item of edital?.itens |
+                            paginate: { itemsPerPage: size,
+                            currentPage: page,
+                            totalItems: totalElements }">
+                        <td><span class="text-muted"> {{
+                            item?.produto?.id }}</span></td>
+                        <td><span class="text-muted"> {{
+                            item?.produto?.nome }}</span></td>
+                        <td><span class="text-muted"> {{
+                            item?.produto?.categoriaProduto?.nomeDesc }}</span></td>
+                        <td><span class="text-muted"> {{
+                            item?.produto?.marcaProduto?.nomeDesc }}</span></td>
+                        <td><span class="text-muted"> {{
+                            item?.quantidade }}</span></td>
+                        <td><span class="text-muted"> {{
+                            item?.valorMaximo }}</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <ng-template #loadingError>
+                    <div *ngIf="error$ | async; else loading">
+                      Erro ao carregar produtos. Tente novamente mais
+                      tarde.
+                    </div>
+                    <ng-template #loading>
+                      <div class="card-body">
+                        <div class="row py-3 align-items-center">
+                          <div class="col-sm-9">
+                            <h4 class="mb-0">Carregando
+                              produtos...</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ng-template>
+                </div>
+
+                <!-- Table -->
+                <div class="body table-responsive flex flex-col w-full max-w-screen-xl mx-auto">
+                  <h3 class="h3TitleBlue divisor">
+                    Lista das Formas de Pagamento
+                  </h3>
+
+                  <div class="dataInnerBlock1" *ngIf="edital?.formasPagamento; else
+              loadingError">
+                    <div *ngFor="let item of edital?.formasPagamento |
+                paginate: { itemsPerPage: size,
+                currentPage: page,
+                totalItems: totalElements }">
+                      <p class="text-muted"> {{
+                        item?.nome }}</p>
+                    </div>
+
+                  </div>
+
+                  <ng-template #loadingError>
+                    <div *ngIf="error$ | async; else loading">
+                      Erro ao carregar as formas de pagamento. Tente novamente mais
+                      tarde.
+                    </div>
+                    <ng-template #loading>
+                      <div class="card-body">
+                        <div class="row py-3 align-items-center">
+                          <div class="col-sm-9">
+                            <h4 class="mb-0">Carregando
+                              formas de pagamento...</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ng-template>
+                </div>
+
+                <!-- Table -->
+                <div class="body table-responsive flex flex-col w-full max-w-screen-xl mx-auto">
+                  <h3 class="h3TitleBlue divisor">
+                    Lista das Regioes
+                  </h3>
+
+                  <div class="dataInnerBlock1" *ngIf="edital?.regioes; else
+              loadingError">
+                    <div *ngFor="let item of edital?.regioes |
+                paginate: { itemsPerPage: size,
+                currentPage: page,
+                totalItems: totalElements }">
+                      <p class="text-muted"> {{
+                        item?.nome }}</p>
+                    </div>
+
+                  </div>
+
+                  <ng-template #loadingError>
+                    <div *ngIf="error$ | async; else loading">
+                      Erro ao carregar as Regioes. Tente novamente mais
+                      tarde.
+                    </div>
+                    <ng-template #loading>
+                      <div class="card-body">
+                        <div class="row py-3 align-items-center">
+                          <div class="col-sm-9">
+                            <h4 class="mb-0">Carregando
+                              formas de Regioes...</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class=" col-md-3">
+          <div class=" lex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+            <div class="box -radius-all">
+              <div class="media">
+                <div class="media__item">
+                  <mat-icon>alarm</mat-icon>
+                </div>
+                <div class="media__body -align-center">
+                  <p class="t-body -size-m h-m0">
+                    Edital Aberto
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p style="font-size: 16px; margin-top: 20px;">
+              Para Ofertar um lance voce deverá está logado na sua conta no sistema mercado e negocios.
+            </p>
+            <button class="btn btn-success form-control pesquisa"
+            (click)="onLance(edital?.id)">Oferta um Lance</button>
+
+            <p style="font-size: 16px; margin-top: 20px;">
+              Caso voce ja esteja logado voce vai ser redirecionado para pagina para efetuar seu lance.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+<!-- Footer -->
+<footer class="py-5 footer" id="footer-main">
+  <section class="container-fluid main-foot">
+    <div class="container">
+      <div class="row align-items-center justify-content-xl-between">
+        <div class="col-xl-3">
+          <div class="copyright text-center text-xl-left text-muted">
+            <a href="#" class="font-weight-bold ml-1" target="_blank" style="color: #FFF; font-size: 22px">Mercado &
+              Negocios</a>
+            <div class="cta-foot">
+              <div class="social-block">
+                <a rel="canonical" href="#" title=""><i class="ico-cp cp-whatsapp branco">&nbsp;</i></a> <a
+                  rel="canonical" href="#" title=""><i class="ico-cp cp-facebook branco">&nbsp;</i></a> <a
+                  rel="canonical" href="#" title=""><i class="ico-cp cp-instagram branco">&nbsp;</i></a> <a
+                  rel="canonical" href="#" title=""><i class="ico-cp cp-linkedin branco">&nbsp;</i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-xl-9">
+          <span class="info-foot"><strong>
+              CENTRAL DE ATENDIMENTO:
+            </strong><br>
+
+            Telefone: (91) 9999-9999
+            <br>
+            Dúvidas? sugestões sobre a plataforma? <br>
+            Entre em contato conosco através de nossos contatos exclusivos.<br>
+            Se você vende ou pretende vender ao governo e quer falar com a gente, envie um email para
+            vendedor@mercadoenegocios.com.br<br>
+            Se você é comprador envie um e-mail para comprador@mercadoenegocios.com.br<br>
+            De segunda a Sexta, exceto feriados, das 8hs às 18hs, horário de Brasília.<br>
+            Endereço<br>
+            &copy; 2023 - Mercado e Negocios. Todos os direitos reservados.<br>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
