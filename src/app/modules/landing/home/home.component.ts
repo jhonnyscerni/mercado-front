@@ -105,7 +105,7 @@ export class LandingHomeComponent implements OnInit
     }
 
     onDashboard(): any {
-        this.router.navigate(['/project']);
+        this.router.navigate(['/usuarios/lista']);
     }
 
     onEdit(id): any {
