@@ -154,7 +154,7 @@
   <section class="py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-9">
+        <div class=" col-md-12">
 
           <div class="body table-responsive flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
             <div class="col-12 p-0">
@@ -164,7 +164,18 @@
               </div>
             </div>
             <h1>{{edital?.titulo}}</h1>
-            
+            <div class="box -radius-all">
+              <div class="media">
+                <div class="media__item">
+                  <mat-icon>alarm</mat-icon>
+                </div>
+                <div class="media__body -align-center">
+                  <p class="t-body -size-m h-m0">
+                    Edital Aberto
+                  </p>
+                </div>
+              </div>
+            </div>
             <div class="dataInfoBlock">
               <div class="dataInnerBlock1">
                 <p><b>Empresa CNPJ:</b>{{edital?.empresa?.cnpj}}</p>
@@ -181,6 +192,23 @@
 
           </div>
 
+          </div>
+          <div class=" col-md-12 mt-4">
+
+          <div class=" lex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+            <p style="font-size: 16px; margin-top: 20px;">
+              Para Ofertar um lance voce deverá está logado na sua conta no sistema mercado e negocios.
+            </p>
+            <button class="btn btn-success form-control pesquisa"
+            (click)="onLance(edital?.id)">Oferta um Lance</button>
+
+            <p style="font-size: 16px; margin-top: 20px;">
+              Caso voce ja esteja logado voce vai ser redirecionado para pagina para efetuar seu lance.
+            </p>
+
+          </div>
+        </div>
+        <div class="col-md-12">
 
           <div class="bg-card">
             <div class="flex flex-col w-full max-w-screen-xl mx-auto">
@@ -313,32 +341,6 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class=" col-md-3">
-          <div class=" lex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
-            <div class="box -radius-all">
-              <div class="media">
-                <div class="media__item">
-                  <mat-icon>alarm</mat-icon>
-                </div>
-                <div class="media__body -align-center">
-                  <p class="t-body -size-m h-m0">
-                    Edital Aberto
-                  </p>
-                </div>
-              </div>
-            </div>
-            <p style="font-size: 16px; margin-top: 20px;">
-              Para Ofertar um lance voce deverá está logado na sua conta no sistema mercado e negocios.
-            </p>
-            <button class="btn btn-success form-control pesquisa"
-            (click)="onLance(edital?.id)">Oferta um Lance</button>
-
-            <p style="font-size: 16px; margin-top: 20px;">
-              Caso voce ja esteja logado voce vai ser redirecionado para pagina para efetuar seu lance.
-            </p>
-
           </div>
         </div>
       </div>

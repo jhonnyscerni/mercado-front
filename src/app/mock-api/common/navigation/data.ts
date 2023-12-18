@@ -3,15 +3,15 @@ import {FuseNavigationItem} from '@fuse/components/navigation';
 
 export const defaultNavigation: FuseNavigationItem[] = [
     // SUPER ADMIN
-    {
+    // {
 
-        id: 'dashboard',
-        title: 'DashBoard',
-        type: 'basic',
-        icon: 'mat_solid:dashboard',
-        role: 'ROLE_SUPER_ADMIN',
-        link: '/project'
-    },
+    //     id: 'dashboard',
+    //     title: 'DashBoard',
+    //     type: 'basic',
+    //     icon: 'mat_solid:dashboard',
+    //     role: 'ROLE_SUPER_ADMIN',
+    //     link: '/project'
+    // },
     {
 
         id: 'usuarios',
@@ -77,15 +77,15 @@ export const defaultNavigation: FuseNavigationItem[] = [
     },
 
     // ADMIN
-    {
+    // {
 
-        id: 'dashboard',
-        title: 'DashBoard',
-        type: 'basic',
-        icon: 'mat_solid:dashboard',
-        role: 'ROLE_ADMIN',
-        link: '/project'
-    },
+    //     id: 'dashboard',
+    //     title: 'DashBoard',
+    //     type: 'basic',
+    //     icon: 'mat_solid:dashboard',
+    //     role: 'ROLE_ADMIN',
+    //     link: '/project'
+    // },
     {
 
         id: 'usuarios',
@@ -141,15 +141,15 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link: '/editais'
     },
     // COMPRADOR
-    {
+    // {
 
-        id: 'dashboard',
-        title: 'DashBoard',
-        type: 'basic',
-        icon: 'mat_solid:dashboard',
-        role: 'ROLE_BUYER',
-        link: '/project'
-    },
+    //     id: 'dashboard',
+    //     title: 'DashBoard',
+    //     type: 'basic',
+    //     icon: 'mat_solid:dashboard',
+    //     role: 'ROLE_BUYER',
+    //     link: '/project'
+    // },
     {
 
         id: 'categoriaprodutos',
@@ -196,15 +196,15 @@ export const defaultNavigation: FuseNavigationItem[] = [
         link: '/editais'
     },
     // VENDEDOR
-    {
+    // {
 
-        id: 'dashboard',
-        title: 'DashBoard',
-        type: 'basic',
-        icon: 'mat_solid:dashboard',
-        role: 'ROLE_VENDOR',
-        link: '/project'
-    },
+    //     id: 'dashboard',
+    //     title: 'DashBoard',
+    //     type: 'basic',
+    //     icon: 'mat_solid:dashboard',
+    //     role: 'ROLE_VENDOR',
+    //     link: '/project'
+    // },
     {
 
         id: 'meus-editais',
