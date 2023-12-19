@@ -1,10 +1,8 @@
-import { NoticeMyModule } from './modules/admin/notice-my/notice-my.module';
 import { Route } from '@angular/router';
 import { LayoutComponent } from 'app/layout/layout.component';
 import { InitialDataResolver } from 'app/app.resolvers';
 import {AuthGuard} from './core/auth/guards/auth.guard';
 import {NoAuthGuard} from './core/auth/guards/noAuth.guard';
-import { LandingHomeComponent } from './modules/landing/home/home.component';
 import { LandingSignupComponent } from './modules/landing/signup/signup.component';
 
 // @formatter:off
@@ -92,6 +90,9 @@ export const appRoutes: Route[] = [
             {path: 'editais', loadChildren: () => import('app/modules/admin/notice/notice.module').then(m => m.NoticeModule)},
             {path: 'meus-editais', loadChildren: () => import('app/modules/admin/notice-my/notice-my.module').then(m => m.NoticeMyModule)},
             {path: 'example', loadChildren: () => import('app/modules/admin/example/example.module').then(m => m.ExampleModule)},
+             // Profile
+             {path: 'profile', loadChildren: () => import('app/modules/admin/profile/profile.module').then(m => m.ProfileModule)},
+
         ]
     }
 ];

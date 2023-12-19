@@ -70,6 +70,16 @@ export class AuthService extends BaseService {
         return null;
     }
 
+    getUsuarioIdAutenticado() {
+        const token = this.getToken();
+        if (token) {
+            const usuario = this.jwtHelper.decodeToken(token).usuario_id
+            console.log(usuario)
+            return usuario;
+        }
+        return null;
+    }
+
     /**
      * Authorities
      */
