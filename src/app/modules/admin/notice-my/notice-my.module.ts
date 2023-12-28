@@ -28,6 +28,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NoticeMyItemFormComponent } from './notice-my-item-form/notice-my-item-form.component';
+import { NoticeMyFileComponent } from './notice-my-file/notice-my-file.component';
 
 @NgModule({
   imports: [
@@ -56,7 +57,7 @@ import { NoticeMyItemFormComponent } from './notice-my-item-form/notice-my-item-
     MatDatepickerModule,
     MatTabsModule,
   ],
-  declarations: [NoticeMyListComponent, NoticeMySaleListComponent, NoticeMyFormComponent, NoticeMyItemFormComponent],
-  exports: [NoticeMyListComponent, NoticeMySaleListComponent, NoticeMyFormComponent, NoticeMyItemFormComponent]
+  declarations: [NoticeMyListComponent, NoticeMySaleListComponent, NoticeMyFormComponent, NoticeMyItemFormComponent, NoticeMyFileComponent],
+  exports: [NoticeMyListComponent, NoticeMySaleListComponent, NoticeMyFormComponent, NoticeMyItemFormComponent, NoticeMyFileComponent]
 })
 export class NoticeMyModule { }

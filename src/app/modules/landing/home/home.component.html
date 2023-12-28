@@ -242,7 +242,14 @@
                             <span>
                                 <mat-icon>date_range</mat-icon>
                                 <!-- <i class="ico-cp cp-calendario verde">&nbsp;</i> -->
-                                <p>{{ edital?.dataInicio | date : 'dd/MM/yyyy' }}</p>
+                                <p>De: {{ edital?.dataInicio | date : 'dd/MM/yyyy' }}</p>
+
+                            </span>
+
+                            <span>
+                                <mat-icon>date_range</mat-icon>
+                                <!-- <i class="ico-cp cp-calendario verde">&nbsp;</i> -->
+                                <p> Até: {{ edital?.dataFim | date : 'dd/MM/yyyy' }}</p>
 
                             </span>
                             <span>
