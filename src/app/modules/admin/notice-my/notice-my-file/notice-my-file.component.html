@@ -1,15 +1,128 @@
-  <div class="row">
-    <div class="col-md-6">
-      <div class="mb-3">
-        <input (change)="this.onFilechange($event)" class="form-control" type="file" id="formFile">
+<div class="flex flex-col flex-auto min-w-0">
+  <div class="bg-card">
+    <div class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+      <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-4 sm:my-8">
+        <div class="flex-1 min-w-0">
+          <!-- Breadcrumbs -->
+          <div>
+            <div class="hidden sm:flex flex-wrap items-center font-medium">
+              <div>
+                <a class="whitespace-nowrap text-primary-500">Inicio</a>
+              </div>
+              <div class="flex items-center ml-1 whitespace-nowrap">
+                <mat-icon class="icon-size-5 text-secondary" [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
+                <a class="ml-1 text-primary-500">Adicionar arquivo ao Edital</a>
+              </div>
+            </div>
+            <div class="flex sm:hidden">
+              <a class="inline-flex items-center -ml-1.5 text-secondary font-medium" [routerLink]="'./..'">
+                <mat-icon class="icon-size-5 text-secondary" [svgIcon]="'heroicons_solid:chevron-left'"></mat-icon>
+                <span class="ml-1">voltar</span>
+              </a>
+            </div>
+          </div>
+          <!-- Title -->
+          <div class="mt-2">
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight leading-7 sm:leading-10 truncate">
+              Adicionar Arquivo ao edital
+            </h2>
+          </div>
+        </div>
+        <!-- Actions -->
+        <div class="flex shrink-0 items-center mt-2 sm:mt-0">
+          <button mat-flat-button [color]="'primary'" (click)="lista()">
+            <mat-icon [svgIcon]="'heroicons_outline:plus'"></mat-icon>
+            <span class="ml-2 mr-1">Lista de Editais</span>
+          </button>
+        </div>
       </div>
     </div>
-
-    <div class="form-group text-right">
-      <span>
-          <button (click)="this.upload()" class="btn btn-success" id="registrar">Anexar Arquivo
-          </button>
-      </span>
-    
   </div>
+
+
+  <!-- Inicio do Form -->
+  <div class="bg-card">
+    <div class="flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+
+      <div class="mt-4">
+
+        <div class="row">
+
+          <div class=" col-md-6">
+            <input (change)="this.onFilechange($event)" class="form-control" type="file" id="formFile">
+          </div>
+
+          <div class="form-group text-right">
+            <span>
+              <button (click)="this.upload()" class="btn btn-success" id="registrar">Anexar Arquivo
+              </button>
+            </span>
+
+          </div>
+        </div>
+
+
+        <!-- Table -->
+        <div class="body table-responsive flex flex-col w-full max-w-screen-xl mx-auto">
+          <h3 class="h3TitleBlue divisor">
+            Lista de Itens
+          </h3>
+          <table class="table text-center" *ngIf="editalArquivo; else
+      loadingError">
+            <thead>
+              <tr>
+                <th>NOME</th>
+                <th>DESCRICAO</th>
+                <th>TIPO</th>
+                <th>TAMANHO</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="text-muted"> {{
+                  editalArquivo?.nomeArquivo}}</span></td>
+                <td><span class="text-muted"> {{
+                  editalArquivo?.descricao}}</span></td>
+                <td><span class="text-muted"> {{
+                  editalArquivo?.contentType}}</span></td>
+                <td><span class="text-muted"> {{
+                  editalArquivo?.tamanho}}</span></td>
+                  <td class="table-actions">
+                    <a *ngIf="editalArquivo?.nomeArquivo" class="table-action
+                                  table-action-delete" tooltip="Deletar" placement="top"
+                        href="javascript:void(0)" (click)="onDelete()">
+                        <mat-icon matSuffix>delete</mat-icon>
+                    </a>
+                </td>
+                <td class="table-actions">
+                  <a *ngIf="editalArquivo?.nomeArquivo" class="table-action
+                                table-action-download" tooltip="Download" placement="top"
+                      href="javascript:void(0)" (click)="onDownload()">
+                      <mat-icon matSuffix>download</mat-icon>
+                  </a>
+              </td>
+              </tr>
+            </tbody>
+          </table>
+          <ng-template #loadingError>
+            <div *ngIf="error$ | async; else loading">
+             Nenhum Arquivo
+            </div>
+            <ng-template #loading>
+              <div class="card-body">
+                <div class="row py-3 align-items-center">
+                  <div class="col-sm-9">
+                    <h4 class="mb-0">Carregando
+                      arquivo...</h4>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ng-template>
+        </div>
+
+      </div>
+    </div>
   </div>
