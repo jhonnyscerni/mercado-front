@@ -186,21 +186,25 @@
                 <hr>
               </div>
               <div class="dataInnerBlock2">
-                <p><b>Edital:</b><a href="#" title="Download do Edital">Download</a></p>
+                <p><b>Edital:</b><a *ngIf="editalArquivo?.nomeArquivo" tooltip="Download" placement="top" href="javascript:void(0)"
+                  (click)="onDownload()">
+                  {{editalArquivo?.descricao}}
+                  <mat-icon matSuffix>download</mat-icon>
+                </a>
+              </p>
               </div>
             </div>
 
           </div>
 
-          </div>
-          <div class=" col-md-12 mt-4">
+        </div>
+        <div class=" col-md-12 mt-4">
 
           <div class=" lex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
             <p style="font-size: 16px; margin-top: 20px;">
               Para Ofertar um lance voce deverá está logado na sua conta no sistema mercado e negocios.
             </p>
-            <button class="btn btn-success form-control pesquisa"
-            (click)="onLance(edital?.id)">Oferta um Lance</button>
+            <button class="btn btn-success form-control pesquisa" (click)="onLance(edital?.id)">Oferta um Lance</button>
 
             <p style="font-size: 16px; margin-top: 20px;">
               Caso voce ja esteja logado voce vai ser redirecionado para pagina para efetuar seu lance.
