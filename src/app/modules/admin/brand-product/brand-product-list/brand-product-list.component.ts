@@ -14,7 +14,12 @@ export class BrandProductListComponent implements OnInit{
     errorMessage: string;
 
     brandselected: Brand;
-    page: number = 1;
+ 
+    // Paginação
+    totalElements = 0;
+    page = 1;
+    pageElement = 0;
+    size = 10;
 
     constructor(
         private router: Router,

@@ -16,7 +16,11 @@ export class RoleListComponent implements OnInit {
     errorMessage: string;
 
     roleselected: Role;
-    page: number = 1;
+    // Paginação
+    totalElements = 0;
+    page = 1;
+    pageElement = 0;
+    size = 10;
 
 
     constructor(

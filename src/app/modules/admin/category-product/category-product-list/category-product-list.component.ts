@@ -14,7 +14,12 @@ export class CategoryProductListComponent implements OnInit{
     errorMessage: string;
 
     categoryselected: CategoryProduct;
-    page: number = 1;
+    
+    // Paginação
+    totalElements = 0;
+    page = 1;
+    pageElement = 0;
+    size = 10;
 
     constructor(
         private router: Router,
