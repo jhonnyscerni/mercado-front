@@ -4,29 +4,29 @@
     id="navbar-main"
   > -->
     <div class="container">
-         <!-- <div>
+        <!-- <div>
         <mat-icon svgIcon="heroicons_solid:user-group"></mat-icon>
         <b style="font-size: 22px;" class="ml-2">Merdado & Negocios</b>
     </div> -->
-    <a class="navbar-brand" [routerLink]="['/']">
-        <!-- Merdado & Negocios -->
-        <img src="../../../../assets/images/logo/logo.png"/>
-    </a>
+        <a class="navbar-brand" [routerLink]="['/']">
+            <!-- Merdado & Negocios -->
+            <img src="../../../../assets/images/logo/logo.png" />
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse"
             aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed"
             [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="navbar-collapse navbar-custom-collapse collapse" id="collapseBasic" id="navbarSupportedContent">
+        <div class="navbar-collapse navbar-custom-collapse collapse" id="collapseBasic" [collapse]="isCollapsed"
+            id="navbarSupportedContent">
             <div class="navbar-collapse-header">
                 <div class="row">
-                    <div class="col-8 collapse-brand">
+                    <div class="col-6 collapse-brand">
                         <a [routerLink]="['/']">
-                            <img src="assets/images/logo.png" class="img-mobile" [width]="45" width="" alt="" />
-                            <span class="logo-mobile">Siberius</span>
+                            <img src="../../../../assets/images/logo/logo.png" />
                         </a>
                     </div>
-                    <div class="col-4 collapse-close">
+                    <div class="col-6 collapse-close">
                         <button type="button" class="navbar-toggler" data-toggle="collapse"
                             data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false"
                             aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
@@ -229,7 +229,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="telefone">
-                                                   Telefone Celular
+                                                    Telefone Celular
                                                 </label>
 
                                                 <input class="form-control" [textMask]="{mask: maskCelular}" [ngClass]="{
@@ -422,8 +422,8 @@
                                                             verificaValidTouched(
                                                                 'empresa.telefone'
                                                             )
-                                                    }" id="telefone" [textMask]="{mask: maskTelefone}" placeholder="Telefone"
-                                                    type="text" formControlName="telefone" />
+                                                    }" id="telefone" [textMask]="{mask: maskTelefone}"
+                                                    placeholder="Telefone" type="text" formControlName="telefone" />
                                                 <app-error-msg [control]="
                                                         cadastroForm.get(
                                                             'empresa.telefone'
@@ -644,42 +644,42 @@
 <!-- Footer -->
 <footer class="py-5 footer" id="footer-main">
     <section class="container-fluid main-foot">
-    <div class="container">
-        <div class="row align-items-center justify-content-xl-between">
-            <div class="col-xl-3">
-                <div class="copyright text-center text-xl-left text-muted">
-                    <a href="#" class="font-weight-bold ml-1"
-                        target="_blank" style="color: #FFF; font-size: 22px">Mercado & Negocios</a>
+        <div class="container">
+            <div class="row align-items-center justify-content-xl-between">
+                <div class="col-xl-3">
+                    <div class="copyright text-center text-xl-left text-muted">
+                        <a href="#" class="font-weight-bold ml-1" target="_blank"
+                            style="color: #FFF; font-size: 22px">Mercado & Negocios</a>
                         <div class="cta-foot">
                             <div class="social-block">
-                        <a rel="canonical" href="#"
-                                    title=""><i class="ico-cp cp-whatsapp branco">&nbsp;</i></a> <a rel="canonical"
-                                    href="#" title=""><i
-                                        class="ico-cp cp-facebook branco">&nbsp;</i></a> <a rel="canonical"
-                                    href="#" title=""><i
-                                        class="ico-cp cp-instagram branco">&nbsp;</i></a> <a rel="canonical"
-                                    href="#" title=""><i class="ico-cp cp-linkedin branco">&nbsp;</i></a>
-                                    </div></div>
+                                <a rel="canonical" href="#" title=""><i class="ico-cp cp-whatsapp branco">&nbsp;</i></a>
+                                <a rel="canonical" href="#" title=""><i class="ico-cp cp-facebook branco">&nbsp;</i></a>
+                                <a rel="canonical" href="#" title=""><i
+                                        class="ico-cp cp-instagram branco">&nbsp;</i></a> <a rel="canonical" href="#"
+                                    title=""><i class="ico-cp cp-linkedin branco">&nbsp;</i></a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-                
-            </div>
-            <div class="col-xl-9">
+                <div class="col-xl-9">
                     <span class="info-foot"><strong>
-                        CENTRAL DE ATENDIMENTO:
-                    </strong><br>
-                  
-                    Telefone: (91) 9999-9999
-                    <br>
-                    Dúvidas? sugestões sobre a plataforma? <br>
-                    Entre em contato conosco através de nossos contatos exclusivos.<br>
-                    Se você vende ou pretende vender ao governo e quer falar com a gente, envie um email para vendedor@mercadoenegocios.com.br<br>
-                    Se você é comprador envie um e-mail para comprador@mercadoenegocios.com.br<br>
-                    De segunda a Sexta, exceto feriados, das 8hs às 18hs, horário de Brasília.<br>
-                    Endereço<br>
-                    &copy; {{ test | date: "yyyy" }} - Mercado e Negocios. Todos os direitos reservados.<br>
-                </span>
+                            CENTRAL DE ATENDIMENTO:
+                        </strong><br>
+
+                        Telefone: (91) 9999-9999
+                        <br>
+                        Dúvidas? sugestões sobre a plataforma? <br>
+                        Entre em contato conosco através de nossos contatos exclusivos.<br>
+                        Se você vende ou pretende vender ao governo e quer falar com a gente, envie um email para
+                        vendedor@mercadoenegocios.com.br<br>
+                        Se você é comprador envie um e-mail para comprador@mercadoenegocios.com.br<br>
+                        De segunda a Sexta, exceto feriados, das 8hs às 18hs, horário de Brasília.<br>
+                        Endereço<br>
+                        &copy; {{ test | date: "yyyy" }} - Mercado e Negocios. Todos os direitos reservados.<br>
+                    </span>
+                </div>
             </div>
         </div>
-    </div>
     </section>
 </footer>

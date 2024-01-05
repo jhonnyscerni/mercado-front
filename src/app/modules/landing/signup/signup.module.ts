@@ -22,6 +22,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatDialogModule } from '@angular/material/dialog';
 import { TextMaskModule } from 'angular2-text-mask';
+import { BsDropdownModule, CollapseModule, TooltipModule } from 'ngx-bootstrap';
 
 @NgModule({
     declarations: [
@@ -53,7 +54,8 @@ import { TextMaskModule } from 'angular2-text-mask';
         MatDialogModule,
         MatSelectModule,
         MatIconModule,
-        TextMaskModule
+        TextMaskModule,
+        BsDropdownModule.forRoot(), CollapseModule.forRoot(), TooltipModule.forRoot()
     ]
 })
 export class LandingSignupModule

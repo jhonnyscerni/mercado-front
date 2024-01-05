@@ -22,6 +22,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NoticeDetailComponent } from '../notice-detail/notice-detail.component';
+import { BsDropdownModule, CollapseModule, TooltipModule } from 'ngx-bootstrap';
 
 @NgModule({
     declarations: [
@@ -51,7 +52,8 @@ import { NoticeDetailComponent } from '../notice-detail/notice-detail.component'
         MatSelectModule,
         MatSlideToggleModule,
         MatTooltipModule,
-        SharedModule
+        SharedModule,
+        BsDropdownModule.forRoot(), CollapseModule.forRoot(), TooltipModule.forRoot()
     ],
     exports: [LandingHomeComponent, NoticeDetailComponent],
 })
