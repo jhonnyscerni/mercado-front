@@ -122,7 +122,7 @@
                   <td><span class="text-muted"> {{
                       edital?.tempoMaximoEntrega }}</span></td>
                   <td><span class="text-muted"> status</span></td>
-                  <td class="table-actions" *ngIf="authorities === 'ROLE_ADMIN' || authorities === 'ROLE_BUYER' ">
+                  <td class="table-actions" *ngIf="authorities === 'ROLE_ADMIN' || authorities === 'ROLE_BUYER' || authorities === 'ROLE_SUPER_ADMIN' ">
                     <a class="table-action" tooltip="Editar
                                               produto" placement="top" href="javascript:void(0)"
                       (click)="onEdit(edital.id)">
