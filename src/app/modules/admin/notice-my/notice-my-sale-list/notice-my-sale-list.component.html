@@ -53,62 +53,33 @@
     </div>
 
     <div class="body table-responsive flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+      <div class="col-12 p-0">
+        <div style="float: left;">
+          <span><b>Nº do Processo: {{edital?.numero}}</b>
+          </span>
+        </div>
+      </div>
+      <h1>{{edital?.titulo}}</h1>
+      <div class="box -radius-all">
+        <div class="media">
+          <div class="media__item">
+            <mat-icon>alarm</mat-icon>
+          </div>
+          <div class="media__body -align-center">
+            <p class="t-body -size-m h-m0">
+              Edital Aberto
+            </p>
+          </div>
+        </div>
+      </div>
       <div class="dataInfoBlock">
         <div class="dataInnerBlock1">
-          <p><b>Número:</b>{{edital?.numero}}</p>
-          <p><b>Número do Processo Interno:</b>011/2023</p>
-          <p><b>Modalidade:</b>Pregão Eletrônico</p>
-          <p><b>Situação:</b>Encerrado para Operação / Publicado</p>
-          <p><b>Legislação Aplicada:</b> Decreto nº 10.024, de 20 de setembro de 2019 - Novo Pregão Eletrônico</p>
-
-          <hr>
           <p><b>Empresa CNPJ:</b>{{edital?.empresa?.cnpj}}</p>
           <p><b>Empresa de Compra:</b>{{edital?.empresa?.razaoSocial}}</p>
           <p><b>Municipio/UF:</b>{{edital?.endereco?.cidade}}/{{edital?.endereco?.estado}}</p>
-          <p><b>Objeto/Produto:</b>{{edital?.titulo}}</p>
+          <p><b>Data de inicio:</b>{{edital?.dataInicio | date : 'dd/MM/yyyy hh:mm'}}</p>
+          <p><b>Data Fim:</b>{{edital?.dataFim | date : 'dd/MM/yyyy hh:mm'}}</p>
           <hr>
-          <p><b>Tratamento Diferenciado:</b>Ampla Competição</p>
-          <p><b>Casas Decimais:</b>Duas Casas</p>
-          <p><b>Aplicar Cotas:</b>Não</p>
-          <p><b>Benefício local/regional:</b>Não</p>
-          <p><b>Modo de Disputa:</b>Aberto</p>
-          <p><b>Valor do Intervalo de Lances (R$):</b>0,01</p>
-          <div class="datasProcessoBlock">
-            <h3 class="h3TitleBlue divisor">Datas do edital</h3>
-            <div class="labels">
-              <p><b>Data de Publicação:</b>16/02/2023 17:51</p>
-              <p><b>Início das Propostas:</b>16/02/2023 18:00</p>
-              <p><b>Limite para Impugnação:</b>28/02/2023 14:00</p>
-              <p><b>Limite para Esclarecimentos:</b>28/02/2023 14:00</p>
-              <p><b>Limite p/ Recebimento de Propostas:</b>03/03/2023 14:00</p>
-              <p><b>Abertura das Propostas:</b>03/03/2023 14:01</p>
-            </div>
-            <div class="iconeEdital">
-              <p><b>Edital</b></p>
-              <a class="downloadEdital"
-                href="/6/Pregoes/Download/Arquivo/?ttCD_CHAVE=251&amp;slCD_ORIGEM=223242&amp;ttVoltar=0&amp;iframe=true"
-                title="Baixar Edital" target="_blank"><img src="/imgMaster/icoDownloadEdital.png" alt="">Baixar
-                Edital</a>
-              <p>
-                Download já realizado
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="dataInnerBlock2">
-          <p><b>Data de Publicação:</b>16/02/2023 17:51</p>
-          <p><b>Início das Propostas:</b>16/02/2023 18:00</p>
-          <p><b>Limite para Impugnação:</b>28/02/2023 14:00</p>
-          <p><b>Limite para Esclarecimento:</b>28/02/2023 14:00</p>
-          <p><b>Limite p/ Recebimento de Propostas:</b>03/03/2023 14:00</p>
-          <p><b>Abertura das Propostas:</b>03/03/2023 14:01</p>
-          <hr>
-          <p><b>Edital:</b><a href="/6/Pregoes/Download/?ttCD_CHAVE=223242" title="Download do Edital">Download</a> (Já
-            Realizado)</p>
-          <p><b>Órgão:</b>Prefeitura Municipal de Igarapé-Açu</p>
-          <p><b>Unidade de Compra:</b>FUNDO MUNICIPAL DE EDUCAÇÃO / SECRETARIA MUNICIPAL DE EDUCAÇÃO</p>
-          <p><b>Municipio/UF:</b>Igarapé-Açu/PA</p>
-          <p><b>Objeto:</b></p>
         </div>
       </div>
 
@@ -119,6 +90,55 @@
   <div class="bg-card">
     <div class="flex flex-col w-full max-w-screen-xl mx-auto">
       <div class=" card-body mt-4">
+
+        <!-- Table -->
+        <div class="body table-responsive flex flex-col w-full max-w-screen-xl mx-auto">
+          <h3 class="h3TitleBlue divisor">
+            Lista das Lances
+          </h3>
+          <table class="table text-center" *ngIf="sales; else
+          loadingError">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>NOME USUARIO</th>
+                <th>EDITAL</th>
+                <th>VALOR</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let sale of sales |
+                  paginate: { itemsPerPage: size,
+                  currentPage: page,
+                  totalItems: totalElements }">
+                <td><span class="text-muted"> {{
+                    sale?.id }}</span></td>
+                <td><span class="text-muted"> {{
+                    sale?.usuario?.username }}</span></td>
+                <td><span class="text-muted"> {{
+                    sale?.edital?.titulo }}</span></td>
+                <td><span class="text-muted"> {{
+                    sale?.valorLance }}</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <ng-template #loadingError>
+            <div *ngIf="error$ | async; else loading">
+              Erro ao carregar as Regioes. Tente novamente mais
+              tarde.
+            </div>
+            <ng-template #loading>
+              <div class="card-body">
+                <div class="row py-3 align-items-center">
+                  <div class="col-sm-9">
+                    <h4 class="mb-0">Carregando
+                      Lances...</h4>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </ng-template>
+        </div>
         <!-- Table -->
         <div class="body table-responsive flex flex-col w-full max-w-screen-xl mx-auto">
           <h3 class="h3TitleBlue divisor">
@@ -259,6 +279,8 @@
             </ng-template>
           </ng-template>
         </div>
+
+
       </div>
     </div>
   </div>
