@@ -73,7 +73,7 @@ export class AuthService extends BaseService {
     getUsuarioIdAutenticado() {
         const token = this.getToken();
         if (token) {
-            const usuario = this.jwtHelper.decodeToken(token).usuario_id
+            const usuario = this.jwtHelper.decodeToken(token).jti
             console.log(usuario)
             return usuario;
         }

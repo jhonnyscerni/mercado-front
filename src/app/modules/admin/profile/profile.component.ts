@@ -35,7 +35,7 @@ export class ProfileComponent extends BaseFormComponent implements OnInit {
     this.carregarInfo();
     this.cadastroForm = this.fb.group({
       id: [''],
-      nome: [
+      username: [
         '',
         [
           Validators.required,
@@ -44,12 +44,13 @@ export class ProfileComponent extends BaseFormComponent implements OnInit {
         ],
       ],
       email: ['', [Validators.required, Validators.email]],
-      senha: ['', [Validators.required]],
+      password: ['', [Validators.required]],
       grupos: [''],
     });
   }
 
   carregarInfo(){
+    console.log(this.authService.getUsuarioIdAutenticado())
      return this.usuarioService.loadByID(this.authService.getUsuarioIdAutenticado())
         .subscribe(usuario => {
           this.usuario = usuario
@@ -61,9 +62,9 @@ export class ProfileComponent extends BaseFormComponent implements OnInit {
   updateForm(usuario) {
     this.cadastroForm.patchValue({
       id: usuario.id,
-      nome: usuario.nome,
+      username: usuario.username,
       email: usuario.email,
-      senha: usuario.senha,
+      password: usuario.password,
       grupos: usuario.grupos
     });
   }

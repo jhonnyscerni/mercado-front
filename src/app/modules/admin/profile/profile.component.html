@@ -14,7 +14,7 @@
 
                     <div class=" container-fluid mt-5">
                         <div class=" row">
-                            <div class=" col-xl-4 order-xl-2">
+                            <!-- <div class=" col-xl-4 order-xl-2">
                                 <div class=" card card-profile">
                                     <img alt="Image placeholder" class=" card-img-top"
                                         src="assets/img/theme/img-1-1000x600.jpg" />
@@ -180,10 +180,10 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
-                            <div class=" col-xl-8 order-xl-1">
-                                <div class=" row">
+                            <div class=" col-xl-12 order-xl-1">
+                                <!-- <div class=" row">
                                     <div class=" col-lg-6">
                                         <div class=" card bg-gradient-info border-0">
                                             <div class=" card-body">
@@ -251,11 +251,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <div class=" card">
                                     <div class=" card-header">
-                                        <div class=" row align-items-center">
+                                        <!-- <div class=" row align-items-center">
                                             <div class=" col-8">
                                                 <h3 class=" mb-0">Editar Conta</h3>
                                             </div>
@@ -265,7 +265,7 @@
                                                     Settings
                                                 </a>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
 
                                     <div class=" card-body">
@@ -276,14 +276,14 @@
                                                 <div class=" row">
                                                     <div class=" col-lg-6">
                                                         <div class=" form-group">
-                                                            <label class=" form-control-label" for="nome">
+                                                            <label class=" form-control-label" for="username">
                                                                 Nome do Usuário
                                                             </label>
 
                                                             <input class=" form-control"
-                                                                [ngClass]="{'is-invalid':verificaValidTouched('nome') }"
-                                                                id="nome" placeholder="Nome do Usuário" type="text"
-                                                                formControlName="nome" />
+                                                                [ngClass]="{'is-invalid':verificaValidTouched('username') }"
+                                                                id="username" placeholder="Nome do Usuário" type="text"
+                                                                formControlName="username" />
                                                         </div>
                                                     </div>
 
@@ -302,35 +302,23 @@
                                                     </div>
                                                 </div>
 
-                                                <div class=" row">
+                                                <!-- <div class=" row">
                                                     <div class=" col-lg-6">
                                                         <div class=" form-group">
-                                                            <label class=" form-control-label" for="senha">
+                                                            <label class=" form-control-label" for="password">
                                                                 Senha:
                                                             </label>
 
                                                             <input class="form-control" placeholder="Senha"
-                                                                type="password" formControlName="senha" name="senha" />
-                                                            <app-error-msg [control]="cadastroForm.get('senha')"
+                                                                type="password" formControlName="password" name="password" />
+                                                            <app-error-msg [control]="cadastroForm.get('password')"
                                                                 label="Senha"></app-error-msg>
                                                         </div>
                                                     </div>
+                                                </div> -->
 
-                                                    <div class=" col-lg-6">
-                                                        <div class=" form-group">
-                                                            <label class=" form-control-label" for="input-last-name">
-                                                                Last name
-                                                            </label>
-
-                                                            <input class=" form-control" id="input-last-name"
-                                                                placeholder="Last name" type="text" value="Jesse" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group text-right">
+                                                <!-- <div class="form-group text-right">
                                                     <span>
-                                                        <!-- [disabled]="!cadastroForm.valid" -->
                                                         <button class="btn btn-success" id="registrar"
                                                             [disabled]="!cadastroForm.valid" type="submit">Registrar
                                                         </button>
@@ -340,82 +328,96 @@
                                                         </button>
                                                     </span>
                                                     <span>
-                                                        <!-- [disabled]="!cadastroForm.valid" -->
                                                         <button class="btn " id="cancelar" (click)="cancelar()"
                                                             type="submit">Cancelar
                                                         </button>
                                                     </span>
-                                                </div>
+                                                </div> -->
                                             </div>
 
                                             <hr class=" my-4" />
 
-                                            <h6 class=" heading-small text-muted mb-4">Contact information</h6>
+                                            <h6 class=" heading-small text-muted mb-4">Empresa</h6>
 
                                             <div class=" pl-lg-4">
                                                 <div class=" row">
-                                                    <div class=" col-md-12">
+                                                    <div class=" col-md-4">
                                                         <div class=" form-group">
                                                             <label class=" form-control-label" for="input-address">
-                                                                Address
+                                                                CNPJ : {{usuario?.empresa?.cnpj}}
                                                             </label>
+                                                        </div>
+                                                    </div>
 
-                                                            <input class=" form-control" id="input-address"
-                                                                placeholder="Home Address" type="text"
-                                                                value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" />
+                                                    <div class=" col-md-4">
+                                                        <div class=" form-group">
+                                                            <label class=" form-control-label" for="input-address">
+                                                                Categoria : {{usuario?.empresa?.categoria}}
+                                                            </label>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            
+                                            <h6 class=" heading-small text-muted mb-4">Endereco</h6>
+                                            <div class=" pl-lg-4">
+
 
                                                 <div class=" row">
                                                     <div class=" col-lg-4">
                                                         <div class=" form-group">
-                                                            <label class=" form-control-label" for="input-city">
-                                                                City
+                                                            <label class=" form-control-label" for="input-address">
+                                                                CEP : {{usuario?.empresa?.endereco?.cep}}
                                                             </label>
-
-                                                            <input class=" form-control" id="input-city"
-                                                                placeholder="City" type="text" value="New York" />
                                                         </div>
                                                     </div>
 
                                                     <div class=" col-lg-4">
                                                         <div class=" form-group">
-                                                            <label class=" form-control-label" for="input-country">
-                                                                Country
+                                                            <label class=" form-control-label" for="input-address">
+                                                                CIDADE : {{usuario?.empresa?.endereco?.cidade}}
                                                             </label>
-
-                                                            <input class=" form-control" id="input-country"
-                                                                placeholder="Country" type="text"
-                                                                value="United States" />
                                                         </div>
                                                     </div>
 
                                                     <div class=" col-lg-4">
                                                         <div class=" form-group">
-                                                            <label class=" form-control-label" for="input-country">
-                                                                Postal code
+                                                            <label class=" form-control-label" for="input-address">
+                                                                BAIRRO : {{usuario?.empresa?.endereco?.bairro}}
                                                             </label>
-
-                                                            <input class=" form-control" id="input-postal-code"
-                                                                placeholder="Postal code" type="number" />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <hr class=" my-4" />
-
-                                            <h6 class=" heading-small text-muted mb-4">About me</h6>
+                                            
 
                                             <div class=" pl-lg-4">
-                                                <div class=" form-group">
-                                                    <label class=" form-control-label"> About Me </label>
 
-                                                    <textarea class=" form-control"
-                                                        placeholder="A few words about you ..." rows="4">
-                                    A beautiful premium dashboard for Bootstrap 4.
-                                    </textarea>
+                                                <div class=" row">
+                                                    <div class=" col-lg-4">
+                                                        <div class=" form-group">
+                                                            <label class=" form-control-label" for="input-address">
+                                                                LOGRADOURO : {{usuario?.empresa?.endereco?.ruaLogra}}
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class=" col-lg-4">
+                                                        <div class=" form-group">
+                                                            <label class=" form-control-label" for="input-address">
+                                                                COMPLEMENTO : {{usuario?.empresa?.endereco?.complemento}}
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class=" col-lg-4">
+                                                        <div class=" form-group">
+                                                            <label class=" form-control-label" for="input-address">
+                                                                ESTADO : {{usuario?.empresa?.endereco?.estado}}
+                                                            </label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </form>
