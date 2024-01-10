@@ -52,7 +52,38 @@
       </div>
     </div>
 
-    src/app/modules/admin/notice-my/notice-my-sale-list/notice-my-sale-list.component.html
+    <div class="body table-responsive flex flex-col w-full max-w-screen-xl mx-auto px-4 sm:px-8">
+      <div class="col-12 p-0">
+        <div style="float: left;">
+          <span><b>Nº do Processo: {{edital?.numero}}</b>
+          </span>
+        </div>
+      </div>
+      <h1>{{edital?.titulo}}</h1>
+      <div class="box -radius-all">
+        <div class="media">
+          <div class="media__item">
+            <mat-icon>alarm</mat-icon>
+          </div>
+          <div class="media__body -align-center">
+            <p class="t-body -size-m h-m0">
+              Edital Aberto
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="dataInfoBlock">
+        <div class="dataInnerBlock1">
+          <p><b>Empresa CNPJ:</b>{{edital?.empresa?.cnpj}}</p>
+          <p><b>Empresa de Compra:</b>{{edital?.empresa?.razaoSocial}}</p>
+          <p><b>Municipio/UF:</b>{{edital?.endereco?.cidade}}/{{edital?.endereco?.estado}}</p>
+          <p><b>Data de inicio:</b>{{edital?.dataInicio | date : 'dd/MM/yyyy hh:mm'}}</p>
+          <p><b>Data Fim:</b>{{edital?.dataFim | date : 'dd/MM/yyyy hh:mm'}}</p>
+          <hr>
+        </div>
+      </div>
+
+    </div>
 
   </div>
 

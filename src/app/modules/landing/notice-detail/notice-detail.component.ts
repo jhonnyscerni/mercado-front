@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'app/core/auth/auth.service';
 import { Notice } from 'app/models/notice';
 import { EditalArquivoResponse } from 'app/models/notice-file';
+import { Sale } from 'app/models/sale';
 import { NoticeFileService } from 'app/services/notice-file.service';
+import { NoticeSaleService } from 'app/services/notice-sale.service';
 import { NoticeService } from 'app/services/notice.service';
 import { take } from 'rxjs';
 
@@ -22,12 +24,21 @@ export class NoticeDetailComponent implements OnInit {
   editalId : number
   editalArquivo: EditalArquivoResponse;
 
+  sales: Sale[];
+
+    // Paginação
+    totalElements = 0;
+    page = 1;
+    pageElement = 0;
+    size = 10;
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private editaService: NoticeService,
     private authService: AuthService,
-    private uploadService: NoticeFileService,) { }
+    private uploadService: NoticeFileService,
+    private noticeSaleService: NoticeSaleService) { }
 
 
     ngOnInit() {
@@ -43,6 +54,7 @@ export class NoticeDetailComponent implements OnInit {
         }
     });
     this.onRefreshArquivoResponse()
+    this.onRefresh();
   }
 
   usuarioLogado(): boolean {
@@ -55,6 +67,33 @@ export class NoticeDetailComponent implements OnInit {
     $editalArquivo.subscribe(editalArquivo => {
       this.editalArquivo = editalArquivo;
     }, error => this.editalArquivo = new EditalArquivoResponse());
+  }
+
+  getRequestParams(pageElement, size): any {
+    const params = {};
+
+    if (pageElement) {
+        params['page'] = pageElement;
+    }
+
+    if (size) {
+        params['size'] = size;
+    }
+    return params;
+}
+
+  onRefresh(): any {
+    const params = this.getRequestParams(this.pageElement, this.size);
+    this.noticeSaleService.listSearchPage(this.editalId, params)
+      .subscribe(
+        (data) => {
+          this.sales = data.content;
+          console.log(this.sales)
+          this.totalElements = data.totalElements;
+          this.pageElement = data.number;
+          this.size = data.size;
+        }
+      );
   }
 
   onDownload() {
@@ -78,7 +117,7 @@ export class NoticeDetailComponent implements OnInit {
   }
 
   onDashboard(): any {
-    this.router.navigate(['/usuarios/lista']);
+    this.router.navigate(['/editais/lista']);
 }
 
 logout(): any {

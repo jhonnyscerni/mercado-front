@@ -121,7 +121,7 @@ export class LandingSignupComponent extends BaseFormComponent implements OnInit 
     }
 
     onDashboard(): any {
-        this.router.navigate(['/usuarios/lista']);
+        this.router.navigate(['/editais/lista']);
     }
 
     doSomething(event): any {
