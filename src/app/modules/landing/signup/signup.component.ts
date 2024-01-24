@@ -53,6 +53,14 @@ export class LandingSignupComponent extends BaseFormComponent implements OnInit 
                     Validators.maxLength(250),
                 ],
             ],
+            nome: [
+                '',
+                [Validators.required],
+            ],
+            cpf: [
+                '',
+                [Validators.required],
+            ],
             email: [
                 '',
                 [Validators.required, Validators.email],
@@ -67,7 +75,7 @@ export class LandingSignupComponent extends BaseFormComponent implements OnInit 
                 inscEstadual: ['', Validators.required],
                 inscMunicipal: ['', Validators.required],
                 categoria: [''],
-                email: [
+                emailResponsavel: [
                     '',
                     [Validators.required, Validators.email]
                 ],

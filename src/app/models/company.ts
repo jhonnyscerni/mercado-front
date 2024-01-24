@@ -8,7 +8,7 @@ export class Company {
     inscEstadual?: string;
     inscMunicipal?: string;
     categoria?: string;
-    email?: string;
+    emailResponsavel?: string;
     telefone?: string;
     enderecos?: Address;
 }

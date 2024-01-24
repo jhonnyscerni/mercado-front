@@ -185,6 +185,46 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                <label class="form-control-label" for="nome">
+                                                    Nome Completo
+                                                </label>
+
+                                                <input class="form-control" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'nome'
+                                                            )
+                                                    }" id="nome" placeholder="Nome Completo" type="text"
+                                                    formControlName="nome" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get(
+                                                            'nome'
+                                                        )
+                                                    " label="Nome Completo"></app-error-msg>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="form-control-label" for="cpf">
+                                                    CPF
+                                                </label>
+
+                                                <input class="form-control" [textMask]="{mask: cpfMask}" [ngClass]="{
+                                                        'is-invalid':
+                                                            verificaValidTouched(
+                                                                'cpf'
+                                                            )
+                                                    }" id="cpf" placeholder="CPF" type="text"
+                                                    formControlName="cpf" />
+                                                <app-error-msg [control]="
+                                                        cadastroForm.get('cpf')
+                                                    " label="CPF"></app-error-msg>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-group">
                                                 <label class="form-control-label" for="username">
                                                     Nome do Usuário
                                                 </label>
@@ -330,20 +370,20 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="form-control-label" for="email">
-                                                    E-mail da Empresa
+                                                <label class="form-control-label" for="emailResponsavel">
+                                                    E-mail do Responsavel
                                                 </label>
 
                                                 <input class="form-control" [ngClass]="{
                                                         'is-invalid':
                                                             verificaValidTouched(
-                                                                'empresa.email'
+                                                                'empresa.emailResponsavel'
                                                             )
-                                                    }" id="email" placeholder="E-mail" type="text"
-                                                    formControlName="email" />
+                                                    }" id="emailResponsavel" placeholder="E-mail" type="text"
+                                                    formControlName="emailResponsavel" />
                                                 <app-error-msg [control]="
                                                         cadastroForm.get(
-                                                            'empresa.email'
+                                                            'empresa.emailResponsavel'
                                                         )
                                                     " label="E-mail"></app-error-msg>
                                             </div>
@@ -609,7 +649,7 @@
                                         </span>
                                     </div>
 
-                                    <!-- <app-form-debug [form]="cadastroForm"></app-form-debug> -->
+                                     <app-form-debug [form]="cadastroForm"></app-form-debug>
                                 </form>
                             </div>
                         </div>

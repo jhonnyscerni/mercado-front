@@ -10,4 +10,6 @@ export class User {
     statusUsuario?: string;
     empresa?: Company;
     grupos?: Role[] = [];
+    nome?: string;
+    cpf?: string;
 }

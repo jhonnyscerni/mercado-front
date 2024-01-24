@@ -68,6 +68,46 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
+                                <label class="form-control-label" for="nome">
+                                    Nome Completo
+                                </label>
+
+                                <input class="form-control" [ngClass]="{
+                                        'is-invalid':
+                                            verificaValidTouched(
+                                                'nome'
+                                            )
+                                    }" id="nome" placeholder="Nome Completo" type="text"
+                                    formControlName="nome" />
+                                <app-error-msg [control]="
+                                        cadastroForm.get(
+                                            'nome'
+                                        )
+                                    " label="Nome Completo"></app-error-msg>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-control-label" for="cpf">
+                                    CPF
+                                </label>
+
+                                <input class="form-control" [textMask]="{mask: cpfMask}" [ngClass]="{
+                                        'is-invalid':
+                                            verificaValidTouched(
+                                                'cpf'
+                                            )
+                                    }" id="cpf" placeholder="CPF" type="text"
+                                    formControlName="cpf" />
+                                <app-error-msg [control]="
+                                        cadastroForm.get('cpf')
+                                    " label="CPF"></app-error-msg>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group">
                                 <label class="form-control-label" for="username">
                                     Nome do Usuário
                                 </label>

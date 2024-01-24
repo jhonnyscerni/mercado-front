@@ -20,6 +20,10 @@ export class UserFormComponent extends BaseFormComponent implements OnInit {
     userId: number;
     grupos = [];
     public maskTelefone = ['(', /[1-9]/, /\d/, ')', ' ',/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+    public maskCelular = ['(', /[1-9]/, /\d/, ')', ' ',/\d/,/\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/];
+    public cnpjMask = [ /\d/ , /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/ , /\d/, /\d/, '/', /\d/, /\d/,/\d/, /\d/, '-', /\d/, /\d/,];
+    public cpfMask = [ /\d/ , /\d/, /\d/, '.', /\d/, /\d/, /\d/, '.', /\d/ , /\d/, /\d/, '-', /\d/, /\d/,];
+    public cepMask = [/\d/ , /\d/, /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/];
 
     constructor(
         private fb: FormBuilder,
@@ -52,6 +56,14 @@ export class UserFormComponent extends BaseFormComponent implements OnInit {
 
         this.cadastroForm = this.fb.group({
             id: [''],
+            nome: [
+                '',
+                [Validators.required],
+            ],
+            cpf: [
+                '',
+                [Validators.required],
+            ],
             username: [
                 '',
                 [
@@ -74,6 +86,8 @@ export class UserFormComponent extends BaseFormComponent implements OnInit {
     updateForm(user): any {
         this.cadastroForm.patchValue({
             id: user.id,
+            nome: user.nome,
+            cpf: user.cpf,
             username: user.username,
             email: user.email,
             telefone: user.telefone,
