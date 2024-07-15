@@ -4,7 +4,7 @@
 
 export const environment = {
     production: false,
-    urlbase: 'http://localhost:8080',
+    urlbase: 'https://mercado-production.up.railway.app',
     imagensUrl: 'http://localhost:8080',
 };
 
